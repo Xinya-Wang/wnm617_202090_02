@@ -1,5 +1,5 @@
-# Hamilton Cline
+# Xinya Wang
 
 ## Important Links
 
-- https://hdraws.com/aau/wnm617_02/cline.hamilton
+- www.xinyart.com/aau/wnm617/xinya.wang
