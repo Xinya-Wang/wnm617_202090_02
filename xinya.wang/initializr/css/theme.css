@@ -1,3 +1,171 @@
-nav li:first-child a{
-	background-color: blue;
+:root{
+	--font-serif:Cambria, Georgia, serif;
+
+	--color-blue: #41ceff;
+	--color-red: #ff2742;
+	--color-orange: #fca600;
+	--color-purple: #181136;
+
+	--color-black: #000;
+	--color-white: #fff;
+
+	--header-height: 3rem;
 }
+
+body{
+	background-image: url("https://64.media.tumblr.com/d2053f8dd8eccd6b039fb671fd9f530f/tumblr_mf5sxbBLSH1rirnzso1_400.jpg");
+}
+
+h1, h2, h3{
+	font-family: var(--font-serif);
+	line-height: var(--header-height);
+	padding: 10px;
+}
+
+.header-container{
+	background-image: linear-gradient( #241451, #472c78, #b66f50);
+	border: 0px;
+	background-image: url("https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2017/08/html-cheat-sheet.jpg");
+	background-size: 28%;
+}
+
+.header-container h1{
+	margin: 4em 0;	
+}
+
+.header-container .title{
+	position: relative;
+	animation: titlemove 4s 2s 3;
+}
+
+@keyframes titlemove{
+	0%   {color: var(--color-orange); left:0px; top:0px;}
+	25%  {color: var(--color-red); left:200px; top:0px;}
+	100% {color: var(--color-blue); left:0px; top:0;}
+}
+
+nav li:first-child a{
+	background-color: var(--color-orange);
+	color: var(--color-purple)
+}
+
+nav li a{
+	background-color: var(--color-purple);
+}
+
+.header-container h1::before{
+	content: " - Hello everyone! ";
+	color: var(--color-white);
+	font-weight: bold;
+}
+
+p{
+	padding: 20px;
+}
+
+.main article{
+	clear: both;
+	width: 80%;
+	margin: 0 auto;
+}
+
+article h1::after{
+	content: " - First paragraph!";
+	color: var(--color-orange);
+}
+
+article footer h3{
+	color: var(--color-purple);
+}
+
+article header p::first-line{
+	background-color: var(--color-red);
+	color: var(--color-white);
+}
+
+article p::first-letter{
+	font-size: 150%;
+	color: var(--color-purple);
+}
+
+section:nth-child(2){
+	background-color: var(--color-purple);
+	color: var(--color-white);
+	width: 40%;
+}
+
+section, article footer{
+	float: left;
+	display: inline;
+	margin-left: 20px;
+	margin-bottom: 40px;
+}
+
+section:nth-child(3){
+	float: right;
+	width: 45%;
+	border: 2px dotted var(--color-red);
+	border-radius: 20px;
+	background-image: url("https://cdn.mos.cms.futurecdn.net/KtNLei35Vb6K3SN99binuW-1024-80.png.webp");
+}
+
+section:nth-child(2) h2{
+	color: var(--color-orange);
+}
+
+.main aside{
+	border-top-left-radius: 150px;
+	border: 10px solid var(--color-purple);
+	background-color: var(--color-blue);
+	color: var(--color-purple);
+	clear: both;
+	float: left;
+	height: 90px;
+	overflow: scroll;
+}
+
+.main aside h3{
+	text-align: center;
+}
+
+article footer{
+	background-color: var(--color-orange);
+	color: var(--color-white);
+}
+
+.footer-container{
+	text-align: center;
+	background-color: var(--color-purple);
+	border: 0px;
+}
+
+.footer-container footer{
+	padding: 60px 0;
+	background-image: linear-gradient( #b66f50, #472c78, #241451);
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (max-width: 480px){
+	.header-container h1{
+		margin: 1em 0;
+	}
+
+	section:nth-child(2),section:nth-child(3){
+		float: left;
+		width: 100%;
+		overflow: scroll;
+		height: 200px;
+	}
+}
+
+@media only screen and (max-width: 768px){
+	.header-container h1{
+		margin: 2em 0;
+	}
+}
+
+
+
