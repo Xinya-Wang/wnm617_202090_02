@@ -8,11 +8,15 @@
 	--font-sans:Helvetica, Arial, sans-serif;
 	--font-serif:Cambria, Georgia, serif;
 
-	--color-neutral-ligher: #eee;
-	--color-neutral-light: #ddd;
-	--color-neutral-mediumer: #aaa;
-	--color-neutral-medium: #888;
-	--color-neutral-dark: #444;
+	--color-neutral-ligher: #edf0ed;
+	--color-neutral-light: #d2dad2;
+	--color-neutral-mediumer: #b3bdb3;
+	--color-neutral-medium: #788578;
+	--color-neutral-dark: #304830;
+
+	--color-main-light: #e4fcd1;
+	--color-main-medium: #6dd21d;
+	--color-main-dark: #234905;
 
 	--color-black: #000;
 	--color-white: #fff;
@@ -133,6 +137,76 @@ a:hover{
 	}
 }
 
+
+
+/* Accordion */
+.accordion dt {
+	background-color: var(--color-neutral-mediumer);
+	padding:0.5em 1em;
+	color: var(--color-white);
+	cursor: pointer;
+}
+
+.accordion dt~dt{
+	margin-top: 0.5em;
+}
+
+.accordion dd {
+	margin: 0;
+	padding: calc(1em - 2px);
+	border: 2px solid var(--color-neutral-mediumer);
+	border-top-width: 0;
+	display: none;
+}
+
+/*Tab group*/
+.tabgroup {}
+.tabgroup .tabs {
+	display: flex;
+	border-bottom: 1px solid var(--color-neutral-light);
+}
+.tabgroup .tab{
+	padding: 0.5em 1em;
+	position: relative;
+}
+
+.tabgroup .tab:hover{
+	background-color: var(--color-neutral-ligher);
+	cursor: pointer;
+}
+.tabgroup .tab::after{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	background-color: var(--color-main-medum);
+}
+.tabgroup .tab.active::after{
+	height: 3px;
+}
+.tabgroup .contents{
+	height: 30vh;
+	overflow: hidden;
+	position: relative;
+}
+.tabgroup .content{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	pointer-events: none;
+	opacity: 0;
+	transition: all 0.3s;
+}
+
+.tabgroup .content.active{
+	opacity: 1;
+	pointer-events: initial;
+}
 
 
 
