@@ -45,12 +45,24 @@
                     <div class="error-hint">
                         <h4>Oops</h4>
                         <p>Your email or password was entered incorrectly.</p>
+                        <div class="line"></div>
+                        <a href="#" class="error-button">OK</a>
                     </div>
-                    <a href="#" class="error-button">OK</a>
+                </div>
+            </div>
+            <div id="login-error-msg-empty">
+                <div class="modal-back"></div>
+                <div class="modal-drawer center">
+                    <div class="error-hint">
+                        <h4>Oops</h4>
+                        <p>Please type your email and password.</p>
+                        <div class="line"></div>
+                        <a href="#" class="error-button empty">OK</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section>  
 
     <!-- SIGN UP -->
     <section data-role="page" id="signup-page">
@@ -78,69 +90,56 @@
             </form>
         </div>
     </section>
+    
+
+
+
 
     <!-- Recent Page -->
     <section data-role="page" id="recent-page">
-
-        <header data-role="header" class="display-flex flex-align-center flex-justify-center">
-            <div class="icon-menu" data-toggle="#recent-profile-modal"></div>
+        <div data-role="main">
             <div id="recent-search" class="search">
                 <input type="text" data-role="none" placeholder="Search Here">
                 <i class="icon-search"> </i>
             </div>
-        </header>
-
-        <div data-role="main">
-            <!-- <div class="head"></div> -->
-            <div class="modal" id="recent-add-modal">
-                <div class="modal-back" data-deactivate="#recent-add-modal"></div>
-                <div class="modal-drawer bottom">
-                    <div class="modal-head">head</div>
-                    <div class="modal-body">body</div>
-                </div>
+        </div>
+        <footer data-role="footer" data-template="#footer-template"></footer>
+        <div class="recent-location">
+            <a href="" data-toggle="#animal-pin-modal"><div class="recent-pin-item"><img src=""></div></a>
+        </div>
+        <div class="modal" id="animal-pin-modal">
+            <div class="modal-toast-bottom" id="animal-edit-select-modal">
+                <ul class="journal-list-container">
+                    <li class="journal-list-item">
+                        <a href="#animal-journal-page" class="display-flex">
+                            <div class="journal-data">
+                                <h1>18</h1>
+                                <h4>Oct</h4>
+                            </div>
+                            <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
+                                <img src="img/animal/mule-deer2.jpg" alt="Mule deer">
+                            </div>
+                            <div class="journal-content display-flex flex-column">
+                                <p class="journal-text flex-strech">I took this picture of the deer near the visitor center...</p>
+                                <div class="animal-journal-location display-flex">
+                                    <img src="img/iconLocation.svg">
+                                    <p>Visitor center in Grand Canyon...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        <footer data-role="footer">
-            <ul>
-                <li><a href="#recent-page"><div class="btn-nav-recent display-flex flex-column"><i></i><p>Recent</p></div></a></li>
-                <li><a href="#"><div class="btn-add"><i></i></div></a></li>
-                <li><a href="#list-page"><div class="btn-nav-list display-flex flex-column"><i></i><p>List</p></div></a></li>
-            </ul>
-        </footer>
-
-        <div class="modal" id="recent-profile-modal">
-            <div class="modal-back" data-deactivate="#recent-profile-modal"></div>
-            <div class="modal-drawer left">
-                <a href="#user-profile-page">
-                    <div class="modal-head display-flex flex-align-center">
-                        <div class="btn-circle"><i></i></div>
-                        <h3>User Name</h3>
-                    </div>
-                </a>
-                <div class="modal-body">
-                    <ul>
-                        <h5>Profile</h5>
-                        <li><a href="#user-profile-page">Personal Info</a></li>
-                        <li><a href="#">Your Journal</a></li>
-                        <div class="line"></div>
-                        <h5>Support</h5>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Show Tutorial</a></li>
-                        <li class="floater bottom"><a href="#" class="js-logout">Log out</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    </section>    
 
 
-    <!-- List Page -->
+
+
+    <!-- Animal List Page -->
     <section data-role="page" id="list-page">
-
         <header data-role="header" class="display-flex flex-align-center flex-justify-center">
             <h5>Animal List</h5>
-            <div class="icon-menu" data-toggle="#list-profile-modal"></div>
             <p class="floater right">Select</p>
         </header>
 
@@ -152,10 +151,10 @@
                 </div>
                 <div class="list-select-button display-flex flex-strech flex-justify-end">
                     <div class="list-select display-inline-block"><i></i></div>
-                    <div class="list-add display-inline-block"><i></i></div>
+                    <a href="#add-new-animal"><div class="list-add display-inline-block"><i></i></div></a>
                 </div>
             </div>
-        <!-- li*10>a[href=#animal-profile-page]{Animal $} -->
+            
             <div class="overscroll">
                 <ul class="display-flex flex-justify-around">
                     <li>
@@ -216,94 +215,843 @@
             </div>
         </div>
 
-        <footer data-role="footer">
-            <ul>
-                <li><a href="#recent-page"><div class="btn-nav-recent display-flex flex-column"><i></i><p>Recent</p></div></a></li>
-                <li><a href="#"><div class="btn-add"><i></i></div></a></li>
-                <li><a href="#list-page"><div class="btn-nav-list display-flex flex-column"><i></i><p>List</p></div></a></li>
-            </ul>
-        </footer>
+        <footer data-role="footer" data-template="#footer-template"></footer>
+    </section>
 
-        <div class="modal" id="list-add-modal">
-            <div class="modal-back" data-deactivate="#list-add-modal"></div>
-            <form id="list-add-form" data-ajax="false" class="modal-popup">
-                <div class="modal-head">Add Animal</div>
-                <div class="modal-body">
-                    <div class="form-control">
-                        <label for="list-add-name" class="form-label">Name</label>
-                        <input id="list-add-name" type="text" class="form-input" data-role="none" placeholder="Type animal name">
-                    </div>
-                    <div class="form-control">
-                        <label for="list-add-type" class="form-label">Type</label>
-                        <input id="list-add-type" type="text" class="form-input" data-role="none" placeholder="Type animal type">
-                    </div>
-                    <div class="form-control">
-                        <label for="list-add-breed" class="form-label">Breed</label>
-                        <input id="list-add-breed" type="text" class="form-input" data-role="none" placeholder="Type animal breed">
-                    </div>
-                </div>
-                <div class="modal-foot">
-                    <input type="submit" value="Save" data-role="none">
-                </div>
-            </form>
-        </div>
 
-        <div class="modal" id="list-profile-modal">
-            <div class="modal-back" data-deactivate="#list-profile-modal"></div>
-            <div class="modal-drawer left">
-                <a href="#user-profile-page">
-                    <div class="modal-head display-flex flex-align-center">
-                        <div class="btn-circle"><i></i></div>
-                        <h3>User Name</h3>
-                    </div>
-                </a>
-                <div class="modal-body">
-                    <ul>
-                        <h5>Profile</h5>
-                        <li><a href="#user-profile-page">Personal Info</a></li>
-                        <li><a href="#">Your Journal</a></li>
-                        <div class="line"></div>
-                        <h5>Support</h5>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Show Tutorial</a></li>
-                        <li class="floater bottom"><a href="#" class="js-logout">Log out</a></li>
-                    </ul>
+
+
+
+    <!-- Journal List Page -->
+    <section data-role="page" id="journal-page">
+        <header data-role="header" class="display-flex flex-align-center flex-justify-center">
+            <h5>Your Journal</h5>
+            <p class="floater right">Select</p>
+        </header>
+
+        <div data-role="main">
+            <div class="list-select-holder display-flex flex-align-center">
+                <div id="list-search" class="search">
+                    <input type="text" data-role="none" placeholder="Search">
+                    <i class="icon-search"> </i>
+                </div>
+                <div class="list-select-button display-flex flex-strech flex-justify-end">
+                    <div class="list-select display-inline-block"><i></i></div>
+                    <a href="#"><div class="list-add display-inline-block"><i></i></div></a>
                 </div>
             </div>
+            
+            <div class="overscroll">
+                <ul class="journal-list-container">
+                    <li class="journal-list-item">
+                        <a href="#animal-journal-page" class="display-flex">
+                            <div class="journal-data">
+                                <h1>18</h1>
+                                <h4>Oct</h4>
+                            </div>
+                            <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
+                                <img src="img/animal/mule-deer2.jpg" alt="Mule deer">
+                            </div>
+                            <div class="journal-content display-flex flex-column">
+                                <p class="journal-text flex-strech">I took this picture of the deer near the visitor center...</p>
+                                <div class="animal-journal-location display-flex">
+                                    <img src="img/iconLocation.svg">
+                                    <p>Visitor center in Grand Canyon...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="journal-list-item">
+                        <a href="#animal-journal-page" class="display-flex">
+                            <div class="journal-data">
+                                <h1>17</h1>
+                                <h4>Oct</h4>
+                            </div>
+                            <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
+                                <img src="img/animal/mule-deer2.jpg" alt="Mule deer">
+                            </div>
+                            <div class="journal-content display-flex flex-column">
+                                <p class="journal-text flex-strech"> picture of the deer near the visitor center...</p>
+                                <div class="animal-journal-location display-flex">
+                                    <img src="img/iconLocation.svg">
+                                    <p>Visitor center in Grand Canyon...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="journal-list-item">
+                        <a href="#animal-journal-page" class="display-flex">
+                            <div class="journal-data">
+                                <h1>15</h1>
+                                <h4>Oct</h4>
+                            </div>
+                            <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
+                                <img src="img/animal/mule-deer2.jpg" alt="Mule deer">
+                            </div>
+                            <div class="journal-content display-flex flex-column">
+                                <p class="journal-text flex-strech">took this picture of the  visitor center...</p>
+                                <div class="animal-journal-location display-flex">
+                                    <img src="img/iconLocation.svg">
+                                    <p>Visitor center in Grand Canyon...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="journal-list-item">
+                        <a href="#animal-journal-page" class="display-flex">
+                            <div class="journal-data">
+                                <h1>27</h1>
+                                <h4>Sep</h4>
+                            </div>
+                            <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
+                                <img src="img/animal/mule-deer2.jpg" alt="Mule deer">
+                            </div>
+                            <div class="journal-content display-flex flex-column">
+                                <p class="journal-text flex-strech">visitor center adsfad...</p>
+                                <div class="animal-journal-location display-flex">
+                                    <img src="img/iconLocation.svg">
+                                    <p>Visitor center in Grand Canyon...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="journal-list-item">
+                        <a href="#animal-journal-page" class="display-flex">
+                            <div class="journal-data">
+                                <h1>08</h1>
+                                <h4>Jun</h4>
+                            </div>
+                            <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
+                                <img src="img/animal/mule-deer2.jpg" alt="Mule deer">
+                            </div>
+                            <div class="journal-content display-flex flex-column">
+                                <p class="journal-text flex-strech">I took this picture of the deer near the...</p>
+                                <div class="animal-journal-location display-flex">
+                                    <img src="img/iconLocation.svg">
+                                    <p>Visitor center in Grand Canyon...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="journal-list-item">
+                        <a href="#animal-journal-page" class="display-flex">
+                            <div class="journal-data">
+                                <h1>18</h1>
+                                <h4>May</h4>
+                            </div>
+                            <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
+                                <img src="img/animal/mule-deer2.jpg" alt="Mule deer">
+                            </div>
+                            <div class="journal-content display-flex flex-column">
+                                <p class="journal-text flex-strech">I took this picture of the deer near the visitor center...</p>
+                                <div class="animal-journal-location display-flex">
+                                    <img src="img/iconLocation.svg">
+                                    <p>Grand Canyon...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="journal-list-item">
+                        <a href="#animal-journal-page" class="display-flex">
+                            <div class="journal-data">
+                                <h1>07</h1>
+                                <h4>May</h4>
+                            </div>
+                            <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
+                                <img src="img/animal/mule-deer2.jpg" alt="Mule deer">
+                            </div>
+                            <div class="journal-content display-flex flex-column">
+                                <p class="journal-text flex-strech">I took this visitor center...</p>
+                                <div class="animal-journal-location display-flex">
+                                    <img src="img/iconLocation.svg">
+                                    <p>Visitor center in Grand Canyon...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="journal-list-item">
+                        <a href="#animal-journal-page" class="display-flex">
+                            <div class="journal-data">
+                                <h1>01</h1>
+                                <h4>Mar</h4>
+                            </div>
+                            <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
+                                <img src="img/animal/mule-deer2.jpg" alt="Mule deer">
+                            </div>
+                            <div class="journal-content display-flex flex-column">
+                                <p class="journal-text flex-strech">I took this picture of the deer near the visitor center...</p>
+                                <div class="animal-journal-location display-flex">
+                                    <img src="img/iconLocation.svg">
+                                    <p>Visitor center in Grand Canyon...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <footer data-role="footer" data-template="#footer-template"></footer>
     </section>
+
+
+
 
     <!-- User Profile Page -->
     <section data-role="page" id="user-profile-page">
         <header data-role="header">
-            <h1>User Account Page</h1>
+            <ul class="display-flex">
+                <li class="flex-strech"><a href="#profile-settings-page" class="font-weight-normal" style="font-size: 0.9em">Edit</a></li>
+                <li><a href="#settings-page"><img class="nav-in-header" src="img/iconSetting.svg" alt="setting icon"></a></li>
+            </ul>
         </header>
         <div data-role="main">
-            User Profile
+            <div class="profile-body">
+                <div class="profile-image">
+                    <img src="img/profile-photo-user.png" alt="User Profile Photo">
+                </div>
+                <h2>Monica Wells</h2>
+            </div>
+            <div class="overscroll profile-others">
+                <div class="profile-others-menu">
+                    <ul class="display-flex flex-align-center">
+                        <li class="display-flex flex-strech flex-justify-center active">
+                            <a href="#" class="flex-strech">
+                                <div class="nav-icon"><img src="img/iconRecent1.svg" alt="Recent page icon"></div>
+                                <div class="nav-label">Favories</div>
+                            </a>
+                        </li class="display-flex flex-strech flex-justify-center">
+                        <li class="flex-strech">
+                            <a href="#" class="flex-strech">
+                                <div class="nav-icon"><img src="img/iconRecent1.svg" alt="Recent page icon"></div>
+                                <div class="nav-label">Created</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid-container">
+                    <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/mule-deer2.jpg" alt="mule-deer"></a></div>
+                    <div class="grid-item"><a href="#"><img src="img/animal/mule-deer.png" alt="mule-deer"></a></div>  
+                    <div class="grid-item"><a href="#"><img src="img/animal/mule-deer.png" alt="mule-deer"></a></div>
+                    <div class="grid-item"><a href="#"><img src="img/animal/mule-deer.png" alt="mule-deer"></a></div>
+                    <div class="grid-item"><a href="#"><img src="img/animal/mule-deer.png" alt="mule-deer"></a></div>
+                </div>
+            </div>   
+        </div>
+        <footer data-role="footer" data-template="#footer-template"></footer>
+    </section>
+    
+    <!-- Settings Page -->
+    <section data-role="page" id="settings-page">
+        <header data-role="header">
+            <h1>Settings</h1>
             <ul>
-                <li><a href="#" class="js-logout">Log out</a></li>
+                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconClose.svg" alt="Close icon"></a></li>
             </ul>
+        </header>
+        <div data-role="main">
+            <ul class="settings-list">
+                <li class="settings-item"><a href="#account-settings-page">Account Settings</a></li>
+                <li class="settings-item"><a href="#notifications">Notifications</a></li>
+                <li class="settings-item"><a href="#help">Help</a></li>
+                <li class="settings-item"><a href="#about">About</a></li>
+                <li class="settings-item"><a href="#">Clear Cache</a></li>
+                <li class="settings-item"><a href="#" class="js-logout">Logout</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Profile Settings Page -->
+    <section data-role="page" id="profile-settings-page">
+        <header data-role="header">
+            <h1>Edit Profile</h1>
+            <ul>
+                <li><a href="#user-profile-page" class="font-weight-normal">Cancel</a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#user-profile-page" style="color: var(--color-blue)">Done</a></li>
+            </ul>
+        </header>
+        <div data-role="main" class="display-flex flex-align-center flex-column">
+            <div class="profile-image display-flex flex-align-center flex-column">
+                <img src="img/profile-photo-user.png" alt="User Profile Photo">
+                <a class="">Change Profile Photo</a>
+            </div>
+            <form id="profile-form" class="settings-form-container" data-ajax="false">
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="profile-name" class="form-label">Name</label>
+                    <input id="profile-name" type="text" class="form-input" data-role="none" placeholder="Monica Wells">
+                </div>
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="profile-username" class="form-label">UserName</label>
+                    <input id="profile-username" type="text" class="form-input" data-role="none" placeholder="monicawells161">
+                </div>
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="profile-bio" class="form-label">Bio</label>
+                    <input id="profile-bio" type="text" class="form-input" data-role="none" placeholder="Add a short bio">
+                </div>
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="profile-phone" class="form-label">Phone</label>
+                    <input id="profile-phone" type="text" class="form-input" data-role="none" placeholder="+1 555-555-5555">
+                </div>
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="profile-gender" class="form-label">Gender</label>
+                    <input id="profile-gender" type="text" class="form-input" data-role="none" placeholder="Gender">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Account Setting Page -->
+    <section data-role="page" id="account-settings-page">
+        <header data-role="header">
+            <h1>Account Settings</h1>
+            <ul>
+                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
+            </ul>
+        </header>
+        <div data-role="main" class="display-flex">
+            <form id="account-form" class="settings-form-container" data-ajax="false">
+                <a href="#email-settings-page">
+                    <div class="settings-form-control display-flex flex-align-center">
+                        <label for="profile-email" class="form-label">Email</label>
+                        <input id="profile-email" type="text" class="form-input" data-role="none" placeholder="monicawells@gmail.com">
+                        <img src="img/iconMore.svg">
+                    </div>
+                </a>
+                <a href="#password-settings-page">
+                    <div class="settings-form-control display-flex flex-align-center">
+                        <label for="profile-password" class="form-label">Password</label>
+                        <input id="profile-password" type="text" class="form-input" data-role="none" placeholder="Change password">
+                        <img src="img/iconMore.svg">
+                    </div>
+                </a>
+                <a href="#contry-settings-page">
+                    <div class="settings-form-control display-flex flex-align-center">
+                        <label for="profile-country" class="form-label">Contry/Region</label>
+                        <input id="profile-country" type="text" class="form-input" data-role="none" placeholder="Unitied States">
+                        <img src="img/iconMore.svg">
+                    </div>
+                </a>
+                <a href="#login-options-settings-page">
+                    <div class="settings-form-control display-flex flex-align-center">
+                        <label for="profile-logoin-options" class="form-label" style="width: 40vw">Login options</label>
+                        <input id="profile-logoin-options" type="text" class="form-input" data-role="none" placeholder="">
+                        <img src="img/iconMore.svg">
+                    </div>
+                </a>
+            </form>
+        </div>
+    </section>
+
+
+
+    <!-- Animal profile Page -->
+    <section data-role="page" id="animal-profile-page">
+        <div data-role="main">
+            <div class="animal-profile-header">
+                <ul class="display-flex">
+                    <li class="flex-strech"><a href="#" data-rel="back">
+                        <img class="nav-in-header" src="img/iconBack.svg" alt="back icon">
+                    </a></li>
+                    <!-- <li data-toggle="#animal-edit-select-modal"><a href="#animal-edit-profile" data-rel="back">
+                        <img class="nav-in-header" src="img/iconSelect.svg" alt="Menu icon"></a>
+                    </li> -->
+                    <li><a href="#animal-edit-profile">
+                        Edit</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="animal-banner">
+                <div class="animal-banner-intro">
+                    <h2>Mule deer</h2>
+                    <p>Mammals</p>
+                    <p class="details">Mule deer (Odocoileus hemionus) are very common throughout western North America, and are one of the most commonly seen animals in Grand Canyon National Park.</p>
+                </div>
+            </div>
+            <div class="profile-others">
+                <div class="profile-others-menu">
+                    <ul class="display-flex flex-align-center">
+                        <li class="display-flex flex-strech flex-justify-center active">
+                            <a href="#" class="flex-strech">
+                                <!-- <div class="nav-icon"><img src="img/iconRecent1.svg" alt="Recent page icon"></div> -->
+                                <div class="nav-label">Journal</div>
+                            </a>
+                        </li>
+                        <li class="display-flex flex-strech flex-justify-center">
+                            <a href="#" class="flex-strech">
+                                <!-- <div class="nav-icon"><img src="img/iconRecent1.svg" alt="Recent page icon"></div> -->
+                                <div class="nav-label">Map</div>
+                            </a>
+                        </li class="display-flex flex-strech flex-justify-center">
+                        <li class="flex-strech">
+                            <a href="#" class="flex-strech">
+                                <!-- <div class="nav-icon"><img src="img/iconRecent1.svg" alt="Recent page icon"></div> -->
+                                <div class="nav-label">Overview</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="">
+                    <!-- <a href="#"><div class="animal-profile-map"></div></a> -->
+                    <div class="grid-container">
+                        <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/mule-deer2.jpg" alt="mule-deer"></a></div>
+                        <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/mule-deer.png" alt="mule-deer"></a></div>  
+                        <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/mule-deer.png" alt="mule-deer"></a></div>
+                        <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/mule-deer.png" alt="mule-deer"></a></div>
+                        <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/mule-deer.png" alt="mule-deer"></a></div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div class="modal" id="animal-edit-select-modal">
+            <div class="modal-toast">
+                <ul>
+                    <li><a href="#animal-edit-profile">Edit Profile</a></li>
+                    <li><a href="#">Share</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animal Edit Profile Page -->
+    <section data-role="page" id="animal-edit-profile">
+        <header data-role="header">
+            <h1>Edit Animal Profile</h1>
+            <ul>
+                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#" data-rel="back">Done</a></li>
+            </ul>
+        </header>
+        <div data-role="main" class="display-flex flex-align-center flex-column">
+            <div class="animal-edit-banner-image display-flex flex-align-center flex-column">
+                <img src="img/animal/mule-deer.jpg" alt="">
+                <a class="">Change Profile Banner Image</a>
+            </div>
+            <form id="animal-profile-form" class="settings-form-container" data-ajax="false">
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="animal-profile-name" class="form-label">Name</label>
+                    <input id="animal-profile-name" type="text" class="form-input" data-role="none" placeholder="Mule Deer">
+                </div>
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="profile-phone" class="form-label">Scientific Name</label>
+                    <input id="profile-phone" type="text" class="form-input" data-role="none" placeholder="Odocoileus hemionus">
+                </div>
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="animal-profile-class" class="form-label">Class</label>
+                    <input id="animal-profile-class" type="text" class="form-input" data-role="none" placeholder="Mammal">
+                </div>
+                <div class="settings-form-control display-flex">
+                    <label for="animal-profile-bio" class="form-label">Bio</label>
+                    <textarea id="animal-profile-bio" style="overflow: visible">Mule deer (Odocoileus hemionus) are very common throughout western North America, and are one of the most commonly seen animals in Grand Canyon National Park.</textarea>
+                </div>
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="profile-gender" class="form-label">Lifespan</label>
+                    <input id="profile-gender" type="text" class="form-input" data-role="none" placeholder="9-11years">
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Animal journal page -->
+    <section data-role="page" id="animal-journal-page">
+        <header data-role="header">
+            <div class="animal-journal-header display-flex flex-column flex-align-center flex-justify-center">
+                <h3>October 18, 2020</h3>
+                <p>2:09 PM</p>
+            </div>
+            <ul>
+                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#animal-journal-edit-page" class="font-weight-normal">Edit</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <div class="animal-journal-photo">
+               <img src="img/animal/mule-deer2.jpg"> 
+            </div>
+            <div class="animal-journal-text">
+               <p>I took this picture of the deer near the visitor center. Very docile.</p>
+            </div>
+            <a href="#">
+                <div class="animal-journal-location display-flex flex-align-center">
+                    <img src="img/iconLocation.svg">
+                    <p>Visitor center in Grand Canyon Village, Arizona</p>
+                </div>
+            </a>
         </div>
         <footer data-role="footer">
             <ul>
-                <li><a href="#recent-page">Recent</a></li>
-                <li><a href="#list-page">List</a></li>
-                <li><a href="#user-profile-page">Profile</a></li>
+                <li><a href="#"><img class="nav-in-header" src="img/iconShare.png" alt="share icon"></a></li>
+                <li class="flex-strech"><a href="#"><img class="nav-in-header" src="img/iconHeart.png" alt="Heart icon"></a></li>
+                <li><a href="#"><img class="nav-in-header" src="img/iconTrash.png" alt="Delete Trash icon"></a></li>
+            </ul>
+        </footer>
+    </section>
+    <!-- Animal journal Edit page -->
+    <section data-role="page" id="animal-journal-edit-page">
+        <header data-role="header">
+            <h1>Edit Journal</h1>
+            <ul>
+                <li><a href="#" data-rel="back" class="font-weight-normal" style="color: var(--color-neutral-light)">Cancel</a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#" data-rel="back" style="color: var(--color-blue)">Done</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <a href="#"><div class="animal-journal-location-map"></div></a>
+            <div class="line"></div>
+            <div class="animal-journal-text">
+                <form>
+                    <textarea id="" name="" rows="4" placeholder="">I took this picture of the deer near the visitor center. Very docile.</textarea>
+                </form>
+            </div>
+            <div class="animal-edit-photo display-flex flex-align-center">
+               <a href="#"><div class="add-photo-item"><img src="img/animal/mule-deer2.jpg"></div></a>
+               <a href="#"><div class="add-photo-item add"><img src="img/iconAdd.svg"></div></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add a new Animal -->
+    <section data-role="page" id="add-new-animal">
+        <header data-role="header">
+            <h1>Edit Animal Profile</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Cancel</a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#list-page">Done</a></li>
+            </ul>
+        </header>
+        <div data-role="main" class="display-flex flex-align-center flex-column">
+            <div class="animal-edit-banner-image display-flex flex-align-center flex-column">
+                <a href="">
+                    <div class="add-banner-image display-flex flex-align-center">
+                        <img src="img/iconAddBannerImage.svg">
+                        <p>Add Profile Banner Image</p>
+                    </div>
+                </a>
+                <!-- <a class="">Add Profile Banner Image</a> -->
+            </div>
+            <form id="animal-profile-form" class="settings-form-container" data-ajax="false">
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="animal-profile-name" class="form-label">Name</label>
+                    <input id="animal-profile-name" type="text" class="form-input" data-role="none" placeholder="Type your animal name">
+                </div>
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="profile-phone" class="form-label">Scientific Name</label>
+                    <input id="profile-phone" type="text" class="form-input" data-role="none" placeholder="Type your animal scientific name">
+                </div>
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="animal-profile-class" class="form-label">Class</label>
+                    <input id="animal-profile-class" type="text" class="form-input" data-role="none" placeholder="Type your animal class">
+                </div>
+                <div class="settings-form-control display-flex">
+                    <label for="animal-profile-bio" class="form-label">Bio</label>
+                    <textarea id="animal-profile-bio" style="overflow: visible">Type your animal bio...
+                    </textarea>
+                </div>
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="profile-gender" class="form-label">Lifespan</label>
+                    <input id="profile-gender" type="text" class="form-input" data-role="none" placeholder="Type your animal lifespan">
+                </div>
+            </form>
+        </div>
+         <footer data-rol="footer">
+            <div class="btn">
+                <a href="#add-new-animal-edit">Create The First Journal</a>
+            </div>
+        </footer>
+    </section>
+
+
+
+    <!-- Email Settings Page -->
+    <section data-role="page" id="email-settings-page">
+        <header data-role="header">
+            <h1>Email</h1>
+            <ul>
+                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#" data-rel="back" style="color: var(--color-neutral-light)">Done</a></li>
+            </ul>
+        </header>
+        <div data-role="main" class="display-flex flex-align-center flex-column">
+            <form id="email-settings-form" class="settings-form-container" data-ajax="false">
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="profile-emial" class="form-label">Email</label>
+                    <input id="profile-email" type="text" class="form-input" data-role="none" placeholder="monicawells@gmail.com">
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Password Settings Page -->
+    <section data-role="page" id="password-settings-page">
+        <header data-role="header">
+            <h1>Change Password</h1>
+            <ul>
+                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#" data-rel="back" style="color: var(--color-neutral-light)">Done</a></li>
+            </ul>
+        </header>
+        <div data-role="main" class="display-flex">
+            <form id="password-form" class="settings-form-container" data-ajax="false">
+                <div class="settings-form-control">
+                    <label for="password-oldpassword" class="form-label">Current Password</label>
+                    <input id="password-oldpassword" type="text" class="form-input" data-role="none" placeholder="Type your old password">
+                </div>
+                <div class="settings-form-control">
+                    <label for="password-newpassword" class="form-label">New Password</label>
+                    <input id="password-newpassword" type="text" class="form-input" data-role="none" placeholder="Type your new password">
+                </div>
+                <div class="settings-form-control">
+                    <label for="password-confirm" class="form-label">Confirm New Password</label>
+                    <input id="password-confirm" type="text" class="form-input" data-role="none" placeholder="Type your new password">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    
+
+
+
+    <!-- Add a new Animal record -->
+    <section data-role="page" id="add-new-animal-record">
+        <header data-role="header">
+            <ul class="display-flex">
+                <li><a href="#" data-rel="back">Cancel</a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#add-new-animal-edit" style="color: var(--color-blue)" >Next</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <div class="body"></div>
+        </div>
+        <footer data-role="footer">
+            <ul>
+                <li><a href="#">Library</a></li>
+                <li><a href="#" style="color: var(--color-neutral-light)">Photo</a></li>
             </ul>
         </footer>
     </section>
 
-    <!-- Animal profile Page -->
-    <section data-role="page" id="animal-profile-page">
+    <!-- Animal journal Edit page -->
+    <section data-role="page" id="add-new-animal-edit">
         <header data-role="header">
-            <h1>Animal Page</h1>
+            <h1>New Journal</h1>
             <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
+                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#recent-page" style="color: var(--color-blue)">Done</a></li>
             </ul>
         </header>
         <div data-role="main">
-            Animal profile page
+            <a href="#"><div class="animal-journal-location-map"></div></a>
+            <div class="line"></div>
+            <div class="animal-journal-text">
+                <form>
+                    <textarea id="" name="" rows="4">Say something ... 
+                    </textarea>
+                </form>
+            </div>
+            <div class="animal-edit-photo display-flex flex-align-center">
+               <a href="#"><div class="add-photo-item"><img src="img/animal/mule-deer2.jpg"></div></a>
+               <a href="#"><div class="add-photo-item add"><img src="img/iconAdd.svg"></div></a>
+            </div>
         </div>
     </section>
+
+    <!-- Select Animal Page -->
+    <section data-role="page" id="select-animal-page">
+        <header data-role="header">
+            <h1>Select An Animal</h1>
+            <ul>
+                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconClose.svg" alt="close icon"></a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#add-new-animal-record">Next</a></li>
+            </ul>
+        </header>
+        <div data-role="main" class="display-flex flex-column">
+           <div class="select-animal-item">
+                <h3>Recent</h3>
+                <ul>
+                    <li>
+                        <div class="select-list-item display-flex flex-align-center">
+                            <img src="img/animal/mule-deer.png" alt="mule deer">
+                            <p>Mule deer</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="select-list-item display-flex flex-align-center">
+                            <img src="img/animal/mule-deer.png" alt="mule deer">
+                            <p>Mule deer</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="select-list-item display-flex flex-align-center">
+                            <img src="img/animal/mule-deer.png" alt="mule deer">
+                            <p>Mule deer</p>
+                        </div>
+                    </li>
+                </ul>
+           </div>
+           <div class="select-animal-item">
+                <h3>All</h3>
+                <ul>
+                    <li>
+                        <div class="select-list-item display-flex flex-align-center">
+                            <img src="img/animal/mule-deer.png" alt="mule deer">
+                            <p>Mule deer</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="select-list-item display-flex flex-align-center">
+                            <img src="img/animal/mule-deer.png" alt="mule deer">
+                            <p>Mule deer</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="select-list-item display-flex flex-align-center">
+                            <img src="img/animal/mule-deer.png" alt="mule deer">
+                            <p>Mule deer</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="select-list-item display-flex flex-align-center">
+                            <img src="img/animal/mule-deer.png" alt="mule deer">
+                            <p>Mule deer</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="select-list-item display-flex flex-align-center">
+                            <img src="img/animal/mule-deer.png" alt="mule deer">
+                            <p>Mule deer</p>
+                        </div>
+                    </li>
+                </ul>
+           </div>
+           <div class="select-alphabet">
+               <ul class="display-flex flex-column flex-align-center">
+                   <li><a href="#">A</a></li>
+                   <li><a href="#">B</a></li>
+                   <li><a href="#">C</a></li>
+                   <li><a href="#">D</a></li>
+                   <li><a href="#">E</a></li>
+                   <li><a href="#">F</a></li>
+                   <li><a href="#">G</a></li>
+                   <li><a href="#">H</a></li>
+                   <li><a href="#">I</a></li>
+                   <li><a href="#">J</a></li>
+                   <li><a href="#">K</a></li>
+                   <li><a href="#">L</a></li>
+                   <li><a href="#">M</a></li>
+                   <li><a href="#">N</a></li>
+                   <li><a href="#">O</a></li>
+                   <li><a href="#">P</a></li>
+                   <li><a href="#">Q</a></li>
+                   <li><a href="#">R</a></li>
+                   <li><a href="#">S</a></li>
+                   <li><a href="#">T</a></li>
+                   <li><a href="#">U</a></li>
+                   <li><a href="#">V</a></li>
+                   <li><a href="#">W</a></li>
+                   <li><a href="#">X</a></li>
+                   <li><a href="#">Y</a></li>
+                   <li><a href="#">Z</a></li>
+               </ul>
+           </div>
+        </div>
+    </section>
+    
+    
+    <!-- Add Modal -->
+    <div class="modal" id="add-modal">
+        <div class="modal-back" data-deactivate="#add-modal"></div>
+        <div class="modal-popup">
+            <div class="modal-body-up">
+                <ul>
+                    <li><a href="#select-animal-page" data-deactivate="#add-modal">Select an animal</a></li>
+                    <li><a href="#add-new-animal" data-deactivate="#add-modal">Create an new animal</a></li>
+                </ul>
+            </div>
+            <div class="modal-body-down">
+                <ul>
+                    <li><a href="" data-deactivate="#add-modal">Cancel</a></li>
+                </ul>
+            </div>
+        </div>    
+    </div>
+
+    <!-- Hamburger Menu list -->
+    <!-- <div class="modal" id="hamburger-menu-modal">
+        <div class="modal-back" data-deactivate="#hamburger-menu-modal"></div>
+        <div class="modal-drawer left" data-deactivate="#hamburger-menu-modal">
+            <a href="#user-profile-page" data-deactivate="#hamburger-menu-modal">
+                <div class="modal-head display-flex flex-align-center">
+                    <div class="profile-photo"><img src="img/profile-photo-user.png" alt="user profile photo"></div>
+                    <h3>Amanda Wells</h3>
+                </div>
+            </a>
+            <div class="modal-body">
+                <ul>
+                    <h5>Profile</h5>
+                    <li><a href="#user-profile-page" data-deactivate="#hamburger-menu-modal" >Personal Info</a></li>
+                    <li><a href="#" data-deactivate="#hamburger-menu-modal">Your Journal</a></li>
+                    <div class="line"></div>
+                    <h5>Support</h5>
+                    <li><a href="#" data-deactivate="#hamburger-menu-modal">Help</a></li>
+                    <li><a href="#" data-deactivate="#hamburger-menu-modal">Show Tutorial</a></li>
+                    <li class="floater bottom"><a href="#" class="js-logout">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Warning Page -->
+    <!-- <div class="modal" id="warning-modal">
+        <div class="modal-toast top" data-deactive="#warning-modal">
+            <div class="message">Message</div>  
+        </div>
+    </div> -->
+
+
+
+
+
+
+    <!-- Foot Navigation Section -->
+    <script type="text/template" id="footer-template">
+        <ul>
+            <li class="display-flex flex-justify-center">
+                <a href="#recent-page" class="flex-align-self-center">
+                    <div class="nav-icon"><img src="img/iconRecent1.svg" alt="Recent page icon"></div>
+                    <div class="nav-label">Recent</div>
+                </a>
+            </li>
+            <li class="display-flex flex-justify-center">
+                <a href="#list-page" class="flex-align-self-center">
+                    <div class="nav-icon"><img src="img/iconList1.svg" alt="List page icon"></div>
+                    <div class="nav-label">List</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="nav-icon add-location" data-activate="#add-modal"><img src="img/iconAddLocation.svg" alt="Add Location icon"></div>
+                </a>
+            </li>
+            <li class="display-flex flex-justify-center">
+                <a href="#journal-page" class="flex-align-self-center">
+                    <div class="nav-icon"><img src="img/iconList1.svg" alt="Journal page icon"></div>
+                    <div class="nav-label">Journal</div>
+                </a>
+            </li>
+            <li class="display-flex flex-justify-center">
+                <a href="#user-profile-page" class="flex-align-self-center">
+                    <div class="nav-icon"><img src="img/iconList1.svg" alt="User profile page icon"></div>
+                    <div class="nav-label">Profile</div>
+                </a>
+            </li>
+        </ul> 
+    </script>
 </body>
 </html>

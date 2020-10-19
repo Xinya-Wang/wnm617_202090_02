@@ -1,9 +1,24 @@
 
+// const makeWarning = (target, message) =>{
+// 	$(target).addClass("active")
+// 		.find(".message").html(message);
+
+// 	setTimeout(() => {
+// 		$(target).removeClass("active");
+// 	},2000);
+// }
 
 const checkSigninForm = () =>{
 
 	let user  = $("#signin-email").val();
 	let pass  = $("#signin-password").val();
+
+
+	if(user=="" || pass== ""){
+		// makeWarning("#warning-modal", "Type a Username and Password");
+		// return;
+		$("#login-error-msg-empty").addClass("active");
+	}
 
 	// console.log(user, pass);
 	if(user == 'user' && pass == 'pass'){
@@ -19,6 +34,7 @@ const checkSigninForm = () =>{
 
 		// DO SOMETHING HERE
 		$("#login-error-msg").addClass("active");
+		// makeWarning("#warning-modal", "Sign In Failed");
 	}
 
 	checkUserId();
