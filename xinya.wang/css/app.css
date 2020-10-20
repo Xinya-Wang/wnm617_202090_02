@@ -809,10 +809,21 @@ ul{
 }
 
 .list-add,
-.list-select{
+.list-select,
+.list-photo{
     position: relative;
     width: 1.5em;
     height: 1.5em;
+}
+
+.list-photo i{
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    background:url(../img/iconPhoto.svg) no-repeat;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .list-add i{
