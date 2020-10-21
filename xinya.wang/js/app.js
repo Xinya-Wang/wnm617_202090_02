@@ -31,8 +31,7 @@ $(()=>{
 
     .on("click", ".error-button", function(){
         $("#login-error-msg").removeClass("active");
-        $("#signin-email").val("");
-        $("#signin-password").val("");
+
     })
     .on("click", ".error-button.empty", function(){
         $("#login-error-msg-empty").removeClass("active");
