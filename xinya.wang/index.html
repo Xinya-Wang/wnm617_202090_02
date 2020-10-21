@@ -126,7 +126,7 @@
                 <input type="search" data-role="none" placeholder="Search Here">
                 <i class="icon-search"> </i>
             </div>
-            <a href="#select-journal-photo">
+            <a href="#add-new-journal">
                 <div class="nav-icon add-location"><img src="img/iconAdd.svg"></div>
             </a>
         </div>
@@ -150,7 +150,7 @@
         <div data-role="main">
             <div class="list-select-holder display-flex flex-align-center">
                 <div id="list-search" class="search">
-                    <input type="text" data-role="none" placeholder="Search">
+                    <input type="search" data-role="none" placeholder="Search">
                     <i class="icon-search"> </i>
                 </div>
                 <div class="list-select-button display-flex flex-strech flex-justify-end">
@@ -236,7 +236,7 @@
         <div data-role="main">
             <div class="list-select-holder display-flex flex-align-center">
                 <div id="list-search" class="search">
-                    <input type="text" data-role="none" placeholder="Search">
+                    <input type="search" data-role="none" placeholder="Search">
                     <i class="icon-search"> </i>
                 </div>
                 <div class="list-select-button display-flex flex-strech flex-justify-end flex-align-center">
@@ -417,38 +417,26 @@
                 </div>
                 <h2>Monica Wells</h2>
             </div>
-            <div class="profile-others">
-                <div class="profile-others-menu">
-                    <ul class="display-flex flex-align-center">
-                        <li class="display-flex flex-strech flex-justify-center active">
-                            <a href="#" class="flex-strech">
-                                <!-- <div class="nav-icon"><img src="img/iconCreate.png" alt="Recent page icon"></div> -->
-                                <div class="nav-label"><h1>5</h1></div>
-                                <div class="nav-label">Your tracked type</div>
-                            </a>
-                        </li>
-                        <li class="flex-strech">
-                            <a href="#" class="flex-strech">
-                                <!-- <div class="nav-icon"><img src="img/iconCreate.png" alt="Recent page icon"></div> -->
-                                <!-- <div class="nav-label">Created</div> -->
-                                <div class="nav-label"><h1>2</h1></div>
-                                <div class="nav-label">Your Created type</div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="overscroll">
-                    <div class="grid-container">
-                    <div class="grid-item"><a href="#animal-profile-page"><img src="img/animal/mule-deer.jpg" alt="mule-deer"></a></div>
-                    <div class="grid-item"><a href="#"><img src="img/animal/rabbit.jpg" alt="mule-deer"></a></div>  
-                    <div class="grid-item"><a href="#"><img src="img/animal/animal3.jpg" alt="mule-deer"></a></div>
-                    <div class="grid-item"><a href="#"><img src="img/animal/animal4.jpg" alt="mule-deer"></a></div>
-                    <div class="grid-item"><a href="#"><img src="img/animal/animal5.jpg" alt="mule-deer"></a></div>
-                </div>
-                    
-                </div>
-                
-            </div>   
+            <div class="profile-others display-flex flex-align-center flex-justify-around">
+                <div class="profile-item display-flex flex-column flex-justify-center">
+                    <div class="item-content flex-strech"><h4>Mule deer</h4></div>
+                    <div class="item-title"><p>Most Tracked</p></div>
+                </div> 
+                <div class="profile-item display-flex flex-column flex-justify-center">
+                    <div class="item-content flex-strech"><h3>23</h3></div>
+                    <div class="item-title"><p>Track days</p></div>
+                </div> 
+            </div>
+            <div class="profile-others display-flex flex-align-center flex-justify-around">
+                <div class="profile-item display-flex flex-column flex-justify-center">
+                    <div class="item-content flex-strech"><h3>50</h3></div>
+                    <div class="item-title"><p>Photos Sum</p></div>
+                </div> 
+                <div class="profile-item display-flex flex-column flex-justify-center">
+                    <div class="item-content flex-strech"><h3>42</h3></div>
+                    <div class="item-title"><p>Journal Sum</p></div>
+                </div> 
+            </div>      
         </div>
         <footer data-role="footer" data-template="#footer-template"></footer>
     </section>
@@ -571,8 +559,8 @@
             <div class="animal-banner">
                 <div class="animal-banner-intro">
                     <h2>Mule deer</h2>
-                    <p>Mammals</p>
-                    <p class="details">Mule deer (Odocoileus hemionus) are very common throughout western North America, and are one of the most commonly seen animals in Grand Canyon National Park.</p>
+                    <!-- <p>Color: Brown</p> -->
+                    <p class="details">They have a white rump patch and a small white tail with a black tip.</p>
                 </div>
             </div>
             <div class="profile-others">
@@ -641,12 +629,16 @@
                     <input id="animal-profile-name" type="text" class="form-input" data-role="none" placeholder="Mule Deer">
                 </div>
                 <div class="settings-form-control display-flex flex-align-center">
-                    <label for="animal-profile-class" class="form-label">Class</label>
-                    <input id="animal-profile-class" type="text" class="form-input" data-role="none" placeholder="Mammal">
+                    <label for="animal-profile-class" class="form-label">Color</label>
+                    <input id="animal-profile-class" type="text" class="form-input" data-role="none" placeholder="Brown">
                 </div>
-                <div class="settings-form-control display-flex">
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="animal-profile-class" class="form-label">Characteristic</label>
+                    <input id="animal-profile-class" type="text" class="form-input" data-role="none" placeholder="Larger ears">
+                </div>
+                <div class="settings-form-control display-flex flex-column">
                     <label for="animal-profile-bio" class="form-label">Bio</label>
-                    <textarea id="animal-profile-bio" style="overflow: visible">Mule deer (Odocoileus hemionus) are very common throughout western North America, and are one of the most commonly seen animals in Grand Canyon National Park.</textarea>
+                    <textarea id="animal-profile-bio" style="overflow: visible">They have a white rump patch and a small white tail with a black tip.</textarea>
                 </div>
             </form>
         </div>
@@ -833,40 +825,12 @@
     
 
 
-
-    <!-- Add a new Animal record -->
-    <section data-role="page" id="select-journal-photo">
-        <header data-role="header">
-            <ul class="display-flex">
-                <li><a href="#" data-rel="back">Cancel</a></li>
-                <li class="flex-strech"></li>
-                <li><a href="#add-new-animal-edit" class="call-to-action-button">Next</a></li>
-            </ul>
-        </header>
-        <div data-role="main">
-            <!-- <div class="body"></div> -->
-            <div class="grid-container">
-                <div class="grid-item"><a href="#"><img src="img/animal/mule-deer.jpg" alt="mule-deer"></a></div>
-                <div class="grid-item"><a href="#"><img src="img/animal/deer6.jpg" alt="mule-deer"></a></div>
-                <div class="grid-item"><a href="#"><img src="img/animal/mule-deer2.jpg" alt="mule-deer"></a></div>
-                <div class="grid-item"><a href="#"><img src="img/animal/deer3.jpg" alt="mule-deer"></a></div>
-                <div class="grid-item"><a href="#"><img src="img/animal/deer4.jpg" alt="mule-deer"></a></div>    
-            </div>
-        </div>
-        <footer data-role="footer">
-            <ul>
-                <li><a href="#">Library</a></li>
-                <li><a href="#" style="color: var(--color-neutral-light)">Photo</a></li>
-            </ul>
-        </footer>
-    </section>
-
     <!-- Animal journal Edit page -->
-    <section data-role="page" id="add-new-animal-edit">
+    <section data-role="page" id="add-new-journal">
         <header data-role="header">
             <h1>New Journal</h1>
             <ul>
-                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
+                <li><a href="#" data-rel="back"><!-- <img class="nav-in-header" src="img/iconBack.svg" alt="back icon"> --> Cancel</a></li>
                 <li class="flex-strech"></li>
                 <li><a href="#select-animal-page" class="call-to-action-button">Next</a></li>
             </ul>
@@ -881,7 +845,6 @@
                 </form>
             </div>
             <div class="animal-edit-photo display-flex flex-align-center">
-               <a href="#"><div class="add-photo-item"><img src="img/animal/mule-deer.jpg"></div></a>
                <a href="#"><div class="add-photo-item add"><img src="img/iconAdd.svg"></div></a>
             </div>
         </div>
@@ -892,7 +855,7 @@
         <header data-role="header">
             <h1>Select Animal Type</h1>
             <ul>
-                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconClose.svg" alt="close icon"></a></li>
+                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
                 <li class="flex-strech"></li>
                 <li><a href="#recent-page" class="call-to-action-button">Done</a></li>
             </ul>
@@ -976,7 +939,7 @@
                 </ul>
            </div>
            </div>
-           <div class="select-alphabet">
+           <!-- <div class="select-alphabet">
                <ul class="display-flex flex-column flex-align-center">
                    <li><a href="#">A</a></li>
                    <li><a href="#">B</a></li>
@@ -1005,7 +968,7 @@
                    <li><a href="#">Y</a></li>
                    <li><a href="#">Z</a></li>
                </ul>
-           </div>
+           </div> -->
         </div>
         <footer data-role="footer">
             <div class="btn display-flex flex-align-center"><a href="#edit-new-profile">

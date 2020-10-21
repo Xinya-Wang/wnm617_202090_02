@@ -227,22 +227,28 @@ ul{
 }
 
 .settings-form-control .form-input{
-     background-color: rgba(0,0,0,0);
-     font-size: 0.8em;
+    background-color: rgba(0,0,0,0);
+    font-size: 0.8em;
+    width: 60%;
 }
 
 .settings-form-control .form-label{
-    width: 27vw;
+    width: 35%;
     color: var(--color-black);
 }
 
 .settings-form-control textarea{
-    padding-left: 1em;
+    /*padding-left: 1em;*/
     border:0;
     color: var(--color-neutral-mediumer);
     font-family: var(--font-regular);
     font-size: 0.8em;
 }
+
+.settings-form-control textarea.ui-input-text{
+    padding: 0;
+}
+
 
 #account-form{
     margin: 0;
@@ -324,6 +330,7 @@ ul{
     outline: 0;
     font-size: 0.8em;
     padding-left: 3em;
+    padding-right: 1em;
     /*text-align: center;*/
 }
 
@@ -936,6 +943,7 @@ ul{
 
 .profile-body{
     text-align: center;
+    margin-bottom: 2em;
 }
 
 #user-profile-page .profile-image{
@@ -970,13 +978,17 @@ ul{
     margin: 0.2em;
 }
 
+
+#user-profile-page .profile-others{
+     margin: 1em 0;
+}
+
 .profile-others{
     position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
     overflow: hidden;
-    margin: 0.5em 0;
-    padding: 0 0.5em;
+    padding: 0 1em;
     /*background-color: red;*/
 }
 
@@ -1003,6 +1015,39 @@ ul{
 }
 
 
+.profile-item{
+    position: relative;
+    width: 45%;
+    height: 25vw;
+    background-color: var(--color-neutral-lighter);
+    border-radius: 0.4em;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.item-content{
+    position: relative;
+    height: 60%;
+}
+
+.item-content h4,
+.item-content h3{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+}
+
+.item-title{
+    width: 100%;
+    height: 30%;
+    font-size: 0.8em;
+}
+
+
+
 
 
 /* Grid Container */
@@ -1022,8 +1067,6 @@ ul{
     height: auto;*/
     /*overflow: hidden;*/
 }
-
-
 
 
 
@@ -1341,7 +1384,7 @@ footer ul{
 }
 
 .select-animal-item li{
-    padding: 0.5em;
+    padding: 1em 1em 1em 0.5em;
     border-bottom: 1px solid var(--color-neutral-lighter);
 }
 .select-animal-item li:last-child{
