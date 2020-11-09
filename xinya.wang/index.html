@@ -10,8 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 
     <script src="lib/js/jquery-2.2.4.min.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/pages.js"></script>
+    <script src="js/parts.js"></script>
     <script src="js/signin.js"></script>
     <script src="js/app.js"></script>
+
     <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
@@ -160,61 +164,8 @@
             </div>
             
             <div class="overscroll">
-                <ul class="display-flex flex-justify-around">
-                    <li>
-                        <a href="#animal-profile-page">
-                            <figure>
-                                <img src="img/animal/mule-deer.png" alt="Mule deer">
-                            </figure>
-                            <figcaption>Mule Deer</figcaption>
-                            <p>Mammals</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#animal-profile-page">
-                            <figure>
-                                <img src="img/animal/aberts-squirrel.png" alt="Abert's squirrel">
-                            </figure>
-                            <figcaption>Abert's squirrel</figcaption>
-                            <p>Mammals</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#animal-profile-page">
-                            <figure>
-                                <img src="img/animal/mule-deer.png" alt="Mule deer">
-                            </figure>
-                            <figcaption>Mule Deer</figcaption>
-                            <p>Mammals</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#animal-profile-page">
-                            <figure>
-                                <img src="img/animal/aberts-squirrel.png" alt="Abert's squirrel">
-                            </figure>
-                            <figcaption>Abert's squirrel</figcaption>
-                            <p>Mammals</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#animal-profile-page">
-                            <figure>
-                                <img src="img/animal/mule-deer.png" alt="Mule deer">
-                            </figure>
-                            <figcaption>Mule Deer</figcaption>
-                            <p>Mammals</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#animal-profile-page">
-                            <figure>
-                                <img src="img/animal/aberts-squirrel.png" alt="Abert's squirrel">
-                            </figure>
-                            <figcaption>Abert's squirrel</figcaption>
-                            <p>Mammals</p>
-                        </a>
-                    </li>
+                <ul class="animallist display-flex flex-justify-around">
+                    
                 </ul>
             </div>
         </div>
@@ -629,8 +580,8 @@
                     <input id="animal-profile-name" type="text" class="form-input" data-role="none" placeholder="Mule Deer">
                 </div>
                 <div class="settings-form-control display-flex flex-align-center">
-                    <label for="animal-profile-class" class="form-label">Color</label>
-                    <input id="animal-profile-class" type="text" class="form-input" data-role="none" placeholder="Brown">
+                    <label for="animal-profile-color" class="form-label">Color</label>
+                    <input id="animal-profile-color" type="text" class="form-input" data-role="none" placeholder="Brown">
                 </div>
                 <div class="settings-form-control display-flex flex-align-center">
                     <label for="animal-profile-class" class="form-label">Characteristic</label>

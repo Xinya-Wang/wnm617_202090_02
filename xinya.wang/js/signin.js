@@ -8,11 +8,12 @@
 // 	},2000);
 // }
 
-const checkSigninForm = () =>{
+const checkSigninForm = async () =>{
 
 	let user  = $("#signin-email").val();
 	let pass  = $("#signin-password").val();
 
+	
 
 	if(user=="" || pass== ""){
 		// makeWarning("#warning-modal", "Type a Username and Password");
@@ -20,10 +21,16 @@ const checkSigninForm = () =>{
 		$("#login-error-msg-empty").addClass("active");
 	}
 
+	// let found_user = await query({
+	// 	type:'check_signin',
+	// 	parames:[user,pass]
+	// });
+
 	// console.log(user, pass);
-	if(user == 'user' && pass == 'pass'){
+	if(user== 'user' && pass == 'pass'){
 		// logged in
 		console.log('success');
+		// sessionStorage.userId = found_user.result[0].id;
 		sessionStorage.userId = 3;
 		$("#signin-form")[0].reset();
 
@@ -34,7 +41,6 @@ const checkSigninForm = () =>{
 
 		// DO SOMETHING HERE
 		$("#login-error-msg").addClass("active");
-		// makeWarning("#warning-modal", "Sign In Failed");
 	}
 
 	checkUserId();
