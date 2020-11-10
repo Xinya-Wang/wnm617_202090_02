@@ -28,16 +28,22 @@ $(()=>{
 
         e.preventDefault();
         checkSigninForm();
-
     })
+
 
     /* ANCHOR CLICKS */ 
 
     .on("click", ".js-logout", function(e){
-        // console.log("click");
         sessionStorage.removeItem('userId');
         checkUserId();
     })
+
+    .on("click",".js-animal-jump",function(e){
+        sessionStorage.animalId = $(this).data("id");
+        $.mobile.navigate("#animal-profile-page");
+    })
+
+
 
     .on("click", ".error-button", function(){
         $("#login-error-msg").removeClass("active");

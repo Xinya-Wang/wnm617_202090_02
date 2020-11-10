@@ -13,25 +13,24 @@ const checkSigninForm = async () =>{
 	let user  = $("#signin-email").val();
 	let pass  = $("#signin-password").val();
 
-	
 
 	if(user=="" || pass== ""){
-		// makeWarning("#warning-modal", "Type a Username and Password");
-		// return;
 		$("#login-error-msg-empty").addClass("active");
+		return;
 	}
 
-	// let found_user = await query({
-	// 	type:'check_signin',
-	// 	parames:[user,pass]
-	// });
 
-	// console.log(user, pass);
-	if(user== 'user' && pass == 'pass'){
+	let found_user = await query({
+      	type:'check_signin',
+      	params:[user,pass]
+    });
+	
+	// if(user== 'user' && pass == 'pass'){
+	if(found_user.result.length) {
 		// logged in
 		console.log('success');
-		// sessionStorage.userId = found_user.result[0].id;
-		sessionStorage.userId = 3;
+		sessionStorage.userId = found_user.result[0].id;
+		// sessionStorage.userId = 3;
 		$("#signin-form")[0].reset();
 
 	}else{
@@ -41,6 +40,8 @@ const checkSigninForm = async () =>{
 
 		// DO SOMETHING HERE
 		$("#login-error-msg").addClass("active");
+		// console.log(user, pass);
+		console.log(found_user.result.length);
 	}
 
 	checkUserId();

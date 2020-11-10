@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 
     <script src="lib/js/jquery-2.2.4.min.js"></script>
+
     <script src="js/functions.js"></script>
     <script src="js/pages.js"></script>
     <script src="js/parts.js"></script>
@@ -165,7 +166,6 @@
             
             <div class="overscroll">
                 <ul class="animallist display-flex flex-justify-around">
-                    
                 </ul>
             </div>
         </div>
@@ -362,32 +362,7 @@
             </ul>
         </header>
         <div data-role="main">
-            <div class="profile-body">
-                <div class="profile-image">
-                    <img src="img/profile-photo-user.png" alt="User Profile Photo">
-                </div>
-                <h2>Monica Wells</h2>
-            </div>
-            <div class="profile-others display-flex flex-align-center flex-justify-around">
-                <div class="profile-item display-flex flex-column flex-justify-center">
-                    <div class="item-content flex-strech"><h4>Mule deer</h4></div>
-                    <div class="item-title"><p>Most Tracked</p></div>
-                </div> 
-                <div class="profile-item display-flex flex-column flex-justify-center">
-                    <div class="item-content flex-strech"><h3>23</h3></div>
-                    <div class="item-title"><p>Track days</p></div>
-                </div> 
-            </div>
-            <div class="profile-others display-flex flex-align-center flex-justify-around">
-                <div class="profile-item display-flex flex-column flex-justify-center">
-                    <div class="item-content flex-strech"><h3>50</h3></div>
-                    <div class="item-title"><p>Photos Sum</p></div>
-                </div> 
-                <div class="profile-item display-flex flex-column flex-justify-center">
-                    <div class="item-content flex-strech"><h3>42</h3></div>
-                    <div class="item-title"><p>Journal Sum</p></div>
-                </div> 
-            </div>      
+            <div class="user-profile"></div>
         </div>
         <footer data-role="footer" data-template="#footer-template"></footer>
     </section>
@@ -507,13 +482,7 @@
                     <li data-toggle="#animal-edit-select-modal"><img class="nav-in-header" src="img/iconSelect.svg" alt="Menu icon"></li>
                 </ul>
             </div>
-            <div class="animal-banner">
-                <div class="animal-banner-intro">
-                    <h2>Mule deer</h2>
-                    <!-- <p>Color: Brown</p> -->
-                    <p class="details">They have a white rump patch and a small white tail with a black tip.</p>
-                </div>
-            </div>
+            <div class="animal-banner"></div>
             <div class="profile-others">
                 <div class="profile-others-menu">
                     <ul class="display-flex flex-align-center">
@@ -577,15 +546,11 @@
             <form id="animal-profile-form" class="settings-form-container" data-ajax="false">
                 <div class="settings-form-control display-flex flex-align-center">
                     <label for="animal-profile-name" class="form-label">Name</label>
-                    <input id="animal-profile-name" type="text" class="form-input" data-role="none" placeholder="Mule Deer">
+                    <input id="animal-profile-name" type="text" class="form-input" data-role="none" placeholder="Deer">
                 </div>
                 <div class="settings-form-control display-flex flex-align-center">
                     <label for="animal-profile-color" class="form-label">Color</label>
                     <input id="animal-profile-color" type="text" class="form-input" data-role="none" placeholder="Brown">
-                </div>
-                <div class="settings-form-control display-flex flex-align-center">
-                    <label for="animal-profile-class" class="form-label">Characteristic</label>
-                    <input id="animal-profile-class" type="text" class="form-input" data-role="none" placeholder="Larger ears">
                 </div>
                 <div class="settings-form-control display-flex flex-column">
                     <label for="animal-profile-bio" class="form-label">Bio</label>
@@ -714,8 +679,8 @@
                     <input id="new-profile-name" type="text" class="form-input" data-role="none" placeholder="Type your animal name">
                 </div>
                 <div class="settings-form-control display-flex flex-align-center">
-                    <label for="new-profile-class" class="form-label">Class</label>
-                    <input id="new-profile-class" type="text" class="form-input" data-role="none" placeholder="Choice the class type">
+                    <label for="new-profile-color" class="form-label">Color</label>
+                    <input id="new-profile-color" type="text" class="form-input" data-role="none" placeholder="Type your animal color">
                 </div>
                 <div class="settings-form-control display-flex">
                     <label for="new-profile-bio" class="form-label">Bio</label>
@@ -819,19 +784,19 @@
                     <li>
                         <div class="select-list-item display-flex flex-align-center">
                             <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer</p>
+                            <p>Mule deer &#183; Brown</p>
                         </div>
                     </li>
                     <li>
                         <div class="select-list-item display-flex flex-align-center">
                             <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer</p>
+                            <p>Mule deer &#183; Brown</p>
                         </div>
                     </li>
                     <li>
                         <div class="select-list-item display-flex flex-align-center">
                             <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer</p>
+                            <p>Mule deer &#183; Brown</p>
                         </div>
                     </li>
                 </ul>
@@ -842,49 +807,49 @@
                     <li>
                         <div class="select-list-item display-flex flex-align-center">
                             <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer</p>
+                            <p>Deer &#183; Brown</p>
                         </div>
                     </li>
                     <li>
                         <div class="select-list-item display-flex flex-align-center">
                             <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer</p>
+                            <p>Deer &#183; Brown</p>
                         </div>
                     </li>
                     <li>
                         <div class="select-list-item display-flex flex-align-center">
                             <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer</p>
+                            <p>Deer &#183; Brown</p>
                         </div>
                     </li>
                     <li>
                         <div class="select-list-item display-flex flex-align-center">
                             <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer</p>
+                            <p>Deer &#183; Brown</p>
                         </div>
                     </li>
                     <li>
                         <div class="select-list-item display-flex flex-align-center">
                             <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer</p>
+                            <p>Deer &#183; Brown</p>
                         </div>
                     </li>
                     <li>
                         <div class="select-list-item display-flex flex-align-center">
                             <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer</p>
+                            <p>Deer &#183; Brown</p>
                         </div>
                     </li>
                     <li>
                         <div class="select-list-item display-flex flex-align-center">
                             <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer</p>
+                            <p>Deer &#183; Brown</p>
                         </div>
                     </li>
                     <li>
                         <div class="select-list-item display-flex flex-align-center">
                             <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer</p>
+                            <p>Deer &#183; Brown</p>
                         </div>
                     </li>
                 </ul>

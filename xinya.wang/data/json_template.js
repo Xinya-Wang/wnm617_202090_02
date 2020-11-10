@@ -95,20 +95,20 @@
 
 //my animal
 [
-  '{{repeat(10)}}',
+  '{{repeat(50)}}',
   {
     id: '{{index(1)}}',
     user_id: '{{integer(1,10)}}',
     
-    name: '{{random("deer","rabbit","eagle","squirrel","crow","lizard")}}',
+    name: '{{random("Deer","Rabbit","Eagle","Squirrel","Crow","Lizard")}}',
     classtype: function(tags) {
       var breeds = {
-        "deer":"mammals",
-        "rabbit":"mammals",
-        "eagle":"birds",
-        "squirrel":"mammals",
-        "crow":"birds",
-        "lizard":"reptiles"
+        "Deer":"Mammals",
+        "Rabbit":"Mammals",
+        "Eagle":"Birds",
+        "Squirrel":"Mammals",
+        "Crow":"Birds",
+        "Lizard":"Reptiles"
       };
       var chosen_type = breeds[this.name];
       return chosen_type;  
@@ -126,7 +126,6 @@
    
   }
 ]
-
 
 //Location template
 [

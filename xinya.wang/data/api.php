@@ -76,13 +76,18 @@ function makeStatement($data){
         case 'locations_by_animal_id':
             return makeQuery($c, "SELECT * FROM track_locations WHERE animal_id = ?",$p);
         
-      
+   
+        case "check_signin":
+            return makeQuery($c,"SELECT * FROM track_users WHERE username = ? AND password = md5(?)",$p);
+
         default: return ["error"=>"No Matched type"];
-            break;
-    }
+   }
 }
 
+
+
 $data = json_decode(file_get_contents("php://input"));
+
 
 echo json_encode(
     makeStatement($data),
