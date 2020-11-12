@@ -19,7 +19,7 @@ const makeAnimalList = templater((o) =>`
 
 const makeAnimalList = templater(o =>`
     <li>
-        <div href="#animal-profile-page js-animal-jump" data-id="${o.id}">
+        <div class="js-animal-jump" data-id="${o.id}">
             <figure>
                 <img src="${o.img}" alt="Deer">
             </figure>

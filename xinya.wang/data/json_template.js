@@ -38,7 +38,7 @@
     email: function(){
       return this.username + '@gmail.com';
     },
-    password: 'md5(pass)',
+    password: md5("pass"),
     
     bio: '{{lorem(1, "sentences")}}',
     

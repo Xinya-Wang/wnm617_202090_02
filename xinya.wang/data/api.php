@@ -58,27 +58,42 @@ function makeStatement($data){
     //tell bank-end, what type of query, we want to make
     switch ($t) {
         case 'users_all':
-            return makeQuery($c, "SELECT * FROM track_users",[]);
+            return makeQuery($c, "SELECT * FROM `track_users`",[]);
         case 'animals_all':
-            return makeQuery($c, "SELECT * FROM track_animals",[]);
+            return makeQuery($c, "SELECT * FROM `track_animals`",[]);
         case 'locations_all':
-            return makeQuery($c, "SELECT * FROM track_locations",[]);
+            return makeQuery($c, "SELECT * FROM `track_locations`",[]);
 
         case 'user_by_id':
-            return makeQuery($c, "SELECT * FROM track_users WHERE id = ?",$p);
+            return makeQuery($c, "SELECT * FROM `track_users` WHERE `id` = ?",$p);
         case 'animal_by_id':
-            return makeQuery($c, "SELECT * FROM track_animals WHERE id = ?",$p);
+            return makeQuery($c, "SELECT * FROM `track_animals` WHERE `id` = ?",$p);
         case 'location_by_id':
-            return makeQuery($c, "SELECT * FROM track_locations WHERE id = ?",$p);
+            return makeQuery($c, "SELECT * FROM `track_locations` WHERE `id` = ?",$p);
 
         case 'animals_by_user_id':
-            return makeQuery($c, "SELECT * FROM track_animals WHERE user_id = ?",$p);
+            return makeQuery($c, "SELECT * FROM `track_animals` WHERE `user_id` = ?",$p);
         case 'locations_by_animal_id':
-            return makeQuery($c, "SELECT * FROM track_locations WHERE animal_id = ?",$p);
-        
+            return makeQuery($c, "SELECT * FROM `track_locations` WHERE `animal_id` = ?",$p);
+
+        // case 'latest_each_animal_location_by_date_created':
+        //     return makeQuery($c, "SELECT * FROM track_locations WHERE id in(select SUBSTRING_INDEX(group_concat(id order by 'date_create' desc),',',1) from 'track_locations' group by animal_id) order by 'date_create' desc",$p);
+
+        case "recent_locations":
+            return makeQuery($c,"SELECT * FROM
+                `track_animals` a
+            LEFT JOIN (
+                SELECT * FROM `track_locations`
+                ORDER BY `date_create` DESC
+            ) l
+            ON a.id = l.animal_id
+            WHERE user_id = ?
+            GROUP BY l.animal_id
+            ",$p);
+            
    
         case "check_signin":
-            return makeQuery($c,"SELECT * FROM track_users WHERE username = ? AND password = md5(?)",$p);
+            return makeQuery($c,"SELECT * FROM `track_users` WHERE `username` = ? AND `password` = md5(?)",$p);
 
         default: return ["error"=>"No Matched type"];
    }
