@@ -75,9 +75,7 @@ function makeStatement($data){
             return makeQuery($c, "SELECT * FROM `track_animals` WHERE `user_id` = ?",$p);
         case 'locations_by_animal_id':
             return makeQuery($c, "SELECT * FROM `track_locations` WHERE `animal_id` = ?",$p);
-
-        // case 'latest_each_animal_location_by_date_created':
-        //     return makeQuery($c, "SELECT * FROM track_locations WHERE id in(select SUBSTRING_INDEX(group_concat(id order by 'date_create' desc),',',1) from 'track_locations' group by animal_id) order by 'date_create' desc",$p);
+            
 
         case "recent_locations":
             return makeQuery($c,"SELECT * FROM
@@ -90,7 +88,7 @@ function makeStatement($data){
             WHERE user_id = ?
             GROUP BY l.animal_id
             ",$p);
-            
+
    
         case "check_signin":
             return makeQuery($c,"SELECT * FROM `track_users` WHERE `username` = ? AND `password` = md5(?)",$p);

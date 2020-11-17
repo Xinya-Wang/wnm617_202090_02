@@ -38,7 +38,7 @@
     email: function(){
       return this.username + '@gmail.com';
     },
-    password: md5("pass"),
+    password: 'md5(pass)',
     
     bio: '{{lorem(1, "sentences")}}',
     
@@ -134,8 +134,8 @@
     id: '{{index(1)}}',
     animal_id: '{{integer(1,50)}}',
 
-    lat: '{{floating(37.59531, 37.720934)}}',
-    lng: '{{floating(-122.5599, -122.545283)}}',
+    lat: '{{floating(36.058103, 36.059899)}}',
+    lng: '{{floating(-112.083894, -112.148016)}}',
     
     
     description: '{{lorem(3,"sentences")}}',

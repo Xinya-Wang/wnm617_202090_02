@@ -165,8 +165,11 @@
             </div>
             
             <div class="overscroll">
-                <ul class="animallist display-flex flex-justify-around">
-                </ul>
+                <div class="animallist animal-grid-container">
+                    
+                </div>
+               <!--  <ul class="animallist display-flex flex-justify-around">
+                </ul> -->
             </div>
         </div>
 
@@ -473,7 +476,7 @@
 
     <!-- Animal profile Page -->
     <section data-role="page" id="animal-profile-page">
-        <div data-role="main">
+        <div data-role="main" class="display-flex flex-column">
             <div class="animal-profile-header">
                 <ul class="display-flex">
                     <li class="flex-strech"><a href="#" data-rel="back">
@@ -483,31 +486,26 @@
                 </ul>
             </div>
             <div class="animal-banner"></div>
-            <div class="profile-others">
+            <div class="profile-others display-flex flex-column">
                 <div class="profile-others-menu">
                     <ul class="display-flex flex-align-center">
                         <li class="display-flex flex-strech flex-justify-center active">
                             <a href="#" class="flex-strech">
-                                <!-- <div class="nav-icon"><img src="img/iconRecent1.svg" alt="Recent page icon"></div> -->
                                 <div class="nav-label">Journal</div>
                             </a>
                         </li>
                         <li class="display-flex flex-strech flex-justify-center">
                             <a href="#" class="flex-strech">
-                                <!-- <div class="nav-icon"><img src="img/iconRecent1.svg" alt="Recent page icon"></div> -->
                                 <div class="nav-label">Map</div>
                             </a>
                         </li class="display-flex flex-strech flex-justify-center">
-                        <li class="flex-strech">
-                            <a href="#" class="flex-strech">
-                                <!-- <div class="nav-icon"><img src="img/iconRecent1.svg" alt="Recent page icon"></div> -->
-                                <div class="nav-label">Overview</div>
-                            </a>
-                        </li>
                     </ul>
                 </div>
-                <div class="">
-                    <!-- <a href="#"><div class="animal-profile-map"></div></a> -->
+                <div class="profile-others-content">
+                    <div class="map"></div>
+                </div>
+                
+                <!-- <div class="">
                     <div class="grid-container">
                         <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/mule-deer2.jpg" alt="mule-deer"></a></div>
                         <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/deer3.jpg" alt="mule-deer"></a></div>
@@ -515,7 +513,7 @@
                         <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/mule-deer.jpg" alt="mule-deer"></a></div>
                         <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/deer6.jpg" alt="mule-deer"></a></div>
                     </div>
-                </div>
+                </div> -->
             </div>   
         </div>
         <div class="modal" id="animal-edit-select-modal">
@@ -647,7 +645,7 @@
                     <input id="animal-profile-new-name" type="text" class="form-input" data-role="none" placeholder="Type your animal name">
                 </div>
                 <div class="settings-form-control display-flex flex-align-center">
-                    <label for="animal-profile-new-class" class="form-label">Class</label>
+                    <label for="animal-profile-new-class" class="form-label">Color</label>
                     <input id="animal-profile-new-class" type="text" class="form-input" data-role="none" placeholder="Type your animal class">
                 </div>
                 <div class="settings-form-control display-flex">

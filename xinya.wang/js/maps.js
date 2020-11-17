@@ -1,16 +1,16 @@
 
-
-const makeMap = async (target, center={lat: 37.786206, lng: -122.399341}) => {
+const makeMap = async (target, center={lat: 36.059043, lng: -112.109306}) => {
    await checkData(()=>window.google);
 
    let map_el = $(target);
 
+   //the map element has a data object that refers to the Google Map object- m10-01:43:22
    if(!map_el.data('map'))
       map_el.data(
          "map",
          new google.maps.Map(map_el[0], {
             center: center,
-            zoom: 12,
+            zoom: 14,
             disableDefaultUI: true
          })
       );
@@ -45,3 +45,11 @@ const makeMarkers = (map_el, map_locs) => {
 
    map_el.data("markers",markers);
 }
+
+
+
+
+
+
+
+

@@ -56,13 +56,25 @@ const UserProfilePage = async() => {
 
 const AnimalProfilePage = async() => {
 
-    let d = await query({ 
+    query({ 
         type:'animal_by_id', 
         params:[sessionStorage.animalId] 
-    });
-    console.log(d);
+    }).then(d=>{
+        console.log(d);
 
-    $("#animal-profile-page .animal-banner").html(makeAnimalProfile(d.result));
+        $("#animal-profile-page .animal-banner").html(makeAnimalProfile(d.result));
+    });
+
+
+    query({ 
+        type:'locations_by_animal_id', 
+        params:[sessionStorage.animalId] 
+    }).then(d=>{
+        makeMap("#animal-profile-page .map").then(map_el=>{
+            makeMarkers(map_el,d.result);
+        })
+    });
+    
 }
 
 

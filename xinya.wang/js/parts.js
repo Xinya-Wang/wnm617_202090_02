@@ -17,7 +17,7 @@ const makeAnimalList = templater((o) =>`
 `);
 */
 
-const makeAnimalList = templater(o =>`
+/*const makeAnimalList = templater(o =>`
     <li>
         <div class="js-animal-jump" data-id="${o.id}">
             <figure>
@@ -27,8 +27,21 @@ const makeAnimalList = templater(o =>`
             <p>${o.color}</p>
         </div>
     </li>
-`);
+`);*/
 
+
+
+const makeAnimalList = templater(o =>`
+    
+        <div class="js-animal-jump grid-item" data-id="${o.id}">
+            <figure>
+                <img src="${o.img}" alt="Deer">
+            </figure>
+            <figcaption>${o.name}</figcaption>
+            <p>${o.color}</p>
+        </div>
+    
+`);
 
 const makeUserProfile = templater(o =>`
     <div class="profile-body">
