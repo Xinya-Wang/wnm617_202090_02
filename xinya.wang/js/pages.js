@@ -8,7 +8,7 @@ const RecentPage = async() => {
     });
 
     console.log(d);
-
+    
     let valid_animals = d.result.reduce((r,o)=>{
         o.icon = o.img;
         if(o.lat && o.lng) r.push(o);
@@ -20,6 +20,35 @@ const RecentPage = async() => {
     //console.log(map_el.data('map'))
 
     makeMarkers(map_el,valid_animals);
+    //for some animal no locaitons, if https it will show users current locations 
+    // makeMarkers(map_el,[]);   
+
+    //o- current object, i -current index
+    map_el.data("markers").forEach((o,i)=>{
+        o.addListener("click",function(){
+            // console.log("honk");
+
+            /*
+            //Simple Example
+            sessionStorage.animalId = valid_animals[i].animal_id;
+            $.mobile.navigate("#animal-profile-page");
+            */
+
+            
+            //Infowindow example
+            map_el.data("infoWindow")
+                .open(map_el.data("map"),o);
+            map_el.data("infoWindow")
+                .setContent(makeAnimalPopup(valid_animals[i]));
+            
+
+
+            //Activate example
+            // $("#recent-animal-modal").addClass("active");
+            // $("#recent-animal-modal .modal-body")
+            //     .html(makeAnimalPopup(valid_animals[i]));
+        })
+    })
 }
 
 

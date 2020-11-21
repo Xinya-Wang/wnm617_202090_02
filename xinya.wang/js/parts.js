@@ -84,4 +84,84 @@ const makeAnimalProfile = templater(o =>`
         </div>
 `);
 
+const makeAnimalPopup = o =>`
+    
+    <div class="display-flex flex-column flex-align-center">
+        <img src="${o.img}" alt="Animal Profile Photo" style="width:100px; height:100px;">
+        <h4>${o.name} &#183; </h2>
+        <h6>${o.color}</h4>
+    </div>
+
+    <div>
+    <a href="#" class="form-button js-animal-jump" data-id="${o.aniaml_id}"
+    </div>
+        
+`;
+
+const FormControl = ({namespace, name, displayname, type, placeholder, value}) => {
+
+}
+
+
+const makeAnimalProfileUpdateForm = o => `
+${FormControl({
+    namespace:"animal-edit",
+    name:"name",
+    displayname:"Name",
+    type:"text",
+    placeholder:"Type Animal Name",
+    value: o.name
+})}
+
+${FormControl({
+    namespace:"animal-edit",
+    name:"type",
+    displayname:"Type",
+    type:"text",
+    placeholder:"Choose An Animal Type",
+    value: o.type
+})}
+
+${FormControl({
+    namespace:"animal-edit",
+    name:"color",
+    displayname:"Color",
+    type:"text",
+    placeholder:"Choose An Animal Color",
+    value: o.color
+})}
+
+`;
+
+
+const makeUserProfileUpdateForm = o => `
+${FormControl({
+    namespace:"user-edit",
+    name:"username",
+    displayname:"Username",
+    type:"text",
+    placeholder:"Type your Username",
+    value: o.name
+})}
+
+${FormControl({
+    namespace:"user-edit",
+    name:"name",
+    displayname:"Full name",
+    type:"text",
+    placeholder:"Type Yout Full name",
+    value: o.type
+})}
+
+${FormControl({
+    namespace:"user-edit",
+    name:"email",
+    displayname:"Email",
+    type:"text",
+    placeholder:"Type Yout Email",
+    value: o.color
+})}
+
+`;
+
    
