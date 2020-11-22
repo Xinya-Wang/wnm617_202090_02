@@ -30,7 +30,6 @@ const makeAnimalList = templater((o) =>`
 `);*/
 
 
-
 const makeAnimalList = templater(o =>`
     
         <div class="js-animal-jump grid-item" data-id="${o.id}">
@@ -84,22 +83,42 @@ const makeAnimalProfile = templater(o =>`
         </div>
 `);
 
-const makeAnimalPopup = o =>`
-    
-    <div class="display-flex flex-column flex-align-center">
-        <img src="${o.img}" alt="Animal Profile Photo" style="width:100px; height:100px;">
-        <h4>${o.name} &#183; </h2>
-        <h6>${o.color}</h4>
-    </div>
+//templater is really specifically for an array of objects. so only one we can remove it
 
-    <div>
-    <a href="#" class="form-button js-animal-jump" data-id="${o.aniaml_id}"
+    // <div class="display-flex flex-column flex-align-center">
+    //     <img src="${o.img}" alt="Animal Profile Photo" style="width:100px; height:100px;">
+    //     <h4>${o.name} &#183; </h2>
+    //     <h6>${o.color}</h4>
+    // </div>
+const makeAnimalPopup = o =>`
+    <div class="journal-list-item display-flex">
+        <div class="journal-data">
+            <h1>18</h1>
+            <h4>Oct</h4>
+        </div>
+        <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
+            <img src="${o.img}" alt="Animal Photo">
+        </div>
+        <div class="journal-content display-flex flex-column">
+            <p class="journal-text flex-strech">${o.name}</p>
+            <div class="animal-journal-location display-flex">
+                <img src="${o.img}">
+                <p>${o.color}</p>
+            </div>
+        </div>
+        <div>
+            <a href="#" class="form-button js-animal-jump" data-id="${o.animal_id}">Visit</a> 
+        </div>
     </div>
-        
 `;
 
 const FormControl = ({namespace, name, displayname, type, placeholder, value}) => {
-
+    return `
+    <div class="settings-form-control display-flex flex-align-center">
+        <label for="${namespace}-${name}" class="form-label">${displayname}</label>
+        <input id="${namespace}-${name}" type="${type}" class="form-input" data-role="none" placeholder="${placeholder}" value="${value}">
+    </div> 
+    `
 }
 
 
@@ -115,42 +134,44 @@ ${FormControl({
 
 ${FormControl({
     namespace:"animal-edit",
-    name:"type",
-    displayname:"Type",
-    type:"text",
-    placeholder:"Choose An Animal Type",
-    value: o.type
-})}
-
-${FormControl({
-    namespace:"animal-edit",
     name:"color",
     displayname:"Color",
     type:"text",
-    placeholder:"Choose An Animal Color",
+    placeholder:"Type Animal Color",
     value: o.color
 })}
 
+    <div class="settings-form-control display-flex flex-column">
+        <label for="animal-edit-bio" class="form-label">Bio</label>
+        <textarea id="animal-edit-bio" style="overflow: visible; margin-bottom:1em;">${o.description}</textarea>
+    </div> 
+
+`;
+
+
+const makeAnimalProfileUpdateImage = o => `
+    <img src="${o.img}" alt="Aniaml Image">
+    <a class="">Change Profile Banner Image</a>
 `;
 
 
 const makeUserProfileUpdateForm = o => `
 ${FormControl({
     namespace:"user-edit",
-    name:"username",
-    displayname:"Username",
+    name:"name",
+    displayname:"Name",
     type:"text",
-    placeholder:"Type your Username",
+    placeholder:"Type your Full Name",
     value: o.name
 })}
 
 ${FormControl({
     namespace:"user-edit",
-    name:"name",
-    displayname:"Full name",
+    name:"username",
+    displayname:"UserName",
     type:"text",
-    placeholder:"Type Yout Full name",
-    value: o.type
+    placeholder:"Type Yout User Name",
+    value: o.username
 })}
 
 ${FormControl({
@@ -158,10 +179,53 @@ ${FormControl({
     name:"email",
     displayname:"Email",
     type:"text",
-    placeholder:"Type Yout Email",
-    value: o.color
+    placeholder:"Type Your Email",
+    value: o.email
 })}
 
+
+${FormControl({
+    namespace:"user-edit",
+    name:"phone",
+    displayname:"Phone",
+    type:"tel",
+    placeholder:"+1 555-555-5555",
+    value: o.phone
+})}
+
+${FormControl({
+    namespace:"user-edit",
+    name:"gender",
+    displayname:"Gender",
+    type:"text",
+    placeholder:"Gender",
+    value: o.gender
+})}
+
+
+    <div class="settings-form-control display-flex flex-column">
+        <label for="user-edit-bio" class="form-label">Bio</label>
+        <textarea id="user-edit-bio" style="overflow: visible; margin-bottom:1em;">${o.bio}</textarea>
+    </div> 
+
 `;
+
+const makeUserProfileUpdateImage = o => `
+    <img src="${o.img}" alt="User Photo">
+    <a class="">Change Profile Photo</a>
+`;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    

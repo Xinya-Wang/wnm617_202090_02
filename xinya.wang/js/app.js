@@ -12,11 +12,14 @@ $(()=>{
 
         // Routing
         switch(ui.toPage[0].id) {
-            case 'recent-page':         RecentPage();           break;
-            case 'list-page':           ListPage();             break;
-            case 'journal-page':        JournalPage();          break;
-            case 'user-profile-page':   UserProfilePage();      break;
-            case 'animal-profile-page': AnimalProfilePage();    break;
+            case 'recent-page':             RecentPage();                   break;
+            case 'list-page':               ListPage();                     break;
+            case 'journal-page':            JournalPage();                  break;
+            case 'user-profile-page':       UserProfilePage();              break;
+            case 'profile-settings-page':   UserProfileEditPage();          break;
+            case 'animal-profile-page':     AnimalProfilePage();            break;
+            case 'animal-edit-profile':     AnimalProfileEditPage();        break;
+
         }
     })
 
@@ -42,6 +45,11 @@ $(()=>{
         sessionStorage.animalId = $(this).data("id");
         $.mobile.navigate("#animal-profile-page");
     })
+
+    // .on("click",".js-location-jump",function(e){
+    //     sessionStorage.LocationId = $(this).data("id");
+    //     $.mobile.navigate("#location-profile-page");
+    // })
 
 
 

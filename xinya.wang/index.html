@@ -129,6 +129,16 @@
                 </ul>
             </div>
         </div>
+
+        <div class="modal" id="recent-animal-modal">
+            <div class="modal-toast-bottom">
+                <div class="modal-close-floater top right">
+                    <div class="btn-circle" data-deactivate="#recent-animal-modal"><img src="img/iconClose.svg" alt="Close icon"></div>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+
         <div data-role="main">
             <div class="map"></div>
             <div id="recent-search" class="search">
@@ -401,32 +411,8 @@
             </ul>
         </header>
         <div data-role="main" class="display-flex flex-align-center flex-column">
-            <div class="profile-image display-flex flex-align-center flex-column">
-                <img src="img/profile-photo-user.png" alt="User Profile Photo">
-                <a class="">Change Profile Photo</a>
-            </div>
-            <form id="profile-form" class="settings-form-container" data-ajax="false">
-                <div class="settings-form-control display-flex flex-align-center">
-                    <label for="profile-name" class="form-label">Name</label>
-                    <input id="profile-name" type="text" class="form-input" data-role="none" placeholder="Monica Wells">
-                </div>
-                <div class="settings-form-control display-flex flex-align-center">
-                    <label for="profile-username" class="form-label">UserName</label>
-                    <input id="profile-username" type="text" class="form-input" data-role="none" placeholder="monicawells161">
-                </div>
-                <div class="settings-form-control display-flex flex-align-center">
-                    <label for="profile-bio" class="form-label">Bio</label>
-                    <input id="profile-bio" type="text" class="form-input" data-role="none" placeholder="Add a short bio">
-                </div>
-                <div class="settings-form-control display-flex flex-align-center">
-                    <label for="profile-phone" class="form-label">Phone</label>
-                    <input id="profile-phone" type="tel" class="form-input" data-role="none" placeholder="+1 555-555-5555">
-                </div>
-                <div class="settings-form-control display-flex flex-align-center">
-                    <label for="profile-gender" class="form-label">Gender</label>
-                    <input id="profile-gender" type="text" class="form-input" data-role="none" placeholder="Gender">
-                </div>
-            </form>
+            <div id="profile-photo" class="profile-image display-flex flex-align-center flex-column"></div>
+            <form id="profile-form" class="settings-form-container" data-ajax="false"></form>
         </div>
     </section>
 
@@ -537,26 +523,11 @@
             </ul>
         </header>
         <div data-role="main" class="display-flex flex-align-center flex-column">
-            <div class="animal-edit-banner-image display-flex flex-align-center flex-column">
-                <img src="img/animal/mule-deer.jpg" alt="">
-                <a class="">Change Profile Banner Image</a>
-            </div>
-            <form id="animal-profile-form" class="settings-form-container" data-ajax="false">
-                <div class="settings-form-control display-flex flex-align-center">
-                    <label for="animal-profile-name" class="form-label">Name</label>
-                    <input id="animal-profile-name" type="text" class="form-input" data-role="none" placeholder="Deer">
-                </div>
-                <div class="settings-form-control display-flex flex-align-center">
-                    <label for="animal-profile-color" class="form-label">Color</label>
-                    <input id="animal-profile-color" type="text" class="form-input" data-role="none" placeholder="Brown">
-                </div>
-                <div class="settings-form-control display-flex flex-column">
-                    <label for="animal-profile-bio" class="form-label">Bio</label>
-                    <textarea id="animal-profile-bio" style="overflow: visible">They have a white rump patch and a small white tail with a black tip.</textarea>
-                </div>
-            </form>
+            <div id="edit-profile-image" class="animal-edit-banner-image display-flex flex-align-center flex-column"></div>
+            <form id="animal-profile-form" class="settings-form-container" data-ajax="false"></form>
         </div>
     </section>
+
     <!-- Animal journal page -->
     <section data-role="page" id="animal-journal-page">
         <header data-role="header">

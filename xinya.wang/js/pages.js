@@ -25,6 +25,7 @@ const RecentPage = async() => {
 
     //o- current object, i -current index
     map_el.data("markers").forEach((o,i)=>{
+        //google map addlistener
         o.addListener("click",function(){
             // console.log("honk");
 
@@ -34,19 +35,19 @@ const RecentPage = async() => {
             $.mobile.navigate("#animal-profile-page");
             */
 
-            
+            /*
             //Infowindow example
             map_el.data("infoWindow")
                 .open(map_el.data("map"),o);
             map_el.data("infoWindow")
                 .setContent(makeAnimalPopup(valid_animals[i]));
+            */
             
 
-
             //Activate example
-            // $("#recent-animal-modal").addClass("active");
-            // $("#recent-animal-modal .modal-body")
-            //     .html(makeAnimalPopup(valid_animals[i]));
+            $("#recent-animal-modal").addClass("active");
+            $("#recent-animal-modal .modal-body")
+                .html(makeAnimalPopup(valid_animals[i]));
         })
     })
 }
@@ -74,13 +75,27 @@ const JournalPage = async() => {}
 
 const UserProfilePage = async() => {
 
-    let d = await query({ 
+    query({ 
         type:'user_by_id', 
         params:[sessionStorage.userId]
-    });
-    console.log(d);
+    }).then(d=>{
+        console.log(d);
 
-    $("#user-profile-page .user-profile").html(makeUserProfile(d.result));
+        $("#user-profile-page .user-profile").html(makeUserProfile(d.result));
+    });
+}
+
+const UserProfileEditPage = async() => {
+
+    query({ 
+        type:'user_by_id', 
+        params:[sessionStorage.userId]
+    }).then(d=>{
+        console.log(d);
+
+        $("#profile-photo").html(makeUserProfileUpdateImage(d.result[0]));
+        $("#profile-form").html(makeUserProfileUpdateForm(d.result[0]));
+    });
 }
 
 const AnimalProfilePage = async() => {
@@ -105,6 +120,23 @@ const AnimalProfilePage = async() => {
     });
     
 }
+
+
+const AnimalProfileEditPage = async() => {
+
+    query({ 
+        type:'animal_by_id', 
+        params:[sessionStorage.animalId] 
+    }).then(d=>{
+        console.log(d);
+
+        $("#edit-profile-image").html(makeAnimalProfileUpdateImage(d.result[0]));
+        $("#animal-profile-form").html(makeAnimalProfileUpdateForm(d.result[0]));
+    });
+}
+
+
+
 
 
 

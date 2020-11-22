@@ -233,8 +233,12 @@ ul{
 }
 
 .settings-form-control .form-label{
-    width: 35%;
+    width: 15%;
     color: var(--color-black);
+}
+
+#profile-form .form-label{
+    width: 25%;
 }
 
 .settings-form-control textarea{
@@ -605,10 +609,11 @@ ul{
     background-color: var(--color-white);
     box-shadow: 1px 1px 5px rgba(0,0,0,0.15);
     border-radius: 0.4em;
-    bottom: 4em;
+    bottom: 5em;
     /*left: 50%;*/
     transition: all 0.3s;
     font-size: 0.8em;
+    padding: 1em 0.5em;
 }
 
 
@@ -739,6 +744,29 @@ ul{
 .floater.bottom { bottom:1em; }
 
 /* Circle button */
+
+.modal-close-floater {
+    position: absolute;
+}
+.modal-close-floater.right {
+    right: 0em;
+}
+.modal-close-floater.top {
+    top: 0em;
+    transform: translateY(-100%);
+}
+
+.modal-close-floater .btn-circle img{
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-48%, -54%);
+    width: 30%;
+    height: 30%;
+}
+
+
+
 .btn-circle,
 .profile-photo{
     background-color: white;
@@ -1222,7 +1250,7 @@ footer ul{
 
 .animal-profile-header{
     position: absolute;
-    top: 1.5em;
+    top: 1em;
     width: 100%;
     height: auto;
     padding: 0 1em;
