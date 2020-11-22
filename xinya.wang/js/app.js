@@ -15,10 +15,15 @@ $(()=>{
             case 'recent-page':             RecentPage();                   break;
             case 'list-page':               ListPage();                     break;
             case 'journal-page':            JournalPage();                  break;
+
             case 'user-profile-page':       UserProfilePage();              break;
             case 'profile-settings-page':   UserProfileEditPage();          break;
+
             case 'animal-profile-page':     AnimalProfilePage();            break;
             case 'animal-edit-profile':     AnimalProfileEditPage();        break;
+
+            case 'account-settings-page':   AccountPage();                  break;
+            case 'email-settings-page':     EmailEditPage();                break;
 
         }
     })

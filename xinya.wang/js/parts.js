@@ -31,15 +31,34 @@ const makeAnimalList = templater((o) =>`
 
 
 const makeAnimalList = templater(o =>`
-    
-        <div class="js-animal-jump grid-item" data-id="${o.id}">
-            <figure>
-                <img src="${o.img}" alt="Deer">
-            </figure>
-            <figcaption>${o.name}</figcaption>
-            <p>${o.color}</p>
-        </div>
-    
+    <div class="js-animal-jump grid-item" data-id="${o.id}">
+        <figure>
+            <img src="${o.img}" alt="Deer">
+        </figure>
+        <figcaption>${o.name}</figcaption>
+        <p>${o.color}</p>
+    </div>
+`);
+
+const makeJournalList = templater(o =>`
+    <li class="journal-list-item">
+        <a href="#animal-journal-page" class="display-flex">
+            <div class="journal-data">
+                <h1>18</h1>
+                <h4>Oct</h4>
+            </div>
+            <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
+                <img src="${o.photo}" alt="Animal Photo">
+            </div>
+            <div class="journal-content display-flex flex-column">
+                <p class="journal-text flex-strech">${o.description}</p>
+                <div class="animal-journal-location display-flex">
+                    <img src="../img/iconLocation.svg">
+                    <p>${o.lat},${o.lng}</p>
+                </div>
+            </div>
+        </a>
+    </li>
 `);
 
 const makeUserProfile = templater(o =>`
@@ -97,13 +116,13 @@ const makeAnimalPopup = o =>`
             <h4>Oct</h4>
         </div>
         <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
-            <img src="${o.img}" alt="Animal Photo">
+            <img src="${o.photo}" alt="Animal Photo">
         </div>
         <div class="journal-content display-flex flex-column">
-            <p class="journal-text flex-strech">${o.name}</p>
+            <p class="journal-text flex-strech">${o.description}</p>
             <div class="animal-journal-location display-flex">
                 <img src="${o.img}">
-                <p>${o.color}</p>
+                <p class="flex-align-self-center">${o.lat},${o.lng}</p>
             </div>
         </div>
         <div>
@@ -120,6 +139,20 @@ const FormControl = ({namespace, name, displayname, type, placeholder, value}) =
     </div> 
     `
 }
+
+const AccountFormControl = ({url, namespace, name, displayname, type, placeholder, value}) => {
+    return `
+    <a href="${url}">
+        <div class="settings-form-control display-flex flex-align-center">
+            <label for="${namespace}-${name}" class="form-label">${displayname}</label>
+            <input id="${namespace}-${name}" type="${type}" class="form-input" data-role="none" placeholder="${placeholder}" value="${value}">
+            <img src="../img/iconMore.svg">
+        </div>
+    </a>
+    `
+}
+
+// 
 
 
 const makeAnimalProfileUpdateForm = o => `
@@ -143,15 +176,9 @@ ${FormControl({
 
     <div class="settings-form-control display-flex flex-column">
         <label for="animal-edit-bio" class="form-label">Bio</label>
-        <textarea id="animal-edit-bio" style="overflow: visible; margin-bottom:1em;">${o.description}</textarea>
+        <textarea id="animal-edit-bio" style="overflow: visible; margin-bottom:1em;" placeholder="Type Animal Description">${o.description}</textarea>
     </div> 
 
-`;
-
-
-const makeAnimalProfileUpdateImage = o => `
-    <img src="${o.img}" alt="Aniaml Image">
-    <a class="">Change Profile Banner Image</a>
 `;
 
 
@@ -161,7 +188,7 @@ ${FormControl({
     name:"name",
     displayname:"Name",
     type:"text",
-    placeholder:"Type your Full Name",
+    placeholder:"Type Your Full Name",
     value: o.name
 })}
 
@@ -170,19 +197,9 @@ ${FormControl({
     name:"username",
     displayname:"UserName",
     type:"text",
-    placeholder:"Type Yout User Name",
+    placeholder:"Type Your User Name",
     value: o.username
 })}
-
-${FormControl({
-    namespace:"user-edit",
-    name:"email",
-    displayname:"Email",
-    type:"text",
-    placeholder:"Type Your Email",
-    value: o.email
-})}
-
 
 ${FormControl({
     namespace:"user-edit",
@@ -208,6 +225,65 @@ ${FormControl({
         <textarea id="user-edit-bio" style="overflow: visible; margin-bottom:1em;">${o.bio}</textarea>
     </div> 
 
+`;
+
+const makeAccountForm = o => `
+${AccountFormControl({
+    url:"#email-settings-page",
+    namespace:"setting-account",
+    name:"email",
+    displayname:"Email",
+    type:"text",
+    placeholder:"Type Your Email",
+    value: o.email
+})}
+
+${AccountFormControl({
+    url:"#password-settings-page",
+    namespace:"setting-account",
+    name:"password",
+    displayname:"Password",
+    type:"text",
+    placeholder:"Change password",
+    value: "Change password"
+})}
+
+${AccountFormControl({
+    url:"#contry-settings-page",
+    namespace:"setting-account",
+    name:"contry",
+    displayname:"Contry/Region",
+    type:"text",
+    placeholder:"Choose Your Contry",
+    value: "Unitied States"
+})}
+
+${AccountFormControl({
+    url:"#login-options-settings-page",
+    namespace:"setting-account",
+    name:"loginOptions",
+    displayname:"Login options",
+    type:"text",
+    placeholder:"",
+    value: ""
+})}
+`;
+
+const editAccountEmail = o => `
+${FormControl({
+    namespace:"account-edit",
+    name:"email",
+    displayname:"Email",
+    type:"text",
+    placeholder:"Type Your Email",
+    value: o.email
+})}
+`;
+
+
+const makeAnimalProfileUpdateImage = o => `
+    <img src="${o.img}" alt="Aniaml Image">
+    <a class="">Change Profile Banner Image</a>
 `;
 
 const makeUserProfileUpdateImage = o => `

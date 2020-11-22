@@ -71,7 +71,23 @@ const ListPage = async() => {
     $("#list-page .animallist").html(makeAnimalList(d.result));
 }
 
-const JournalPage = async() => {}
+const JournalPage = async() => {
+
+    let d = await query({
+        type:'all_animal_location_by_user_id',
+        params:[sessionStorage.userId]
+    });
+
+    console.log(d);
+
+    // let date        = d.result[0].date_create;
+    // let date_arr    = date.split("");
+    // var date_month  = date_arr[5] + date_arr[6];
+    // var date_day    = date_arr[8] + date_arr[9];
+    
+    $("#journal-list").html(makeJournalList(d.result));
+
+}
 
 const UserProfilePage = async() => {
 
@@ -97,6 +113,7 @@ const UserProfileEditPage = async() => {
         $("#profile-form").html(makeUserProfileUpdateForm(d.result[0]));
     });
 }
+
 
 const AnimalProfilePage = async() => {
 
@@ -134,6 +151,33 @@ const AnimalProfileEditPage = async() => {
         $("#animal-profile-form").html(makeAnimalProfileUpdateForm(d.result[0]));
     });
 }
+
+
+const AccountPage = async() => {
+
+    query({ 
+        type:'user_by_id', 
+        params:[sessionStorage.userId]
+    }).then(d=>{
+        console.log(d);
+
+        $("#account-form").html(makeAccountForm(d.result[0]));
+    });
+}
+
+
+const EmailEditPage = async() => {
+
+    query({ 
+        type:'user_by_id', 
+        params:[sessionStorage.userId]
+    }).then(d=>{
+        console.log(d);
+
+        $("#email-settings-form").html(editAccountEmail(d.result[0]));
+    });
+}
+
 
 
 
