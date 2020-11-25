@@ -38,6 +38,26 @@ $(()=>{
         checkSigninForm();
     })
 
+    .on("submit", "#signup-form", function(e){
+
+        e.preventDefault();
+        checkSignupForm();
+    })
+
+
+    //Form suubmit by button
+    .on("click", ".js-aniaml-add", function(e){
+        checkAnimalAddForm();
+    })
+    .on("click", ".js-aniaml-edit", function(e){
+        checkAnimalEditForm();
+    })
+    .on("click", ".js-user-edit", function(e){
+        checkUserEditForm();
+    })
+
+
+
 
     /* ANCHOR CLICKS */ 
 

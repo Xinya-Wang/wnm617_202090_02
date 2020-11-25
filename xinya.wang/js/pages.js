@@ -79,6 +79,8 @@ const JournalPage = async() => {
     });
 
     console.log(d);
+    // console.log(d.result.length);
+    
 
     // let date        = d.result[0].date_create;
     // let date_arr    = date.split("");
@@ -90,15 +92,47 @@ const JournalPage = async() => {
 }
 
 const UserProfilePage = async() => {
-
+    //User
     query({ 
         type:'user_by_id', 
         params:[sessionStorage.userId]
     }).then(d=>{
         console.log(d);
 
-        $("#user-profile-page .user-profile").html(makeUserProfile(d.result));
+        $("#user-profile .profile-body").html(makeUserProfile(d.result));
     });
+
+    //Most tracked animal name
+    query({ 
+        type:'most_tracked_by_user_id', 
+        params:[sessionStorage.userId]
+    }).then(d=>{
+        // console.log(d.result[0].name);
+        $("#user-summary-row1 .most-tracked").html(makeUserProfileMostTracked(d.result[0]));
+    });
+
+    //Journal sum
+    query({ 
+        type:'all_animal_location_by_user_id', 
+        params:[sessionStorage.userId] 
+    }).then(d=>{
+        // console.log("Journal sum:"+d.result.length);
+        // console.log("Recently tracked animal:"+d.result[0].name);
+        $("#user-summary-row1 .recently-tracked").html(makeUserProfileRecentlyTracked(d.result[0]));
+        $("#user-summary-row2 .journal-sum").html(makeUserProfileJournalSum(d.result.length));
+    });
+
+    //Animal sum
+    query({ 
+        type:'animals_by_user_id', 
+        params:[sessionStorage.userId] 
+    }).then(d=>{
+        // console.log("Animal type:"+ d.result.length);
+        $("#user-summary-row2 .animal-types").html(makeUserProfileAnimalTypes(d.result.length));
+    });
+
+    
+    
 }
 
 const UserProfileEditPage = async() => {
@@ -178,6 +212,11 @@ const EmailEditPage = async() => {
     });
 }
 
+
+
+const LocationAddPage = async() => {
+    // let map_el
+}
 
 
 

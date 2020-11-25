@@ -17,6 +17,7 @@
     <script src="js/parts.js"></script>
     <script src="js/signin.js"></script>
     <script src="js/app.js"></script>
+     <script src="js/forms.js"></script>
 
     <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
     <script
@@ -79,8 +80,12 @@
         <div data-role="main" class="display-flex flex-align-center flex-justify-center">
             <form id="signup-form" data-ajax="false">
                 <div class="form-control">
+                    <label for="signup-username" class="form-label">Username</label>
+                    <input id="signup-username" type="text" class="form-input" data-role="none" placeholder="Username">
+                </div>
+                <div class="form-control">
                     <label for="signup-email" class="form-label">Email</label>
-                    <input id="signup-email" type="text" class="form-input" data-role="none" placeholder="Email">
+                    <input id="signup-email" type="email" class="form-input" data-role="none" placeholder="Email">
                 </div>
                 <div class="form-control">
                     <label for="signup-password" class="form-label">Password</label>
@@ -88,10 +93,10 @@
                 </div>
                 <div class="form-control">
                     <label for="signup-password-confirm" class="form-label">Confirm Password</label>
-                    <input id="signup-password-confirm" type="new-password" class="form-input" data-role="none" placeholder="Password">
+                    <input id="signup-password-confirm" type="password" class="form-input" data-role="none" placeholder="Password">
                 </div>
                 <div class="form-control">
-                    <a href="#recent-page" class="form-button">Sign Up</a>
+                    <input type="submit" class="form-button" value="Sign Up" data-role="none">
                 </div>
                 <div class="form-control signin-alt">
                     Already have an account?
@@ -226,7 +231,17 @@
             </ul>
         </header>
         <div data-role="main">
-            <div class="user-profile"></div>
+            <div id="user-profile">
+                <div class="profile-body"></div>
+                <div id="user-summary-row1" class="profile-others display-flex flex-align-center flex-justify-around">
+                    <div class="profile-item most-tracked display-flex flex-column flex-justify-center"></div> 
+                    <div class="profile-item recently-tracked display-flex flex-column flex-justify-center"></div> 
+                </div>
+                <div id="user-summary-row2" class="profile-others display-flex flex-align-center flex-justify-around">
+                    <div class="profile-item animal-types display-flex flex-column flex-justify-center"></div> 
+                    <div class="profile-item journal-sum display-flex flex-column flex-justify-center"></div> 
+                </div>      
+            </div>
         </div>
         <footer data-role="footer" data-template="#footer-template"></footer>
     </section>
@@ -418,7 +433,7 @@
             <ul>
                 <li><a href="#" data-rel="back">Cancel</a></li>
                 <li class="flex-strech"></li>
-                <li><a href="#list-page" class="call-to-action-button">Done</a></li>
+                <li><a href="#" class="js-animal-add">Save</a></li>
             </ul>
         </header>
         <div data-role="main" class="display-flex flex-align-center flex-column">
@@ -431,18 +446,18 @@
                 </a>
             </div>
             <form id="new-animal-profile-form" class="settings-form-container" data-ajax="false">
+                <input type="hidden" id="animal-add-destination" value="#list-page">
                 <div class="settings-form-control display-flex flex-align-center">
                     <label for="animal-profile-new-name" class="form-label">Name</label>
                     <input id="animal-profile-new-name" type="text" class="form-input" data-role="none" placeholder="Type your animal name">
                 </div>
                 <div class="settings-form-control display-flex flex-align-center">
-                    <label for="animal-profile-new-class" class="form-label">Color</label>
-                    <input id="animal-profile-new-class" type="text" class="form-input" data-role="none" placeholder="Type your animal class">
+                    <label for="animal-profile-new-color" class="form-label">Color</label>
+                    <input id="animal-profile-new-color" type="text" class="form-input" data-role="none" placeholder="Type your animal class">
                 </div>
                 <div class="settings-form-control display-flex">
                     <label for="animal-profile-new-bio" class="form-label">Bio</label>
-                    <textarea id="animal-profile-new-bio" style="overflow: visible">Type your animal bio...
-                    </textarea>
+                    <textarea id="animal-profile-new-bio" style="overflow: visible"></textarea>
                 </div>
             </form>
         </div>

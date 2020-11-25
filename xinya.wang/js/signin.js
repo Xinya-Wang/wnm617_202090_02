@@ -57,7 +57,28 @@ const checkUserId = () => {
 		
 	}else{
 		//logged in
-		if(p.some( o=>window.location.hash === o))
+		if(p.some( o=>window.location.hash === o)) {
+
+		 query({type:'animals_by_user_id', params:[sessionStorage.userId]})
+		 .then
 			$.mobile.navigate("#recent-page");
+		}
 	}	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

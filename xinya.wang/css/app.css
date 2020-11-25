@@ -252,8 +252,8 @@ ul{
     width: 25%;
 }
 
-#account-form.form-label{
-    width: 25%;
+#account-form .form-label{
+    width: 45%;
 }
 
 .settings-form-control textarea{

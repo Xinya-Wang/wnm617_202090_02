@@ -53,7 +53,7 @@ const makeJournalList = templater(o =>`
             <div class="journal-content display-flex flex-column">
                 <p class="journal-text flex-strech">${o.description}</p>
                 <div class="animal-journal-location display-flex">
-                    <img src="../img/iconLocation.svg">
+                    <img src="img/iconLocation.svg">
                     <p>${o.lat},${o.lng}</p>
                 </div>
             </div>
@@ -62,32 +62,30 @@ const makeJournalList = templater(o =>`
 `);
 
 const makeUserProfile = templater(o =>`
-    <div class="profile-body">
-        <div class="profile-image">
-            <img src="${o.img}" alt="User Profile Photo">
-        </div>
-        <h2>${o.name}</h2>
+    <div class="profile-image">
+        <img src="${o.img}" alt="User Profile Photo">
     </div>
-    <div class="profile-others display-flex flex-align-center flex-justify-around">
-        <div class="profile-item display-flex flex-column flex-justify-center">
-            <div class="item-content flex-strech"><h4>Mule deer</h4></div>
-            <div class="item-title"><p>Most Tracked</p></div>
-        </div> 
-        <div class="profile-item display-flex flex-column flex-justify-center">
-            <div class="item-content flex-strech"><h3>23</h3></div>
-            <div class="item-title"><p>Track days</p></div>
-        </div> 
-    </div>
-    <div class="profile-others display-flex flex-align-center flex-justify-around">
-        <div class="profile-item display-flex flex-column flex-justify-center">
-            <div class="item-content flex-strech"><h3>50</h3></div>
-            <div class="item-title"><p>Photos Sum</p></div>
-        </div> 
-        <div class="profile-item display-flex flex-column flex-justify-center">
-            <div class="item-content flex-strech"><h3>42</h3></div>
-            <div class="item-title"><p>Journal Sum</p></div>
-        </div> 
-    </div>      
+    <h2>${o.name}</h2>
+`);
+
+const makeUserProfileMostTracked = templater(o =>`
+    <div class="item-content flex-strech"><h4>${o.name}</h4></div>
+    <div class="item-title"><p>Most Tracked</p></div>
+`);
+
+const makeUserProfileRecentlyTracked = templater(o =>`
+    <div class="item-content flex-strech"><h4>${o.name}</h4></div>
+    <div class="item-title"><p>Rencently Tracked</p></div>
+`);
+
+const makeUserProfileAnimalTypes = templater(o =>`
+    <div class="item-content flex-strech"><h3>${o}</h3></div>
+    <div class="item-title"><p>Animal Types</p></div>
+`);
+
+const makeUserProfileJournalSum = templater(o =>`
+    <div class="item-content flex-strech"><h3>${o}</h3></div>
+    <div class="item-title"><p>Journal Sum</p></div>
 `);
 
 
@@ -121,7 +119,7 @@ const makeAnimalPopup = o =>`
         <div class="journal-content display-flex flex-column">
             <p class="journal-text flex-strech">${o.description}</p>
             <div class="animal-journal-location display-flex">
-                <img src="${o.img}">
+                <img src="img/iconLocation.svg">
                 <p class="flex-align-self-center">${o.lat},${o.lng}</p>
             </div>
         </div>
@@ -146,14 +144,11 @@ const AccountFormControl = ({url, namespace, name, displayname, type, placeholde
         <div class="settings-form-control display-flex flex-align-center">
             <label for="${namespace}-${name}" class="form-label">${displayname}</label>
             <input id="${namespace}-${name}" type="${type}" class="form-input" data-role="none" placeholder="${placeholder}" value="${value}">
-            <img src="../img/iconMore.svg">
+            <img src="img/iconMore.svg">
         </div>
     </a>
     `
 }
-
-// 
-
 
 const makeAnimalProfileUpdateForm = o => `
 ${FormControl({

@@ -45,7 +45,7 @@ const templater = f => a =>
 
 
 
-
+//resove: if the promise is successful, reject:if the promise is fails
 const checkData = (exterior_check) => new Promise((resolve, reject)=>{
     let timeout = 0;
     const interior_check = () =>{
