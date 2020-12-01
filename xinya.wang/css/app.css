@@ -1377,9 +1377,9 @@ footer ul{
     width: calc(100% - 2em);
     height: 30vw;
     overflow: hidden;
-    background: var(--color-neutral-lighter) url(../img/mapSingleAnimal.png) no-repeat;
-    background-size: cover;
-    background-position: center;
+    /*background: var(--color-neutral-lighter) url(../img/mapSingleAnimal.png) no-repeat;*/
+    /*background-size: cover;*/
+    /*background-position: center;*/
     margin: 1em 1em;
     border-radius: 0.4em;
 }
@@ -1494,6 +1494,9 @@ footer ul{
 }
 
 .select-animal-item{
+    position: relative;
+    width: 100%;
+    height: auto;
     padding: 1em 3em 1em 1em;
     font-size: 0.8em;
     line-height: var(--line-height);

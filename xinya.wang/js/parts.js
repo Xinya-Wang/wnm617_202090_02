@@ -29,6 +29,7 @@ const makeAnimalList = templater((o) =>`
     </li>
 `);*/
 
+//templater is really specifically for an array of objects. so only one we can remove it
 
 const makeAnimalList = templater(o =>`
     <div class="js-animal-jump grid-item" data-id="${o.id}">
@@ -40,12 +41,32 @@ const makeAnimalList = templater(o =>`
     </div>
 `);
 
-const makeJournalList = templater(o =>`
+const makeAnimalProfile = templater(o =>`
+        <img src="${o.img}" alt="Animal Profile Photo">
+        <div class="animal-banner-intro">
+            <div class="display-flex flex-align-center">
+                <h2>${o.name} &#183; </h2>
+                <h4>${o.color}</h4>
+            </div>
+            <p class="details">${o.description}</p>
+        </div>
+`);
+
+
+
+
+let months_short =  ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+const makeJournalList = templater(o =>{
+    let date = new Date(o.date_create);
+    let day = date.getDate();
+    let mon = months_short[date.getMonth()];
+    return `
     <li class="journal-list-item">
         <a href="#animal-journal-page" class="display-flex">
             <div class="journal-data">
-                <h1>18</h1>
-                <h4>Oct</h4>
+                <h1>${day}</h1>
+                <h4>${mon}</h4>
             </div>
             <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
                 <img src="${o.photo}" alt="Animal Photo">
@@ -59,7 +80,12 @@ const makeJournalList = templater(o =>`
             </div>
         </a>
     </li>
-`);
+`
+});
+
+
+
+
 
 const makeUserProfile = templater(o =>`
     <div class="profile-image">
@@ -89,24 +115,9 @@ const makeUserProfileJournalSum = templater(o =>`
 `);
 
 
-const makeAnimalProfile = templater(o =>`
-        <img src="${o.img}" alt="Animal Profile Photo">
-        <div class="animal-banner-intro">
-            <div class="display-flex flex-align-center">
-                <h2>${o.name} &#183; </h2>
-                <h4>${o.color}</h4>
-            </div>
-            <p class="details">${o.description}</p>
-        </div>
-`);
 
-//templater is really specifically for an array of objects. so only one we can remove it
 
-    // <div class="display-flex flex-column flex-align-center">
-    //     <img src="${o.img}" alt="Animal Profile Photo" style="width:100px; height:100px;">
-    //     <h4>${o.name} &#183; </h2>
-    //     <h6>${o.color}</h4>
-    // </div>
+
 const makeAnimalPopup = o =>`
     <div class="journal-list-item display-flex">
         <div class="journal-data">
@@ -124,10 +135,14 @@ const makeAnimalPopup = o =>`
             </div>
         </div>
         <div>
-            <a href="#" class="form-button js-animal-jump" data-id="${o.animal_id}">Visit</a> 
+            <a href="#" class="form-button js-animal-jump" data-id="${o.animal_id}" data-deactivate="#recent-animal-modal">Visit</a> 
         </div>
     </div>
 `;
+
+
+
+
 
 const FormControl = ({namespace, name, displayname, type, placeholder, value}) => {
     return `
@@ -285,6 +300,16 @@ const makeUserProfileUpdateImage = o => `
     <img src="${o.img}" alt="User Photo">
     <a class="">Change Profile Photo</a>
 `;
+
+
+const makeJournalAnimalList = templater(o =>`
+    <li class="js-animal-select" data-id="${o.id}">
+        <div class="select-list-item display-flex flex-align-center">
+            <img src="${o.img}" alt="Aniaml photo">
+            <p>${o.name} &#183; ${o.color}</p>
+        </div>
+    </li>
+`);
 
 
 

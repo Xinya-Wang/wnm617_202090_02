@@ -68,8 +68,10 @@ const ListPage = async() => {
     });
     console.log(d);
 
-    $("#list-page .animallist").html(makeAnimalList(d.result));
-}
+    // $("#list-page .animallist").html(makeAnimalList(d.result));
+    $("#list-page .animallist")
+        .html(d.result.length?makeAnimalList(d.result):'Hey, add an animal.');
+}   
 
 const JournalPage = async() => {
 
@@ -81,15 +83,9 @@ const JournalPage = async() => {
     console.log(d);
     // console.log(d.result.length);
     
-
-    // let date        = d.result[0].date_create;
-    // let date_arr    = date.split("");
-    // var date_month  = date_arr[5] + date_arr[6];
-    // var date_day    = date_arr[8] + date_arr[9];
-    
     $("#journal-list").html(makeJournalList(d.result));
-
 }
+
 
 const UserProfilePage = async() => {
     //User
@@ -130,10 +126,8 @@ const UserProfilePage = async() => {
         // console.log("Animal type:"+ d.result.length);
         $("#user-summary-row2 .animal-types").html(makeUserProfileAnimalTypes(d.result.length));
     });
-
-    
-    
 }
+
 
 const UserProfileEditPage = async() => {
 
@@ -215,7 +209,72 @@ const EmailEditPage = async() => {
 
 
 const LocationAddPage = async() => {
-    // let map_el
+    let map_el = await makeMap("#add-new-location .map");
+    makeMarkers(map_el,[]);
+
+    let map = map_el.data("map");
+
+    map.addListener("click",function(e){
+        console.log(e, map.getCenter())
+
+        let posFromClick = {
+            lat:e.latLng.lat(),
+            lng:e.latLng.lng(),
+            icon:"img/iconMarker.png"
+        };
+        let posFromCenter = {
+            lat:map.getCenter().lat(),
+            lng:map.getCenter().lng(),
+            icon:"img/iconMarker.png"
+        };
+
+        $("#location-add-lat").val(posFromClick.lat)
+        $("#location-add-lng").val(posFromClick.lng)
+
+        makeMarkers(map_el,[posFromClick])
+    })
+}
+
+
+const NewJournalPage = async() => {
+    makeMap("#add-new-journal .map");
+    // let map_el = await makeMap("#add-new-journal .map");
+    // makeMarkers(map_el,[]);
+
+    // let map = map_el.data("map");
+
+    // map.addListener("click",function(e){
+    //     console.log(e, map.getCenter())
+
+    //     let posFromClick = {
+    //         lat:e.latLng.lat(),
+    //         lng:e.latLng.lng(),
+    //         icon:"img/icon/marker.svg"
+    //     };
+    //     let posFromCenter = {
+    //         lat:map.getCenter().lat(),
+    //         lng:map.getCenter().lng(),
+    //         icon:"img/icon/marker.svg"
+    //     };
+
+    //     $("#location-add-lat").val(posFromClick.lat)
+    //     $("#location-add-lng").val(posFromClick.lng)
+
+    //     makeMarkers(map_el,[posFromClick])
+    // })
+
+}
+
+
+const SelectAnimalPage = async() => {
+    let d = await query({ 
+        type:'animals_by_user_id', 
+        params:[sessionStorage.userId] 
+    });
+    console.log(d);
+
+    $("#all-animal-type-list")
+        .html(d.result.length?makeJournalAnimalList(d.result):'Hey, add your first animal.');
 }
 
 

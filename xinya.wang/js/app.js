@@ -1,6 +1,8 @@
 //Document Ready
 $(()=>{
 
+    console.dir($("#user-edit-form")[0])
+
     checkUserId();
 
     $(document)
@@ -14,16 +16,22 @@ $(()=>{
         switch(ui.toPage[0].id) {
             case 'recent-page':             RecentPage();                   break;
             case 'list-page':               ListPage();                     break;
+
             case 'journal-page':            JournalPage();                  break;
+            case 'add-new-journal':         NewJournalPage();               break;
+            case 'add-new-location':        LocationAddPage();              break;
+            case 'select-animal-page':      SelectAnimalPage();              break;
 
             case 'user-profile-page':       UserProfilePage();              break;
-            case 'profile-settings-page':   UserProfileEditPage();          break;
+            case 'profile-settings-page':   UserProfileEditPage();          break; //UserEditPage
 
             case 'animal-profile-page':     AnimalProfilePage();            break;
-            case 'animal-edit-profile':     AnimalProfileEditPage();        break;
+            case 'animal-edit-profile':     AnimalProfileEditPage();        break; //AnimalEditPage
 
             case 'account-settings-page':   AccountPage();                  break;
             case 'email-settings-page':     EmailEditPage();                break;
+
+            // case 'location-add-page':       LocationAddPage();              break;
 
         }
     })
@@ -33,30 +41,40 @@ $(()=>{
 
     //event delegation
     .on("submit", "#signin-form", function(e){
-
         e.preventDefault();
         checkSigninForm();
     })
 
     .on("submit", "#signup-form", function(e){
-
         e.preventDefault();
         checkSignupForm();
     })
 
+    .on("click", ".error-button", function(){
+        $("#login-error-msg").removeClass("active");
 
-    //Form suubmit by button
-    .on("click", ".js-aniaml-add", function(e){
+    })
+    .on("click", ".error-button.empty", function(){
+        $("#login-error-msg-empty").removeClass("active");
+    })
+
+
+    //Form submit by button
+    .on("click",".js-animal-add",function(e){
         checkAnimalAddForm();
     })
-    .on("click", ".js-aniaml-edit", function(e){
+    .on("click",".js-animal-edit",function(e){
         checkAnimalEditForm();
     })
-    .on("click", ".js-user-edit", function(e){
+    .on("click",".js-user-edit",function(e){
         checkUserEditForm();
     })
-
-
+    .on("click",".js-location-add",function(e){
+        checkLocationAddForm();
+    })
+    .on("click",".js-animal-select",function(e){
+        checkSelectedAnimal();
+    })
 
 
     /* ANCHOR CLICKS */ 
@@ -71,22 +89,21 @@ $(()=>{
         $.mobile.navigate("#animal-profile-page");
     })
 
-    // .on("click",".js-location-jump",function(e){
-    //     sessionStorage.LocationId = $(this).data("id");
-    //     $.mobile.navigate("#location-profile-page");
-    // })
-
-
-
-    .on("click", ".error-button", function(){
-        $("#login-error-msg").removeClass("active");
-
-    })
-    .on("click", ".error-button.empty", function(){
-        $("#login-error-msg-empty").removeClass("active");
+    .on("click",".js-location-jump",function(e){
+        sessionStorage.locationId = $(this).data("id");
+        $.mobile.navigate("#location-profile-page");
     })
 
-    // add atrribute 
+    .on("click",".js-animal-delete",function(e){
+        checkAnimalDelete($(this).data("id"));
+    })
+
+
+    
+
+    
+
+
     .on("click","[data-activate]",function(){
         let target = $(this).data('activate');
         $(target).addClass("active");
@@ -99,6 +116,8 @@ $(()=>{
         let target = $(this).data('toggle');
         $(target).toggleClass("active");
     })
+
+
     
 
     $("[data-template]").each(function(){

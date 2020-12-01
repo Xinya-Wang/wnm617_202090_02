@@ -273,7 +273,7 @@
             <ul>
                 <li><a href="#user-profile-page" class="font-weight-normal">Cancel</a></li>
                 <li class="flex-strech"></li>
-                <li><a href="#user-profile-page" class="call-to-action-button">Done</a></li>
+                <li><a href="#" class="js-user-edit">Done</a></li>
             </ul>
         </header>
         <div data-role="main" class="display-flex flex-align-center flex-column">
@@ -294,6 +294,51 @@
             <form id="account-form" class="settings-form-container" data-ajax="false"></form>
         </div>
     </section>
+
+    <!-- Email Settings Page -->
+    <section data-role="page" id="email-settings-page">
+        <header data-role="header">
+            <h1>Email</h1>
+            <ul>
+                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#" data-rel="back" style="color: var(--color-neutral-light)">Done</a></li>
+            </ul>
+        </header>
+        <div data-role="main" class="display-flex flex-align-center flex-column">
+            <form id="email-settings-form" class="settings-form-container" data-ajax="false"></form>
+        </div>
+    </section>
+    <!-- Password Settings Page -->
+    <section data-role="page" id="password-settings-page">
+        <header data-role="header">
+            <h1>Change Password</h1>
+            <ul>
+                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#" data-rel="back" style="color: var(--color-neutral-light)">Done</a></li>
+            </ul>
+        </header>
+        <div data-role="main" class="display-flex">
+            <form id="password-form" class="settings-form-container" data-ajax="false">
+                <div class="settings-form-control">
+                    <label for="password-oldpassword" class="form-label">Current Password</label>
+                    <input id="password-oldpassword" type="text" class="form-input" data-role="none" placeholder="Type your old password">
+                </div>
+                <div class="settings-form-control">
+                    <label for="password-newpassword" class="form-label">New Password</label>
+                    <input id="password-newpassword" type="text" class="form-input" data-role="none" placeholder="Type your new password">
+                </div>
+                <div class="settings-form-control">
+                    <label for="password-confirm" class="form-label">Confirm New Password</label>
+                    <input id="password-confirm" type="text" class="form-input" data-role="none" placeholder="Type your new password">
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+
 
 
     <!-- Animal profile Page -->
@@ -340,9 +385,9 @@
         </div>
         <div class="modal" id="animal-edit-select-modal">
             <div class="modal-toast">
-                <ul>
+                <ul data-deactivate="#animal-edit-select-modal">
                     <li><a href="#animal-edit-profile">Edit Profile</a></li>
-                    <li><a href="#">Delete</a></li>
+                    <li><a href="#" class="js-animal-delete">Delete</a></li>
                 </ul>
             </div>
         </div>
@@ -355,7 +400,7 @@
             <ul>
                 <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
                 <li class="flex-strech"></li>
-                <li><a href="#" data-rel="back">Done</a></li>
+                <li><a href="#" class="js-animal-edit">Done</a></li>
             </ul>
         </header>
         <div data-role="main" class="display-flex flex-align-center flex-column">
@@ -438,7 +483,7 @@
         </header>
         <div data-role="main" class="display-flex flex-align-center flex-column">
             <div class="animal-edit-banner-image display-flex flex-align-center flex-column">
-                <a href="">
+                <a href="#">
                     <div class="add-banner-image display-flex flex-align-center">
                         <img src="img/iconAddBannerImage.svg">
                         <p>Add Profile Banner Image</p>
@@ -457,7 +502,8 @@
                 </div>
                 <div class="settings-form-control display-flex">
                     <label for="animal-profile-new-bio" class="form-label">Bio</label>
-                    <textarea id="animal-profile-new-bio" style="overflow: visible"></textarea>
+                    <textarea id="animal-profile-new-bio" class="form-input" data-role="none" placeholder="Type animal description"></textarea>
+                    <!-- <textarea id="animal-profile-new-bio" style="overflow: visible"></textarea> -->
                 </div>
             </form>
         </div>
@@ -495,78 +541,49 @@
     </section>
 
 
-    <!-- Email Settings Page -->
-    <section data-role="page" id="email-settings-page">
-        <header data-role="header">
-            <h1>Email</h1>
-            <ul>
-                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
-                <li class="flex-strech"></li>
-                <li><a href="#" data-rel="back" style="color: var(--color-neutral-light)">Done</a></li>
-            </ul>
-        </header>
-        <div data-role="main" class="display-flex flex-align-center flex-column">
-            <form id="email-settings-form" class="settings-form-container" data-ajax="false">
-                <!-- <div class="settings-form-control display-flex flex-align-center">
-                    <label for="profile-emial" class="form-label">Email</label>
-                    <input id="profile-email" type="text" class="form-input" data-role="none" placeholder="monicawells@gmail.com">
-                </div> -->
-            </form>
-        </div>
-    </section>
-    <!-- Password Settings Page -->
-    <section data-role="page" id="password-settings-page">
-        <header data-role="header">
-            <h1>Change Password</h1>
-            <ul>
-                <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
-                <li class="flex-strech"></li>
-                <li><a href="#" data-rel="back" style="color: var(--color-neutral-light)">Done</a></li>
-            </ul>
-        </header>
-        <div data-role="main" class="display-flex">
-            <form id="password-form" class="settings-form-container" data-ajax="false">
-                <div class="settings-form-control">
-                    <label for="password-oldpassword" class="form-label">Current Password</label>
-                    <input id="password-oldpassword" type="text" class="form-input" data-role="none" placeholder="Type your old password">
-                </div>
-                <div class="settings-form-control">
-                    <label for="password-newpassword" class="form-label">New Password</label>
-                    <input id="password-newpassword" type="text" class="form-input" data-role="none" placeholder="Type your new password">
-                </div>
-                <div class="settings-form-control">
-                    <label for="password-confirm" class="form-label">Confirm New Password</label>
-                    <input id="password-confirm" type="text" class="form-input" data-role="none" placeholder="Type your new password">
-                </div>
-            </form>
-        </div>
-    </section>
-
-    
-
-
-    <!-- Animal journal Edit page -->
+    <!-- Journal Edit page -->
     <section data-role="page" id="add-new-journal">
         <header data-role="header">
             <h1>New Journal</h1>
             <ul>
-                <li><a href="#" data-rel="back"><!-- <img class="nav-in-header" src="img/iconBack.svg" alt="back icon"> --> Cancel</a></li>
+                <li><a href="#recent-page">Cancel</a></li>
                 <li class="flex-strech"></li>
                 <li><a href="#select-animal-page" class="call-to-action-button">Next</a></li>
             </ul>
         </header>
         <div data-role="main">
-            <a href="#"><div class="animal-journal-location-map"></div></a>
+            <a href="#add-new-location">
+                <div class="animal-journal-location-map">
+                    <div class="map"></div>
+                </div>
+            </a>
             <div class="line"></div>
             <div class="animal-journal-text">
-                <form>
-                    <textarea rows="4">Say something ... 
-                    </textarea>
+                <form id="location-add-form" data-ajax="false">
+                    <!-- <textarea rows="4">Say something ... 
+                    </textarea> -->
+                    <textarea id="location-add-description" class="form-input" data-role="none" placeholder="Say something ... "></textarea>
                 </form>
             </div>
             <div class="animal-edit-photo display-flex flex-align-center">
                <a href="#"><div class="add-photo-item add"><img src="img/iconAdd.svg"></div></a>
             </div>
+        </div>
+    </section>
+    <!-- Journal Location Edit page -->
+    <section data-role="page" id="add-new-location">
+        <header data-role="header">
+            <h1>Change Location</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Cancel</a></li>
+                <li class="flex-strech"></li>
+                <li><a href="#add-new-journal" class="call-to-action-button">Done</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <input type="hidden" id="location-add-lat">
+            <input type="hidden" id="location-add-lng">
+            <div class="map"></div>
         </div>
     </section>
 
@@ -577,87 +594,38 @@
             <ul>
                 <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
                 <li class="flex-strech"></li>
-                <li><a href="#recent-page" class="call-to-action-button">Done</a></li>
+                <li><a href="#recent-page" class="js-location-add call-to-action-button">Done</a></li>
             </ul>
         </header>
         <div data-role="main" class="display-flex flex-column">
             <div class="overscroll"> 
-           <div class="select-animal-item">
-                <h3>Recent</h3>
-                <ul>
-                    <li>
-                        <div class="select-list-item display-flex flex-align-center">
-                            <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer &#183; Brown</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="select-list-item display-flex flex-align-center">
-                            <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer &#183; Brown</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="select-list-item display-flex flex-align-center">
-                            <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Mule deer &#183; Brown</p>
-                        </div>
-                    </li>
-                </ul>
-           </div>
-           <div class="select-animal-item">
-                <h3>All</h3>
-                <ul>
-                    <li>
-                        <div class="select-list-item display-flex flex-align-center">
-                            <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Deer &#183; Brown</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="select-list-item display-flex flex-align-center">
-                            <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Deer &#183; Brown</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="select-list-item display-flex flex-align-center">
-                            <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Deer &#183; Brown</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="select-list-item display-flex flex-align-center">
-                            <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Deer &#183; Brown</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="select-list-item display-flex flex-align-center">
-                            <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Deer &#183; Brown</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="select-list-item display-flex flex-align-center">
-                            <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Deer &#183; Brown</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="select-list-item display-flex flex-align-center">
-                            <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Deer &#183; Brown</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="select-list-item display-flex flex-align-center">
-                            <img src="img/animal/mule-deer.png" alt="mule deer">
-                            <p>Deer &#183; Brown</p>
-                        </div>
-                    </li>
-                </ul>
-           </div>
+                <!-- <div class="select-animal-item">
+                    <h3>Recent</h3>
+                    <ul>
+                        <li>
+                            <div class="select-list-item display-flex flex-align-center">
+                                <img src="img/animal/mule-deer.png" alt="mule deer">
+                                <p>Mule deer &#183; Brown</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="select-list-item display-flex flex-align-center">
+                                <img src="img/animal/mule-deer.png" alt="mule deer">
+                                <p>Mule deer &#183; Brown</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="select-list-item display-flex flex-align-center">
+                                <img src="img/animal/mule-deer.png" alt="mule deer">
+                                <p>Mule deer &#183; Brown</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div> -->
+                <div class="select-animal-item">
+                    <h3>All</h3>
+                    <ul id="all-animal-type-list"></ul>
+                </div>
            </div>
            <!-- <div class="select-alphabet">
                <ul class="display-flex flex-column flex-align-center">
