@@ -66,11 +66,16 @@ const ListPage = async() => {
         type:'animals_by_user_id', 
         params:[sessionStorage.userId] 
     });
+
+    $("#list-page .filter-list").html(makeFilterList(d.result));
+
     console.log(d);
 
+    drawAnimalList(d.result);
+
     // $("#list-page .animallist").html(makeAnimalList(d.result));
-    $("#list-page .animallist")
-        .html(d.result.length?makeAnimalList(d.result):'Hey, add an animal.');
+    // $("#list-page .animallist")
+    //     .html(d.result.length?makeAnimalList(d.result):'Hey, add an animal.');
 }   
 
 const JournalPage = async() => {
@@ -143,6 +148,32 @@ const UserProfileEditPage = async() => {
 }
 
 
+const UserUploadPage = async() => {
+    query({
+        type:'user_by_id',
+        params:[sessionStorage.userId]
+    }).then(d=>{
+        console.log(d)
+
+        makeUploaderImage({
+            namespace:'user-upload',
+            folder:'',
+            name:d.result[0].img
+        })
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
 const AnimalProfilePage = async() => {
 
     query({ 
@@ -159,11 +190,49 @@ const AnimalProfilePage = async() => {
         type:'locations_by_animal_id', 
         params:[sessionStorage.animalId] 
     }).then(d=>{
-        makeMap("#animal-profile-page .map").then(map_el=>{
-            makeMarkers(map_el,d.result);
-        })
+        $("#animal-profile-page .grid-container")
+            .html(d.result.length?makeAnimalPhotoList(d.result):'Hey, add a journal.');
     });
+    // query({ 
+    //     type:'locations_by_animal_id', 
+    //     params:[sessionStorage.animalId] 
+    // }).then(d=>{
+    //     makeMap("#animal-profile-page .map").then(map_el=>{
+    //         makeMarkers(map_el,d.result);
+    //     })
+    // });
     
+}
+
+const checkAnimalProfileContent = async(e) => {
+    if(e == 0){
+        // $("#animal-profile-page .map").empty();
+
+        query({ 
+            type:'locations_by_animal_id', 
+            params:[sessionStorage.animalId] 
+        }).then(d=>{
+
+            $("#animal-profile-page .grid-container")
+                .html(d.result.length?makeAnimalPhotoList(d.result):'Hey, add a journal.');
+            $("#animal-profile-page .map").css({'height':`0`})
+
+        });
+    }
+    else if(e == 1){
+
+        $("#animal-profile-page .grid-container").empty();
+
+        query({ 
+            type:'locations_by_animal_id', 
+            params:[sessionStorage.animalId] 
+        }).then(d=>{
+            $("#animal-profile-page .map").css({'height':`100%`})
+            makeMap("#animal-profile-page .map").then(map_el=>{
+                makeMarkers(map_el,d.result);
+            })
+        });   
+    }
 }
 
 
@@ -235,34 +304,16 @@ const LocationAddPage = async() => {
     })
 }
 
-
 const NewJournalPage = async() => {
-    makeMap("#add-new-journal .map");
-    // let map_el = await makeMap("#add-new-journal .map");
-    // makeMarkers(map_el,[]);
+    let map_el = await makeMap("#add-new-journal .map");
 
-    // let map = map_el.data("map");
-
-    // map.addListener("click",function(e){
-    //     console.log(e, map.getCenter())
-
-    //     let posFromClick = {
-    //         lat:e.latLng.lat(),
-    //         lng:e.latLng.lng(),
-    //         icon:"img/icon/marker.svg"
-    //     };
-    //     let posFromCenter = {
-    //         lat:map.getCenter().lat(),
-    //         lng:map.getCenter().lng(),
-    //         icon:"img/icon/marker.svg"
-    //     };
-
-    //     $("#location-add-lat").val(posFromClick.lat)
-    //     $("#location-add-lng").val(posFromClick.lng)
-
-    //     makeMarkers(map_el,[posFromClick])
-    // })
-
+    if($("#location-add-lat").val()!=="") {
+        makeMarkers(map_el,[{
+            lat:+$("#location-add-lat").val(),
+            lng:+$("#location-add-lng").val(),
+            icon:"img/iconMarker.png"
+        }],10);
+    }
 }
 
 
@@ -276,6 +327,8 @@ const SelectAnimalPage = async() => {
     $("#all-animal-type-list")
         .html(d.result.length?makeJournalAnimalList(d.result):'Hey, add your first animal.');
 }
+
+
 
 
 

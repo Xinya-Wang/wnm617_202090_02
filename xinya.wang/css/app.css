@@ -1071,13 +1071,14 @@ ul{
     /*position: relative;*/
 }
 
-.profile-others-menu{
+.tablist{
     position: relative;
     margin: 0.5em 0;
     /*height: 45px;*/
 }
 
-.profile-others-content{
+/*.profile-others-content*/
+.contentlist{
     position: relative;
     /*width: 100%;*/
     flex: 1 1 100%;
@@ -1539,6 +1540,9 @@ footer ul{
 }
 
 .journal-list-container{
+    position: relative;
+    width: 100%;
+    height: auto;
     padding: 0 1em 4em 1em;
 }
 
@@ -1675,6 +1679,53 @@ footer ul{
     height:100%;
 }
 
+
+
+
+.hotdog{
+    width: 100%;
+    background-color: var(--color-neutral-light);
+
+    padding: 0.5em 1em;
+    border-radius: 2em;
+    line-height: 1;
+    display: inline-flex;
+}
+
+.hotdog input{
+    background-color:transparent;
+    border-width: 0;
+    font: inherit;
+    color: inherit;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    flex: 1;
+    outline: 0;
+}
+.ui-header .hotdog{
+    height: calc(var(--header-height) - 0.4em);
+    vertical-align: middle;
+}
+
+
+.list-search{
+    padding: 0.2em 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+
+.filter-list{
+    display: flex;
+    overflow: auto;
+}
+
+.filter{
+    padding: 0 0.5em;
+    font-weight: bold;
+}
 
 
 

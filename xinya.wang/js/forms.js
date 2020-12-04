@@ -112,27 +112,74 @@ const checkLocationAddForm = () => {
         if(d.error) {
             throw d.error;
         }
+        $("#location-add-lat").val("")
+        $("#location-add-lng").val("")
         $("#location-add-form")[0].reset();
         // window.history.go(-2);
     })
 }
 
-const checkSelectedAnimal = () => {
-    // let listLength = $(".js-animal-select").length;
-    // let animalId = $(".js-animal-select")[0].dataset.id;
 
-    let el = document.querySelector('.js-animal-select');
-    let aniaml = $(".js-animal-select");
-    // let animal = el.dataset.id;
 
-    // for (var i = 0; i < listLength; i++) {
-    //     $(".js-animal-select")[i].dataset.id;
-    // }
-    // sessionStorage.animalId = animalId;
-    // console.log(aniaml);
-    // console.log($(this).dataset);
+
+
+
+
+const checkSearchForm = async() => {
+    let s = $("#list-search-input").val();
+    console.log(s);
+
+    let r = await query({ 
+        type:"search_animals",
+        params:[s,sessionStorage.userId]
+    });
+
+    drawAnimalList(r.result,'No resluts found');
+
+    console.log(r);
 }
 
+
+const checkListFilter = async(d) =>{
+    let r = d.value == 'all' ?
+    await query({
+        type:'animals_by_user_id',
+        params:[sessionStorage.userId]
+    }) :
+    await query({
+        type:'animal_filter',
+        params:[d.field, d.value, sessionStorage.userId]
+    });
+
+    console.log(r);
+    drawAnimalList(r.result,'No results found');
+}
+
+
+const checkUpload = file => {
+    let fd = new FormData();
+    fd.append("image", file);
+
+    return fetch('data/api.php', {
+        method:'POST',
+        body:fd
+    }).then(d=>d.json())
+}
+
+const checkUserUpload = () => {
+    let upload = $("#user-upload-image").val()
+    if(upload=="") return;
+
+    query({
+        type:'update_user_image',
+        params:[upload,sessionStorage.userId]
+    }).then(d=>{
+        if(d.error) {
+            throw d.error;
+        }
+        window.history.back();
+   })
+}
 
 
 

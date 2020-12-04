@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <meta name=”apple-mobile-web-app-capable” content=”yes”>
+    <meta name=”mobile-web-app-capable” content=”yes”>
+
+    <link rel="apple-touch-icon" href="./site_logo.png">
+    <link rel="icon" href="./site_logo.png">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animal Tracker</title>
 
@@ -36,7 +43,7 @@
             <form id="signin-form" data-ajax="false">
                 <div class="form-control">
                     <label for="signin-email" class="form-label">Email</label>
-                    <input id="signin-email" type="text" class="form-input" data-role="none" placeholder="Email">
+                    <input id="signin-email" type="email" class="form-input" data-role="none" placeholder="Email">
                 </div>
                 <div class="form-control">
                     <label for="signin-password" class="form-label">Password</label>
@@ -163,15 +170,33 @@
     <!-- Animal List Page -->
     <section data-role="page" id="list-page">
         <header data-role="header" class="display-flex flex-align-center flex-justify-center">
-            <h5>Animal List</h5>
+            <!-- <h5>Animal List</h5> -->
             <!-- <p class="floater right">Select</p> -->
+            <ul>
+            <li class="flex-stretch list-search">
+               <form class="hotdog" id="list-search-form" data-ajax="false">
+                  <input type="search" id="list-search-input" data-role="none" placeholder="Search">
+               </form>
+            </li>
+         </ul>
+        </header>
+
+        <header data-role="header">
+            <div class="filter-list">
+                <!-- <div class="filter" data-field="name" data-value="all">All</div>
+                <div class="filter" data-field="name" data-value="Deer">Deer</div>
+                <div class="filter" data-field="name" data-value="Lizard">Lizard</div> -->
+            </div>
         </header>
 
         <div data-role="main">
             <div class="list-select-holder display-flex flex-align-center">
                 <div id="list-search" class="search">
-                    <input type="search" data-role="none" placeholder="Search">
-                    <i class="icon-search"> </i>
+
+                    <!-- <form class="hotdog" id=""> -->
+                       <!--  <input type="search" id="list-search-input" data-role="none" placeholder="Search">
+                        <i class="icon-search"> </i> -->
+                    <!-- </form> -->
                 </div>
                 <div class="list-select-button display-flex flex-strech flex-justify-end">
                     <a href="#list-select-filter"><div class="list-select display-inline-block" data-activate="#slist-select-filter"><i></i></div></a>
@@ -354,21 +379,22 @@
             </div>
             <div class="animal-banner"></div>
             <div class="profile-others display-flex flex-column">
-                <div class="profile-others-menu">
+                <div class="tablist">
                     <ul class="display-flex flex-align-center">
-                        <li class="display-flex flex-strech flex-justify-center active">
+                        <li class="tab display-flex flex-strech flex-justify-center active">
                             <a href="#" class="flex-strech">
                                 <div class="nav-label">Journal</div>
                             </a>
                         </li>
-                        <li class="display-flex flex-strech flex-justify-center">
+                        <li class="tab display-flex flex-strech flex-justify-center">
                             <a href="#" class="flex-strech">
                                 <div class="nav-label">Map</div>
                             </a>
                         </li class="display-flex flex-strech flex-justify-center">
                     </ul>
                 </div>
-                <div class="profile-others-content">
+                <div class="contentlist">
+                    <div class="grid-container"></div>
                     <div class="map"></div>
                 </div>
                 

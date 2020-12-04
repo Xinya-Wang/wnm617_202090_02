@@ -33,7 +33,7 @@ const makeMap = async (target, center={lat: 36.059043, lng: -112.109306}) => {
 }
 
 
-const makeMarkers = (map_el, map_locs) => {
+const makeMarkers = (map_el, map_locs, zoom=14) => {
 
    let map = map_el.data('map');
    let markers = map_el.data("markers");
@@ -57,14 +57,13 @@ const makeMarkers = (map_el, map_locs) => {
       markers.push(m);
    });
 
-    map_el.data("markers",markers);
+    map_el.data("markers",markers,zoom);
     setTimeout(()=>setMapBounds(map_el, map_locs),150);
 }
 
 
-const setMapBounds = (map_el, map_locs) => {
+const setMapBounds = (map_el, map_locs, zoom=14) => {
     let map = map_el.data('map');
-    let zoom = 14;
 
     if(map_locs.length==1) {
         map.setCenter(map_locs[0]);

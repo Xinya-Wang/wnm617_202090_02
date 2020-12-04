@@ -1,4 +1,3 @@
-
 /*
 //array()
 const makeAnimalList = (a) => {
@@ -31,6 +30,12 @@ const makeAnimalList = templater((o) =>`
 
 //templater is really specifically for an array of objects. so only one we can remove it
 
+const drawAnimalList = (a,empty_phrase='Hey, add an animal.') => {
+   $("#list-page .animallist")
+      .html(a.length?makeAnimalList(a):empty_phrase);
+}
+
+
 const makeAnimalList = templater(o =>`
     <div class="js-animal-jump grid-item" data-id="${o.id}">
         <figure>
@@ -50,6 +55,14 @@ const makeAnimalProfile = templater(o =>`
             </div>
             <p class="details">${o.description}</p>
         </div>
+`);
+
+const makeAnimalPhotoList = templater(o =>`
+    <div class="grid-item">
+        <a href="#animal-journal-page">
+            <img src="${o.photo}" alt="Animal Photo">
+        </a>
+    </div>
 `);
 
 
@@ -82,7 +95,6 @@ const makeJournalList = templater(o =>{
     </li>
 `
 });
-
 
 
 
@@ -310,6 +322,31 @@ const makeJournalAnimalList = templater(o =>`
         </div>
     </li>
 `);
+
+
+
+
+
+const filterList = (animals,name) => {
+   let a = [...(new Set(animals.map(o=>o[name])))];
+   return templater(o=>`<div class="filter" data-field="${name}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</div>`)(a);
+}
+
+
+const makeFilterList = (animals) =>{
+    return `
+    <div class="filter" data-field="type" data-value="all">All</div>
+    ${filterList(animals, 'name')} |
+    ${filterList(animals, 'color')} 
+    `
+};
+
+
+const makeUploaderImage = ({namespace,folder,name}) => {
+    $(`#${namespace}-image`).val(folder+name);
+    $(`#${namespace}-page .image-uploader`)
+        .css({'background-image':`url('${folder+name}')`})
+}
 
 
 

@@ -1,7 +1,7 @@
 //Document Ready
 $(()=>{
 
-    console.dir($("#user-edit-form")[0])
+    console.dir($("#profile-form")[0])
 
     checkUserId();
 
@@ -50,13 +50,11 @@ $(()=>{
         checkSignupForm();
     })
 
-    .on("click", ".error-button", function(){
-        $("#login-error-msg").removeClass("active");
+    .on("submit", "#list-search-form", function(e){
+        e.preventDefault();
+        checkSearchForm();
+    })
 
-    })
-    .on("click", ".error-button.empty", function(){
-        $("#login-error-msg-empty").removeClass("active");
-    })
 
 
     //Form submit by button
@@ -73,12 +71,13 @@ $(()=>{
         checkLocationAddForm();
     })
     .on("click",".js-animal-select",function(e){
-        checkSelectedAnimal();
+        sessionStorage.animalId = $(this).data("id");
+        // checkSelectedAnimal();
+        console.log(sessionStorage.animalId);
     })
 
 
     /* ANCHOR CLICKS */ 
-
     .on("click", ".js-logout", function(e){
         sessionStorage.removeItem('userId');
         checkUserId();
@@ -98,11 +97,34 @@ $(()=>{
         checkAnimalDelete($(this).data("id"));
     })
 
+    .on("click",".js-user-upload",function(e){
+        checkUserUpload();
+    })
 
-    
 
-    
+    .on("click",".filter",function(e){
+        checkListFilter($(this).data());
+    })
+    .on("change",".image-uploader input",function(e){
+        checkUpload(this.files[0])
+        .then(d=>{
+            console.log(d)
+            makeUploaderImage({
+                namespace:'user-upload',
+                folder:'uploads/',
+                name:d.result
+            })
+        })
+    })
 
+
+
+
+    .on("click",".tablist .tab",function(e){
+        $(this).addClass("active").siblings().removeClass("active");
+        checkAnimalProfileContent($(this).index());
+        // console.log(index);
+    })
 
     .on("click","[data-activate]",function(){
         let target = $(this).data('activate');
@@ -115,6 +137,14 @@ $(()=>{
     .on("click","[data-toggle]",function(){
         let target = $(this).data('toggle');
         $(target).toggleClass("active");
+    })
+
+    .on("click", ".error-button", function(){
+        $("#login-error-msg").removeClass("active");
+
+    })
+    .on("click", ".error-button.empty", function(){
+        $("#login-error-msg-empty").removeClass("active");
     })
 
 
