@@ -50,6 +50,7 @@ function makeQuery($c,$ps,$p) {
 
 
 
+
 function makeUpload($file,$folder) {
     $filename = microtime(true) . "_" . $_FILES[$file]['name'];
 
@@ -63,6 +64,7 @@ function makeUpload($file,$folder) {
         "filename"=>$filename
     ];
 }
+
 
 
 
@@ -266,16 +268,10 @@ function makeStatement($data){
 
 
 
-if(!empty($_FILES)){
-    $r = makeUpload("image", "../uploads/");
-    die(json_decode($r));
+if(!empty($_FILES)) {
+    $r = makeUpload("image","../uploads/");
+    die(json_encode($r));
 }
-
-
-
-
-
-
 
 
 

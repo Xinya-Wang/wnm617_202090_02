@@ -156,14 +156,15 @@ const checkListFilter = async(d) =>{
 }
 
 
-const checkUpload = file => {
-    let fd = new FormData();
-    fd.append("image", file);
 
-    return fetch('data/api.php', {
-        method:'POST',
-        body:fd
-    }).then(d=>d.json())
+const checkUpload = file => {
+   let fd = new FormData();
+   fd.append("image",file);
+
+   return fetch('data/api.php',{
+      method:'POST',
+      body:fd
+   }).then(d=>d.json())
 }
 
 const checkUserUpload = () => {
@@ -177,7 +178,7 @@ const checkUserUpload = () => {
         if(d.error) {
             throw d.error;
         }
-        window.history.back();
+        // window.history.back();
    })
 }
 

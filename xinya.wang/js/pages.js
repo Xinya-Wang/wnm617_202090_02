@@ -142,7 +142,13 @@ const UserProfileEditPage = async() => {
     }).then(d=>{
         console.log(d);
 
-        $("#profile-photo").html(makeUserProfileUpdateImage(d.result[0]));
+        //$("#profile-photo").html(makeUserProfileUpdateImage(d.result[0]));
+        makeUploaderImage({
+            namespace:'user-upload',
+            folder:'',
+            name:d.result[0].img
+        })
+        
         $("#profile-form").html(makeUserProfileUpdateForm(d.result[0]));
     });
 }

@@ -20,7 +20,7 @@ $(()=>{
             case 'journal-page':            JournalPage();                  break;
             case 'add-new-journal':         NewJournalPage();               break;
             case 'add-new-location':        LocationAddPage();              break;
-            case 'select-animal-page':      SelectAnimalPage();              break;
+            case 'select-animal-page':      SelectAnimalPage();             break;
 
             case 'user-profile-page':       UserProfilePage();              break;
             case 'profile-settings-page':   UserProfileEditPage();          break; //UserEditPage
@@ -32,6 +32,8 @@ $(()=>{
             case 'email-settings-page':     EmailEditPage();                break;
 
             // case 'location-add-page':       LocationAddPage();              break;
+
+            //case 'user-upload-page': UserUploadPage(); break;
 
         }
     })
@@ -105,9 +107,9 @@ $(()=>{
     .on("click",".filter",function(e){
         checkListFilter($(this).data());
     })
+    
     .on("change",".image-uploader input",function(e){
-        checkUpload(this.files[0])
-        .then(d=>{
+        checkUpload(this.files[0]).then(d=>{
             console.log(d)
             makeUploaderImage({
                 namespace:'user-upload',

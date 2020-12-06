@@ -298,14 +298,47 @@
             <ul>
                 <li><a href="#user-profile-page" class="font-weight-normal">Cancel</a></li>
                 <li class="flex-strech"></li>
-                <li><a href="#" class="js-user-edit">Done</a></li>
+                <li><a href="#" class="js-user-edit js-user-upload">Done</a></li>
             </ul>
         </header>
         <div data-role="main" class="display-flex flex-align-center flex-column">
-            <div id="profile-photo" class="profile-image display-flex flex-align-center flex-column"></div>
+            <form id="user-upload-form" data-ajax="false">
+                <input type="hidden" id="user-upload-image">
+                <label class="image-uploader">
+                    <!-- <input type="file" data-role="none" id="user-upload-input"> -->
+                    <span id="upload-frame">
+                        <input type="button" data-role="none" id="upbutton" value="Change Profile Photo">
+                        <input type="file" data-role="none" id="user-upload-input"> 
+                    </span>
+                </label>
+            </form>
+            <!-- <div id="profile-photo" class="profile-image display-flex flex-align-center flex-column">
+                
+            </div> -->
             <form id="profile-form" class="settings-form-container" data-ajax="false"></form>
         </div>
     </section>
+
+
+    <section data-role="page" id="user-upload-page">
+      <header data-role="header">
+         <h1>Choose Photo</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-user-upload">Save</a></li>
+         </ul>
+
+      </header>
+      <div data-role="main">
+         <form id="user-upload-form" data-ajax="false">
+            <input type="hidden" id="user-upload-image">
+            <label class="image-uploader full">
+               <input type="file" data-role="none" id="user-upload-input">
+            </label>
+         </form>
+      </div>
+   </section>
 
     <!-- Account Setting Page -->
     <section data-role="page" id="account-settings-page">

@@ -310,7 +310,7 @@ const makeAnimalProfileUpdateImage = o => `
 
 const makeUserProfileUpdateImage = o => `
     <img src="${o.img}" alt="User Photo">
-    <a class="">Change Profile Photo</a>
+    <a href="#user-upload-page">Change Profile Photo</a>
 `;
 
 
@@ -344,7 +344,7 @@ const makeFilterList = (animals) =>{
 
 const makeUploaderImage = ({namespace,folder,name}) => {
     $(`#${namespace}-image`).val(folder+name);
-    $(`#${namespace}-page .image-uploader`)
+    $(`#profile-settings-page .image-uploader`)
         .css({'background-image':`url('${folder+name}')`})
 }
 
