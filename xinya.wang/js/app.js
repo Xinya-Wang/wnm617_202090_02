@@ -87,7 +87,8 @@ $(()=>{
 
     .on("click",".js-animal-jump",function(e){
         sessionStorage.animalId = $(this).data("id");
-        $.mobile.navigate("#animal-profile-page");
+        // $.mobile.navigate("#animal-profile-page");
+        $.mobile.navigate("#animal-journal-page");
     })
 
     .on("click",".js-location-jump",function(e){

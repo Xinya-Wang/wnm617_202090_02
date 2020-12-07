@@ -130,11 +130,15 @@ const makeUserProfileJournalSum = templater(o =>`
 
 
 
-const makeAnimalPopup = o =>`
+const makeAnimalPopup = o =>{
+    let date = new Date(o.date_create);
+    let day = date.getDate();
+    let mon = months_short[date.getMonth()];
+    return `
     <div class="journal-list-item display-flex">
         <div class="journal-data">
-            <h1>18</h1>
-            <h4>Oct</h4>
+            <h1>${day}</h1>
+            <h4>${mon}</h4>
         </div>
         <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
             <img src="${o.photo}" alt="Animal Photo">
@@ -150,7 +154,8 @@ const makeAnimalPopup = o =>`
             <a href="#" class="form-button js-animal-jump" data-id="${o.animal_id}" data-deactivate="#recent-animal-modal">Visit</a> 
         </div>
     </div>
-`;
+`
+};
 
 
 
@@ -329,14 +334,14 @@ const makeJournalAnimalList = templater(o =>`
 
 const filterList = (animals,name) => {
    let a = [...(new Set(animals.map(o=>o[name])))];
-   return templater(o=>`<div class="filter" data-field="${name}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</div>`)(a);
+   return templater(o=>`<div class="filter" data-field="${name}" data-value="${o}"><p>${o[0].toUpperCase()+o.substr(1)}</p></div>`)(a);
 }
 
 
 const makeFilterList = (animals) =>{
     return `
-    <div class="filter" data-field="type" data-value="all">All</div>
-    ${filterList(animals, 'name')} |
+    <div class="filter" data-field="type" data-value="all"><p>All</p></div>
+    ${filterList(animals, 'name')}  <p style="margin-left:0.4em">|</p>
     ${filterList(animals, 'color')} 
     `
 };

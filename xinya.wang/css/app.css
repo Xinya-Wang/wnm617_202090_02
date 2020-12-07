@@ -531,6 +531,10 @@ ul{
     border-bottom: 0px;
 }
 
+.header-filter{
+    border-bottom: 0px;
+}
+
 #list-page .ui-header,
 #journal-page .ui-header{
     background-color: var(--color-yellow);
@@ -1153,6 +1157,7 @@ ul{
 }
 
 .animal-grid-container{
+    margin-top: 1em;
     display: grid;
     /*grid-gap: 2em;*/
     grid-column-gap: 2em;
@@ -1684,8 +1689,7 @@ footer ul{
 
 .hotdog{
     width: 100%;
-    background-color: var(--color-neutral-light);
-
+    background-color: var(--color-white);
     padding: 0.5em 1em;
     border-radius: 2em;
     line-height: 1;
@@ -1696,7 +1700,8 @@ footer ul{
     background-color:transparent;
     border-width: 0;
     font: inherit;
-    color: inherit;
+    /*color: inherit;*/
+    color: var(--color-neutral-mediumer);
     border-radius: 0;
     padding: 0;
     margin: 0;
@@ -1714,30 +1719,20 @@ footer ul{
     padding: 0.2em 0.5em;
     display: flex;
     align-items: center;
+    width: 100%;
 }
-
 
 .filter-list{
     display: flex;
     overflow: auto;
+    color: var(--color-black);
 }
 
-.filter{
+/*.filter{
     padding: 0 0.5em;
-    font-weight: bold;
-}
+    color: var(--color-black);
+}*/
 
-
-.image-uploader.full {
-   /*position:absolute;
-   top:0;
-   left:0;
-   width:100%;
-   height:100%;
-
-   background-size:contain;
-   background-repeat:no-repeat;*/
-}
 
 #user-upload-form{
     width: inherit;
@@ -1762,20 +1757,6 @@ footer ul{
 }
 
 
-.ui-mobile label.image-uploader {
-   /*margin:0;*/
-}
-
-
-#upload-frame{
-    /*display: inline-block;
-    margin-top:5px;
-    position: relative;
-    overflow: hidden;
-    float: right;*/
-}
-
-
 #upbutton{
     width: 100%;
     height: auto;
@@ -1788,13 +1769,59 @@ footer ul{
     position: absolute;
     right: 0px;
     top: 0px;
-        opacity: 0;
-        -ms-filter: 'alpha(opacity=0)';
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
 
 }
 
+.list-header-bar{
+    width: 92%
+}
+
+.button-add-link{
+    position: relative;
+    width: inherit;
+    height: 100%;
+}
+
+.icon-add{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.filter-list {
+    display: flex;
+    overflow: auto;
+    color: var(--color-black);
+    padding-top: 0.4em;
+}
+
+.filter{
+    width: 100%; 
+    height: 80%;
+    padding: 0 0.8em;
+    margin-left: 0.3em;
+    color: #000;
+    border: 2px solid #ffc700;
+    border-radius: 2em;
+    height: 2em;
+    margin-top: 0.4em;
+    text-align: center;
+    white-space: nowrap;
+    position: relative;
+}
+
+.filter p{
+    position: relative;
+    top: -36%;
+}
 
 
+#animal-profile-page .map{
+    height: 0;
+}
 
 
 
@@ -1814,6 +1841,11 @@ footer ul{
     width: calc(50vw - 5em);
     height: calc(50vw - 5em);
 }*/
+
+
+/*.list-add*/
+
+
 
 
 
