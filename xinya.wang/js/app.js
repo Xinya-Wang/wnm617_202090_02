@@ -109,16 +109,18 @@ $(()=>{
     })
 
     .on("click",".js-animal-delete",function(e){
-        checkAnimalDelete($(this).data("id"));
+        // checkAnimalDelete($(this).data("id"));
+         checkAnimalDelete();
+        console.log(sessionStorage.animalId);
+    })
+
+    
+    .on("click",".filter",function(e){
+        checkListFilter($(this).data());
     })
 
     .on("click",".js-user-upload",function(e){
         checkUserUpload();
-    })
-
-
-    .on("click",".filter",function(e){
-        checkListFilter($(this).data());
     })
     
     .on("change",".image-uploader input",function(e){
@@ -126,6 +128,17 @@ $(()=>{
             console.log(d)
             makeUploaderImage({
                 namespace:'user-upload',
+                folder:'uploads/',
+                name:d.result
+            })
+        })
+    })
+
+    .on("change",".journal-photo-uploader input",function(e){
+        checkUpload(this.files[0]).then(d=>{
+            console.log(d)
+            makeUploaderJournalPhoto({
+                namespace:'journal-upload',
                 folder:'uploads/',
                 name:d.result
             })

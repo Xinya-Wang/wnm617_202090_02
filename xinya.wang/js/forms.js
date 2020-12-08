@@ -95,7 +95,7 @@ const checkAnimalDelete = id => {
         if(d.error) {
             throw d.error;
         }
-        window.history.back();
+        window.history.go(-1);
    })
 }
 
@@ -104,16 +104,18 @@ const checkLocationAddForm = () => {
     let lat         = $("#location-add-lat").val();
     let lng         = $("#location-add-lng").val();
     let description = $("#location-add-description").val();
+    let photo       = $("#journal-upload-photo").val()
 
     query({
         type:'insert_location',
-        params:[sessionStorage.animalId,lat,lng,description]})
+        params:[sessionStorage.animalId,lat,lng,description,photo]})
     .then(d=>{
         if(d.error) {
             throw d.error;
         }
-        $("#location-add-lat").val("")
-        $("#location-add-lng").val("")
+        $("#location-add-lat").val("");
+        $("#location-add-lng").val("");
+        $("#journal-upload-photo").val("");
         $("#location-add-form")[0].reset();
         // window.history.go(-2);
     })
@@ -181,6 +183,7 @@ const checkUserUpload = () => {
         // window.history.back();
    })
 }
+
 
 
 

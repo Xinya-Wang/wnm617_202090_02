@@ -592,7 +592,17 @@
                 </form>
             </div>
             <div class="animal-edit-photo display-flex flex-align-center">
-               <a href="#"><div class="add-photo-item add"><img src="img/iconAdd.svg"></div></a>
+                <form id="journal-upload-photo-form" data-ajax="false">
+                    <input type="hidden" id="journal-upload-photo">
+                    <label class="journal-photo-uploader">
+                        <span>
+                            <div class="add-photo-item add"><img src="img/iconAdd.svg"></div>
+                            <!-- <input type="button" data-role="none" id="upbutton" value="Change Profile Photo"> -->
+                            <input type="file" data-role="none" id="journal-upload-input"> 
+                        </span>
+                    </label>
+                </form>
+                <!-- <a href="#"><div class="add-photo-item add"><img src="img/iconAdd.svg"></div></a> -->
             </div>
         </div>
     </section>

@@ -1436,8 +1436,8 @@ footer ul{
 .animal-edit-photo{
     position: relative;
     width: 100%;
-    height: 20vw;
-    padding: 0 1em;
+    /*height: 20vw;*/
+    padding: 0 1.2em;
 }
 
 #add-new-animal .animal-edit-banner-image{
@@ -1739,10 +1739,35 @@ footer ul{
     color: var(--color-black);
 }*/
 
-
+#journal-upload-photo-form,
 #user-upload-form{
     width: inherit;
     height: calc(42vw + 3.2em);
+}
+
+/*.animal-edit-photo .image-uploader{
+    position: relative;
+    width: inherit;
+    height: inherit;
+    background-color: rgba(0,0,0,0);
+}
+*/
+
+.journal-photo-uploader{
+    /*position: relative;
+    width: 42vw;
+    height: 42vw;
+    background-color: var(--color-neutral-red);
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    position: relative;
+    width: 20vw;
+    height: 20vw;
+    overflow: hidden;
+    border-radius: 0.4em;
+    background-color: var(--color-neutral-lighter);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .image-uploader{
@@ -1771,6 +1796,7 @@ footer ul{
     color: var(--color-blue);
 }
 
+#journal-upload-input,
 #user-upload-input{
     position: absolute;
     right: 0px;

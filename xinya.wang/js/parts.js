@@ -320,15 +320,6 @@ ${AccountFormControl({
     value: "Change password"
 })}
 
-${AccountFormControl({
-    url:"#contry-settings-page",
-    namespace:"setting-account",
-    name:"contry",
-    displayname:"Contry/Region",
-    type:"text",
-    placeholder:"Choose Your Contry",
-    value: "Unitied States"
-})}
 
 ${AccountFormControl({
     url:"#login-options-settings-page",
@@ -340,6 +331,18 @@ ${AccountFormControl({
     value: ""
 })}
 `;
+
+
+// ${AccountFormControl({
+//     url:"#contry-settings-page",
+//     namespace:"setting-account",
+//     name:"contry",
+//     displayname:"Contry/Region",
+//     type:"text",
+//     placeholder:"Choose Your Contry",
+//     value: "Unitied States"
+// })}
+
 
 const editAccountEmail = o => `
 ${FormControl({
@@ -396,6 +399,13 @@ const makeUploaderImage = ({namespace,folder,name}) => {
     $(`#${namespace}-image`).val(folder+name);
     $(`#profile-settings-page .image-uploader`)
         .css({'background-image':`url('${folder+name}')`})
+}
+
+const makeUploaderJournalPhoto = ({namespace,folder,name}) => {
+    $(`#${namespace}-photo`).val(folder+name);
+    $(`#add-new-journal .journal-photo-uploader`).css({'background-image':`url('${folder+name}')`});
+    $(`#add-new-journal .add-photo-item`).css({'opacity':`0`});
+    
 }
 
 
