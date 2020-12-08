@@ -58,7 +58,7 @@ const makeAnimalProfile = templater(o =>`
 `);
 
 const makeAnimalPhotoList = templater(o =>`
-    <div class="grid-item">
+    <div class="grid-item js-locationPhoto-jump">
         <a href="#animal-journal-page">
             <img src="${o.photo}" alt="Animal Photo">
         </a>
@@ -75,8 +75,8 @@ const makeJournalList = templater(o =>{
     let day = date.getDate();
     let mon = months_short[date.getMonth()];
     return `
-    <li class="journal-list-item">
-        <a href="#animal-journal-page" class="display-flex">
+    <li class="journal-list-item js-locationlist-jump">
+        <a href="" class="display-flex">
             <div class="journal-data">
                 <h1>${day}</h1>
                 <h4>${mon}</h4>
@@ -95,6 +95,51 @@ const makeJournalList = templater(o =>{
     </li>
 `
 });
+
+
+
+const makeSingleJournalDate = o =>{
+    let date    = new Date(o.date_create);
+    let hour    = date.getHours();
+    let minutes = String(date.getMinutes()).padStart(2, "0");
+    let day     = date.getDate();
+    let mon     = months_short[date.getMonth()];
+    let year    = date.getFullYear();
+    let ampm    = (hour >= 12) ? "PM" : "AM";
+    return `
+    <h3>${mon} ${day}, ${year}</h3>
+    <p>${hour}:${minutes} ${ampm}</p>
+`
+};
+
+const makeJournalDate = o =>{
+    let date    = new Date(o.date_create);
+    let hour    = date.getHours();
+    let minutes = String(date.getMinutes()).padStart(2, "0");
+    let day     = date.getDate();
+    let mon     = months_short[date.getMonth()];
+    let year    = date.getFullYear();
+    let ampm    = (hour >= 12) ? "PM" : "AM";
+    return `
+    <h3>${mon} ${day}, ${year}</h3>
+    <p>${hour}:${minutes} ${ampm}</p>
+`
+};
+
+const makeJournalContent = templater(o =>`
+    <div class="animal-journal-photo">
+        <img src="${o.photo}"> 
+    </div>
+    <div class="animal-journal-text">
+        <p>${o.description}</p>
+    </div>
+    
+    <div class="animal-journal-location display-flex flex-align-center">
+        <img src="img/iconLocation.svg">
+        <p>${o.lat}, ${o.lng}</p>
+    </div>
+`);
+
 
 
 
@@ -151,7 +196,7 @@ const makeAnimalPopup = o =>{
             </div>
         </div>
         <div>
-            <a href="#" class="form-button js-animal-jump" data-id="${o.animal_id}" data-deactivate="#recent-animal-modal">Visit</a> 
+            <a href="#" class="form-button js-location-jump" data-id="${o.animal_id}" data-deactivate="#recent-animal-modal">Visit</a> 
         </div>
     </div>
 `

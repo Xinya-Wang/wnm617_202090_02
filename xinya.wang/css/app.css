@@ -1365,10 +1365,13 @@ footer ul{
     margin: 0;
 }
 
+#animal-journal-content .animal-journal-location{
+    padding: 0 1em;
+}
+
 .animal-journal-location {
     color: var(--color-blue);
     font-size: 0.8em;
-    /*padding: 0 1em;*/
 }
 
 .animal-journal-location img{
@@ -1399,8 +1402,11 @@ footer ul{
 }
 
 .animal-journal-photo img{
-    width: auto;
-    height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: auto;
     object-fit: cover;
 }
 

@@ -439,19 +439,18 @@
     <!-- Animal journal page -->
     <section data-role="page" id="animal-journal-page">
         <header data-role="header">
-            <div class="animal-journal-header display-flex flex-column flex-align-center flex-justify-center">
-                <h3>October 18, 2020</h3>
-                <p>2:09 PM</p>
-            </div>
+            <div class="animal-journal-header display-flex flex-column flex-align-center flex-justify-center"></div>
             <ul>
                 <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
                 <li class="flex-strech"></li>
-                <!-- <li><a href="#animal-journal-edit-page" class="font-weight-normal">Edit</a></li> -->
                 <li data-toggle="#journal-edit-select-modal"><a href="#"><img class="nav-in-header" src="img/iconSelect.svg" alt="Menu icon"></a></li>
             </ul>
         </header>
         <div data-role="main">
-            <div class="animal-journal-photo">
+            <div id="animal-journal-content">
+                
+            </div>
+            <!-- <div class="animal-journal-photo">
                <img src="img/animal/mule-deer2.jpg"> 
             </div>
             <div class="animal-journal-text">
@@ -462,7 +461,7 @@
                     <img src="img/iconLocation.svg">
                     <p>Visitor center in Grand Canyon Village, Arizona</p>
                 </div>
-            </a>
+            </a> -->
         </div>
         <div class="modal" id="journal-edit-select-modal">
             <div class="modal-toast">

@@ -21,6 +21,7 @@ $(()=>{
             case 'add-new-journal':         NewJournalPage();               break;
             case 'add-new-location':        LocationAddPage();              break;
             case 'select-animal-page':      SelectAnimalPage();             break;
+            // case 'animal-journal-page':     SingleJournalPage();            break;
 
             case 'user-profile-page':       UserProfilePage();              break;
             case 'profile-settings-page':   UserProfileEditPage();          break; //UserEditPage
@@ -87,13 +88,24 @@ $(()=>{
 
     .on("click",".js-animal-jump",function(e){
         sessionStorage.animalId = $(this).data("id");
-        // $.mobile.navigate("#animal-profile-page");
-        $.mobile.navigate("#animal-journal-page");
+        $.mobile.navigate("#animal-profile-page");
     })
 
     .on("click",".js-location-jump",function(e){
-        sessionStorage.locationId = $(this).data("id");
-        $.mobile.navigate("#location-profile-page");
+        // sessionStorage.locationId = $(this).data("id");
+        $.mobile.navigate("#animal-journal-page");
+        SingleJournalPage();
+    })
+    .on("click",".js-locationlist-jump",function(e){
+        // sessionStorage.locationId = $(this).data("id");
+        $.mobile.navigate("#animal-journal-page");
+        checkJournalContent($(this).index());
+    })
+    .on("click",".grid-container .js-locationPhoto-jump",function(e){
+        // sessionStorage.locationId = $(this).data("id");
+        $.mobile.navigate("#animal-journal-page");
+        checkPhotoContent($(this).index());
+        console.log($(this).index());
     })
 
     .on("click",".js-animal-delete",function(e){

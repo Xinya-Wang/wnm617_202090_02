@@ -1,5 +1,8 @@
 
 // async and await, async is going to be something that essentially is now a promise. 
+
+let journal_id;
+
 const RecentPage = async() => {
 
     let d = await query({
@@ -48,6 +51,9 @@ const RecentPage = async() => {
             $("#recent-animal-modal").addClass("active");
             $("#recent-animal-modal .modal-body")
                 .html(makeAnimalPopup(valid_animals[i]));
+
+            journal_id = valid_animals[i].id;
+            // console.log(journal_id);
         })
     })
 }
@@ -89,6 +95,48 @@ const JournalPage = async() => {
     // console.log(d.result.length);
     
     $("#journal-list").html(makeJournalList(d.result));
+}
+
+const SingleJournalPage = async(e) => {
+    let id = journal_id;
+
+    query({ 
+        type:'location_by_id',
+        params:[id]
+    }).then(d=>{
+        $("#animal-journal-page .animal-journal-header").html(makeSingleJournalDate(d.result[0]));
+        $("#animal-journal-content").html(makeJournalContent(d.result[0]));
+    });
+}
+
+const checkJournalContent = async(e) => {
+
+    let journalId = e;
+
+    query({ 
+        type:'all_animal_location_by_user_id',
+        params:[sessionStorage.userId]
+    }).then(d=>{
+        // console.log(d.result[journalId]);
+        $("#animal-journal-page .animal-journal-header").html(makeJournalDate(d.result[journalId]));
+        $("#animal-journal-content").html(makeJournalContent(d.result[journalId]));
+    });
+
+}
+
+const checkPhotoContent = async(e) => {
+
+    let journalId = e;
+
+    query({ 
+        type:'locations_by_animal_id', 
+        params:[sessionStorage.animalId] 
+    }).then(d=>{
+        // console.log(d.result[journalId]);
+        $("#animal-journal-page .animal-journal-header").html(makeJournalDate(d.result[journalId]));
+        $("#animal-journal-content").html(makeJournalContent(d.result[journalId]));
+    });
+
 }
 
 
@@ -198,15 +246,8 @@ const AnimalProfilePage = async() => {
     }).then(d=>{
         $("#animal-profile-page .grid-container")
             .html(d.result.length?makeAnimalPhotoList(d.result):'Hey, add a journal.');
+        console.log(d.result);
     });
-    // query({ 
-    //     type:'locations_by_animal_id', 
-    //     params:[sessionStorage.animalId] 
-    // }).then(d=>{
-    //     makeMap("#animal-profile-page .map").then(map_el=>{
-    //         makeMarkers(map_el,d.result);
-    //     })
-    // });
     
 }
 
