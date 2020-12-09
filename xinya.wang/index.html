@@ -153,10 +153,10 @@
 
         <div data-role="main">
             <div class="map"></div>
-            <div id="recent-search" class="search">
+            <!-- <div id="recent-search" class="search">
                 <input type="search" data-role="none" placeholder="Search Here">
                 <i class="icon-search"> </i>
-            </div>
+            </div> -->
             <a href="#add-new-journal">
                 <div class="nav-icon add-location"><img src="img/iconAdd.svg"></div>
             </a>
@@ -301,9 +301,6 @@
                     </span>
                 </label>
             </form>
-            <!-- <div id="profile-photo" class="profile-image display-flex flex-align-center flex-column">
-                
-            </div> -->
             <form id="profile-form" class="settings-form-container" data-ajax="false"></form>
         </div>
     </section>
@@ -372,9 +369,11 @@
         <div data-role="main" class="display-flex flex-column">
             <div class="animal-profile-header">
                 <ul class="display-flex">
-                    <li class="flex-strech"><a href="#" data-rel="back">
-                        <img class="nav-in-header" src="img/iconBack.svg" alt="back icon">
-                    </a></li>
+                    <li class="flex-strech">
+                        <a href="#" data-rel="back" data-deactivate="#animal-edit-select-modal">
+                            <img class="nav-in-header" src="img/iconBack.svg" alt="back icon">
+                        </a>
+                    </li>
                     <li data-toggle="#animal-edit-select-modal"><img class="nav-in-header" src="img/iconSelect.svg" alt="Menu icon"></li>
                 </ul>
             </div>
@@ -382,7 +381,7 @@
             <div class="profile-others display-flex flex-column">
                 <div class="tablist">
                     <ul class="display-flex flex-align-center">
-                        <li class="tab display-flex flex-strech flex-justify-center active">
+                        <li class="tab first display-flex flex-strech flex-justify-center active">
                             <a href="#" class="flex-strech">
                                 <div class="nav-label">Journal</div>
                             </a>
@@ -395,28 +394,15 @@
                     </ul>
                 </div>
                 <div class="contentlist">
-                    <div class="grid-container"></div>
+                    <div class="overscroll">
+                        <div class="grid-container"></div>
+                    </div>
                     <div class="map"></div>
                 </div>
-                
-                <!-- <div class="">
-                    <div class="grid-container">
-                        <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/mule-deer2.jpg" alt="mule-deer"></a></div>
-                        <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/deer3.jpg" alt="mule-deer"></a></div>
-                        <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/deer4.jpg" alt="mule-deer"></a></div>
-                        <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/mule-deer.jpg" alt="mule-deer"></a></div>
-                        <div class="grid-item"><a href="#animal-journal-page"><img src="img/animal/deer6.jpg" alt="mule-deer"></a></div>
-                    </div>
-                </div> -->
             </div>   
         </div>
         <div class="modal" id="animal-edit-select-modal">
-            <div class="modal-toast">
-                <ul data-deactivate="#animal-edit-select-modal">
-                    <li><a href="#animal-edit-profile">Edit Profile</a></li>
-                    <li><a href="#" class="js-animal-delete">Delete</a></li>
-                </ul>
-            </div>
+            <div class="modal-toast"></div>
         </div>
     </section>
 
@@ -431,7 +417,6 @@
             </ul>
         </header>
         <div data-role="main" class="display-flex flex-align-center flex-column">
-            <div id="edit-profile-image" class="animal-edit-banner-image display-flex flex-align-center flex-column"></div>
             <form id="animal-profile-form" class="settings-form-container" data-ajax="false"></form>
         </div>
     </section>
@@ -500,22 +485,24 @@
     <!-- Add a new Animal -->
     <section data-role="page" id="add-new-animal">
         <header data-role="header">
-            <h1>Edit Animal Profile</h1>
+            <h1>New Animal Profile</h1>
             <ul>
                 <li><a href="#" data-rel="back">Cancel</a></li>
                 <li class="flex-strech"></li>
-                <li><a href="#" class="js-animal-add">Save</a></li>
+                <li><a href="#" class="js-animal-add call-to-action-button">Save</a></li>
             </ul>
         </header>
         <div data-role="main" class="display-flex flex-align-center flex-column">
-            <div class="animal-edit-banner-image display-flex flex-align-center flex-column">
-                <a href="#">
-                    <div class="add-banner-image display-flex flex-align-center">
-                        <img src="img/iconAddBannerImage.svg">
-                        <p>Add Profile Banner Image</p>
+            <!-- <div class="animal-edit-banner-image display-flex flex-align-center flex-column"> -->
+                <form id="animal-image-add-form" data-ajax="false">
+                    <div>
+                        <input type="hidden" id="animal-add-image">
+                        <label class="photo-uploader banner-add-new">
+                            <input type="file" data-role="none" id="animal-add-upload">
+                        </label>
                     </div>
-                </a>
-            </div>
+                </form>
+            <!-- </div> -->
             <form id="new-animal-profile-form" class="settings-form-container" data-ajax="false">
                 <input type="hidden" id="animal-add-destination" value="#list-page">
                 <div class="settings-form-control display-flex flex-align-center">
@@ -586,23 +573,18 @@
             <div class="line"></div>
             <div class="animal-journal-text">
                 <form id="location-add-form" data-ajax="false">
-                    <!-- <textarea rows="4">Say something ... 
-                    </textarea> -->
                     <textarea id="location-add-description" class="form-input" data-role="none" placeholder="Say something ... "></textarea>
                 </form>
             </div>
             <div class="animal-edit-photo display-flex flex-align-center">
-                <form id="journal-upload-photo-form" data-ajax="false">
-                    <input type="hidden" id="journal-upload-photo">
-                    <label class="journal-photo-uploader">
-                        <span>
-                            <div class="add-photo-item add"><img src="img/iconAdd.svg"></div>
-                            <!-- <input type="button" data-role="none" id="upbutton" value="Change Profile Photo"> -->
-                            <input type="file" data-role="none" id="journal-upload-input"> 
-                        </span>
-                    </label>
+                <form id="location-photo-add-form" data-ajax="false">
+                    <div>
+                        <input type="hidden" id="location-add-image">
+                        <label class="photo-uploader thumbnail">
+                            <input type="file" data-role="none" id="location-add-upload">
+                        </label>
+                    </div>
                 </form>
-                <!-- <a href="#"><div class="add-photo-item add"><img src="img/iconAdd.svg"></div></a> -->
             </div>
         </div>
     </section>
@@ -638,24 +620,6 @@
                 <!-- <div class="select-animal-item">
                     <h3>Recent</h3>
                     <ul>
-                        <li>
-                            <div class="select-list-item display-flex flex-align-center">
-                                <img src="img/animal/mule-deer.png" alt="mule deer">
-                                <p>Mule deer &#183; Brown</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="select-list-item display-flex flex-align-center">
-                                <img src="img/animal/mule-deer.png" alt="mule deer">
-                                <p>Mule deer &#183; Brown</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="select-list-item display-flex flex-align-center">
-                                <img src="img/animal/mule-deer.png" alt="mule deer">
-                                <p>Mule deer &#183; Brown</p>
-                            </div>
-                        </li>
                     </ul>
                 </div> -->
                 <div class="select-animal-item">

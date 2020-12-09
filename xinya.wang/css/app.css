@@ -937,7 +937,7 @@ ul{
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 0 1em;
+    padding: 0 1.5em;
     margin-bottom: 4em;
     /*flex-flow: row wrap*/
 }
@@ -951,35 +951,52 @@ ul{
     flex-flow: row wrap;
 }*/
 
-.overscroll .grid-item{
+#list-page .overscroll .grid-item{
     position: relative;
-    /*width: 42%;*/
     width: 100%;
     height: 54vw;
     margin-bottom: 1em;
     overflow: hidden;
     text-align: left;
-    font-size: 0.8em;
+    font-size: 1em;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 3px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 0.5em;
+    font-family: var(--font-title);
+    padding-bottom: 0.5em;
 }
 
-.overscroll .grid-item figure{
+#list-page .overscroll .grid-item figure{
     margin: 0px;
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 80%;
     overflow: hidden;
-    font-size: 0.8em; 
+    font-size: 0.8em;
+    border-radius: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.overscroll .grid-item img{
-    width: inherit;
-    height: auto;
+#list-page .overscroll .grid-item img{
+    width: auto;
+    height: 100%;
     border-radius: 0.5em;
 }
 
-.overscroll .grid-item p{
-    margin: 0.1em auto;
+#list-page .overscroll .grid-item figcaption{
+    font-family: var(--font-title);
+    margin-top: 0.3em;
+    padding-left: 0.5em;
+    font-weight: 600;
+}
+
+#list-page .overscroll .grid-item p{
+    margin: 0.4em auto;
     font-weight: 400;
     font-size: 0.8em;
+    padding-left: 0.6em;
+    color: var(--color-neutral-dark);
 }
 
 /*#list-page .overscroll li{
@@ -1066,13 +1083,12 @@ ul{
 /*-- animal profile */
 .profile-others{
     position: relative;
-    /*width: 100%;*/
-    /*height: auto;*/
-    /*overflow: hidden;*/
-    /*padding: 0 1em;*/
-    /*background-color: red;*/
     flex: 1 1 100%;
-    /*position: relative;*/
+    width: 100%;
+}
+
+#animal-profile-page .profile-others{
+     height: 55%;
 }
 
 .tablist{
@@ -1084,7 +1100,9 @@ ul{
 /*.profile-others-content*/
 .contentlist{
     position: relative;
-    /*width: 100%;*/
+    width: 100%;
+    height: 100%;
+    padding-bottom: 3.9em;
     flex: 1 1 100%;
 }
 
@@ -1148,6 +1166,23 @@ ul{
 
 
 /* Grid Container */
+.animal-photo-list{
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    transform: translateY(-20%);
+    text-align: center;
+    font-family: var(--font-title);
+    color: var(--color-neutral-light);
+}
+
+.animal-photo-list .img-placeholder{
+    margin-top: 1em;
+    width: 20%;
+    height: auto;
+}
+
+
 .grid-container {
     display: grid;
     grid-gap: 1px;
@@ -1160,7 +1195,7 @@ ul{
     margin-top: 1em;
     display: grid;
     /*grid-gap: 2em;*/
-    grid-column-gap: 2em;
+    grid-column-gap: 1.5em;
     grid-template-columns: repeat(2, 1fr);
     padding-bottom: 5.5em;
     /*grid-template-rows: repeat(3, 30vw);*/
@@ -1291,21 +1326,23 @@ footer ul{
     position: relative;
     top: 0;
     width: 100%;
-    /*height: 70vw;*/
     height: 45%;
-    vertical-align: middle;
+    overflow: hidden;
     color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .animal-banner img{
-    position: absolute;
+    /*position: absolute;
     top: 0;
-    left: 0;
+    left: 0;*/
     width: 100%;
-    height: 100%;
-    max-width: 100%;
+    height: auto;
+   /* max-width: 100%;
     max-height: 100%;
-    display: block;
+    display: block;*/
 }
 
 .animal-banner-intro{
@@ -1417,12 +1454,10 @@ footer ul{
 }
 
 .animal-journal-text form{
-    margin: 1em 0;
+    /*margin: 1em 0;*/
     width: 100%;
     height: 20vw;
     overflow: hidden;
-    
-   
 }
 
 .animal-journal-text textarea{
@@ -1514,13 +1549,19 @@ footer ul{
     line-height: var(--line-height);
 }
 
+.js-animal-select.active{
+    border: 2px solid var(--color-yellow);
+    border-radius: 3em;
+    padding-left: 1em;
+}
+
 .select-animal-item li{
     padding: 1em 1em 1em 0.5em;
     border-bottom: 1px solid var(--color-neutral-lighter);
 }
 .select-animal-item li:last-child{
-    border-bottom: 0px;
-    padding-bottom: 1em;
+    /*border-bottom: 0px;
+    padding-bottom: 1em;*/
 }
 
 .select-animal-item img{
@@ -1578,17 +1619,18 @@ footer ul{
 
 .journal-list-photo{
     width: 18%;
-    /*height: 6em;*/
-    height: inherit;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-right: 0.5em;
     overflow: hidden;
-    
 }
-.journal-list-photo img{
-    height: inherit;
-    /*width: auto;*/
-    object-fit: cover;
 
+.journal-list-photo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5em;
 }
 
 .modal-body .journal-content{
@@ -1734,41 +1776,32 @@ footer ul{
     color: var(--color-black);
 }
 
-/*.filter{
-    padding: 0 0.5em;
-    color: var(--color-black);
-}*/
 
-#journal-upload-photo-form,
-#user-upload-form{
-    width: inherit;
-    height: calc(42vw + 3.2em);
-}
+/*#journal-upload-photo-form,
 
-/*.animal-edit-photo .image-uploader{
+
+.edit-image-uploader{
     position: relative;
-    width: inherit;
-    height: inherit;
-    background-color: rgba(0,0,0,0);
+    width: 100%;
+    height: 60vw;
+    overflow: hidden;
+    background-color: var(--color-neutral-lighter);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-*/
+
 
 .journal-photo-uploader{
-    /*position: relative;
-    width: 42vw;
-    height: 42vw;
-    background-color: var(--color-neutral-red);
-    background-size: cover;
-    background-repeat: no-repeat;*/
     position: relative;
     width: 20vw;
     height: 20vw;
     overflow: hidden;
     border-radius: 0.4em;
     background-color: var(--color-neutral-lighter);
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-}
+}*/
 
 .image-uploader{
     position: relative;
@@ -1777,6 +1810,7 @@ footer ul{
     height: 42vw;
     background-color: var(--color-neutral-lighter);
     border-radius: 50%;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -1788,6 +1822,18 @@ footer ul{
 }
 
 
+.animal-image-from{
+    width: 100%;
+    height: 62vw;
+}
+
+
+#user-upload-form{
+    padding-top: 0.5em;
+    width: inherit;
+    height: calc(42vw + 3.2em);
+}
+
 #upbutton{
     width: 100%;
     height: auto;
@@ -1795,16 +1841,14 @@ footer ul{
     background-color: rgba(0,0,0,0);
     color: var(--color-blue);
 }
-
-#journal-upload-input,
 #user-upload-input{
     position: absolute;
     right: 0px;
     top: 0px;
     opacity: 0;
     -ms-filter: 'alpha(opacity=0)';
-
 }
+
 
 .list-header-bar{
     width: 92%
@@ -1822,6 +1866,8 @@ footer ul{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
 
 .filter-list {
     display: flex;
@@ -1857,40 +1903,72 @@ footer ul{
 
 
 
-/*.profile-image{
+.photo-uploader input {
+    display:none;
+}
+
+.ui-mobile label{
+    margin: 0;
+}
+
+#animal-image-add-form{
     position: relative;
-    text-align: center;
-    margin: 1em auto;
+    width: 100%;
+    height: 60vw;
 }
 
-.profile-image a{
-    margin-top: 0.5em;
-    font-size: 0.8em;
-    color: var(--color-blue);
+.photo-uploader.banner-add-new,
+.photo-uploader.banner{
+    position: relative;
+    width: 100%;
+    height: 60vw;
+    /*overflow: hidden;*/
+    background-color: var(--color-neutral-lighter);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-#profile-settings-page .profile-image img{
-    width: calc(50vw - 5em);
-    height: calc(50vw - 5em);
-}*/
+.photo-uploader.thumbnail{
+    width: 5em;
+    height: 5em;
+    border-radius: 0.5em;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0,0,0,0.1);
+    position:relative;
+}
+.photo-uploader.thumbnail:not(.picked){
+  /*border:2px solid var(--color-neutral-light);*/
+}
+/* This will add the floating plus symbol to the imagepicker */
+.photo-uploader.banner-add-new:before,
+.photo-uploader.thumbnail:before {
+    color:var(--color-neutral-light);
+    content:'+';
+    position:absolute;
+    font-size:3em;
+    vertical-align:middle;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.photo-uploader.banner-add-new:before{
+    font-size: 1rem;
+    white-space: nowrap;
+    content: '+ Add Profile Banner Image';
+}
+/* This will hide the plus symbol behind the background of the imagepicker if the class "picked" is added to the element */
+.photo-uploader.banner-add-new.picked:before,
+.photo-uploader.thumbnail.picked:before {
+  z-index:-1;
+}
 
 
-/*.list-add*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.gm-style img{
+    border-radius: 0.5em;
+}
 
 
 

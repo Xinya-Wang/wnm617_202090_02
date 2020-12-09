@@ -48,18 +48,19 @@ const checkAnimalAddForm = () => {
     let name            = $("#animal-profile-new-name").val();
     let color           = $("#animal-profile-new-color").val();
     let description     = $("#animal-profile-new-bio").val();
+    let img             = $("#animal-add-image").val();
 
 
     query({
         type:'insert_animal',
-        params:[sessionStorage.userId,name,color,description]
+        params:[sessionStorage.userId,name,color,description,img]
     }) 
     .then(d=>{
         if(d.error){
             throw d.error;
         }
         console.log(d.id)
-
+        $("#animal-add-image").val("");
         $("#new-animal-profile-form")[0].reset();
 
 
@@ -74,10 +75,11 @@ const checkAnimalEditForm = () => {
     let name            = $("#animal-edit-name").val();
     let color           = $("#animal-edit-color").val();
     let description     = $("#animal-edit-bio").val();
+    let img             = $("#animal-edit-image").val();
 
     query({
         type:'update_animal',
-        params:[name,color,description,sessionStorage.animalId]})
+        params:[name,color,description,img,sessionStorage.animalId]})
     .then(d=>{
         if(d.error) {
             throw d.error;
@@ -95,7 +97,7 @@ const checkAnimalDelete = id => {
         if(d.error) {
             throw d.error;
         }
-        window.history.go(-1);
+        window.history.go(-2);
    })
 }
 
@@ -104,7 +106,7 @@ const checkLocationAddForm = () => {
     let lat         = $("#location-add-lat").val();
     let lng         = $("#location-add-lng").val();
     let description = $("#location-add-description").val();
-    let photo       = $("#journal-upload-photo").val()
+    let photo       = $("#location-add-image").val()
 
     query({
         type:'insert_location',
@@ -115,7 +117,7 @@ const checkLocationAddForm = () => {
         }
         $("#location-add-lat").val("");
         $("#location-add-lng").val("");
-        $("#journal-upload-photo").val("");
+        $("#location-add-image").val("");
         $("#location-add-form")[0].reset();
         // window.history.go(-2);
     })

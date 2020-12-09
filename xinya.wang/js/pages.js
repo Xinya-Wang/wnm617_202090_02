@@ -191,7 +191,7 @@ const UserProfileEditPage = async() => {
         console.log(d);
 
         //$("#profile-photo").html(makeUserProfileUpdateImage(d.result[0]));
-        makeUploaderImage({
+        makeUserUploaderImage({
             namespace:'user-upload',
             folder:'',
             name:d.result[0].img
@@ -209,7 +209,7 @@ const UserUploadPage = async() => {
     }).then(d=>{
         console.log(d)
 
-        makeUploaderImage({
+        makeUserUploaderImage({
             namespace:'user-upload',
             folder:'',
             name:d.result[0].img
@@ -237,6 +237,8 @@ const AnimalProfilePage = async() => {
         console.log(d);
 
         $("#animal-profile-page .animal-banner").html(makeAnimalProfile(d.result));
+        $("#animal-profile-page .modal-toast").html(makeAnimalProfileSelector(d.result));
+        console.log(d.result);
     });
 
 
@@ -244,16 +246,18 @@ const AnimalProfilePage = async() => {
         type:'locations_by_animal_id', 
         params:[sessionStorage.animalId] 
     }).then(d=>{
+        $("#animal-profile-page .map").css({'height':`0`});
+        $(".tablist .tab.first").addClass("active").siblings().removeClass("active");
         $("#animal-profile-page .grid-container")
-            .html(d.result.length?makeAnimalPhotoList(d.result):'Hey, add a journal.');
-        console.log(d.result);
+            .html(d.result.length?makeAnimalPhotoList(d.result):makeAnimalPhotoListPlaceholder());
+        console.log(d);
     });
     
 }
 
 const checkAnimalProfileContent = async(e) => {
+    console.log("I am :"+ e);
     if(e == 0){
-        // $("#animal-profile-page .map").empty();
 
         query({ 
             type:'locations_by_animal_id', 
@@ -261,7 +265,7 @@ const checkAnimalProfileContent = async(e) => {
         }).then(d=>{
 
             $("#animal-profile-page .grid-container")
-                .html(d.result.length?makeAnimalPhotoList(d.result):'Hey, add a journal.');
+                .html(d.result.length?makeAnimalPhotoList(d.result):makeAnimalPhotoListPlaceholder());
             $("#animal-profile-page .map").css({'height':`0`})
 
         });
@@ -275,7 +279,7 @@ const checkAnimalProfileContent = async(e) => {
             params:[sessionStorage.animalId] 
         }).then(d=>{
             $("#animal-profile-page .map").css({'height':`100%`})
-            makeMap("#animal-profile-page .map").then(map_el=>{
+                makeMap("#animal-profile-page .map").then(map_el=>{
                 makeMarkers(map_el,d.result);
             })
         });   
@@ -290,8 +294,6 @@ const AnimalProfileEditPage = async() => {
         params:[sessionStorage.animalId] 
     }).then(d=>{
         console.log(d);
-
-        $("#edit-profile-image").html(makeAnimalProfileUpdateImage(d.result[0]));
         $("#animal-profile-form").html(makeAnimalProfileUpdateForm(d.result[0]));
     });
 }

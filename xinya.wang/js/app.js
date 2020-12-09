@@ -27,7 +27,7 @@ $(()=>{
             case 'profile-settings-page':   UserProfileEditPage();          break; //UserEditPage
 
             case 'animal-profile-page':     AnimalProfilePage();            break;
-            case 'animal-edit-profile':     AnimalProfileEditPage();        break; //AnimalEditPage
+            case 'animal-edit-profile':     AnimalProfileEditPage();        break; //AnimalEditPage    
 
             case 'account-settings-page':   AccountPage();                  break;
             case 'email-settings-page':     EmailEditPage();                break;
@@ -74,6 +74,7 @@ $(()=>{
         checkLocationAddForm();
     })
     .on("click",".js-animal-select",function(e){
+        $(this).addClass("active").siblings().removeClass("active");
         sessionStorage.animalId = $(this).data("id");
         // checkSelectedAnimal();
         console.log(sessionStorage.animalId);
@@ -92,26 +93,24 @@ $(()=>{
     })
 
     .on("click",".js-location-jump",function(e){
-        // sessionStorage.locationId = $(this).data("id");
+        sessionStorage.locationId = $(this).data("id");
         $.mobile.navigate("#animal-journal-page");
         SingleJournalPage();
     })
     .on("click",".js-locationlist-jump",function(e){
-        // sessionStorage.locationId = $(this).data("id");
+        sessionStorage.locationId = $(this).data("id");
         $.mobile.navigate("#animal-journal-page");
         checkJournalContent($(this).index());
     })
     .on("click",".grid-container .js-locationPhoto-jump",function(e){
-        // sessionStorage.locationId = $(this).data("id");
+        sessionStorage.locationId = $(this).data("id");
         $.mobile.navigate("#animal-journal-page");
         checkPhotoContent($(this).index());
-        console.log($(this).index());
     })
 
     .on("click",".js-animal-delete",function(e){
-        // checkAnimalDelete($(this).data("id"));
-         checkAnimalDelete();
-        console.log(sessionStorage.animalId);
+        checkAnimalDelete($(this).data("id"));
+        // console.log(sessionStorage.animalId);
     })
 
     
@@ -126,7 +125,7 @@ $(()=>{
     .on("change",".image-uploader input",function(e){
         checkUpload(this.files[0]).then(d=>{
             console.log(d)
-            makeUploaderImage({
+            makeUserUploaderImage({
                 namespace:'user-upload',
                 folder:'uploads/',
                 name:d.result
@@ -134,24 +133,19 @@ $(()=>{
         })
     })
 
-    .on("change",".journal-photo-uploader input",function(e){
-        checkUpload(this.files[0]).then(d=>{
+    .on("change",".photo-uploader input",function(e){
+        checkUpload(this.files[0])
+        .then(d=>{
             console.log(d)
-            makeUploaderJournalPhoto({
-                namespace:'journal-upload',
-                folder:'uploads/',
-                name:d.result
-            })
+            makeUploaderImage(this,d.result,'uploads/')
         })
     })
-
 
 
 
     .on("click",".tablist .tab",function(e){
         $(this).addClass("active").siblings().removeClass("active");
         checkAnimalProfileContent($(this).index());
-        // console.log(index);
     })
 
     .on("click","[data-activate]",function(){

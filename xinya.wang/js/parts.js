@@ -63,7 +63,26 @@ const makeAnimalPhotoList = templater(o =>`
             <img src="${o.photo}" alt="Animal Photo">
         </a>
     </div>
+    
 `);
+
+const makeAnimalPhotoListPlaceholder = templater(o =>`
+    <div class="animal-photo-list">
+        <div class="content-placeholder">
+            <p> You have not recorded any journal yet </p>
+            <img src="img/icon_list_placeholder.svg" class="img-placeholder">
+        </div>
+    </div>
+`);
+
+const makeAnimalProfileSelector = templater(o =>`
+    <ul data-deactivate="#animal-edit-select-modal">
+        <li><a href="#animal-edit-profile">Edit Profile</a></li>
+        <li><a href="#" class="js-animal-delete" data-id="${o.id}">Delete</a></li>
+    </ul>
+`);
+
+
 
 
 
@@ -228,6 +247,12 @@ const AccountFormControl = ({url, namespace, name, displayname, type, placeholde
 }
 
 const makeAnimalProfileUpdateForm = o => `
+<div class="animal-image-from">
+    <input type="hidden" id="animal-edit-image" value="${o.img}">
+    <label class="photo-uploader banner" style="background-image:url('${o.img}')">
+        <input type="file" data-role="none" id="animal-edit-upload">
+    </label>
+</div>
 ${FormControl({
     namespace:"animal-edit",
     name:"name",
@@ -395,18 +420,28 @@ const makeFilterList = (animals) =>{
 };
 
 
-const makeUploaderImage = ({namespace,folder,name}) => {
+const makeUserUploaderImage = ({namespace,folder,name}) => {
     $(`#${namespace}-image`).val(folder+name);
     $(`#profile-settings-page .image-uploader`)
         .css({'background-image':`url('${folder+name}')`})
 }
 
-const makeUploaderJournalPhoto = ({namespace,folder,name}) => {
-    $(`#${namespace}-photo`).val(folder+name);
-    $(`#add-new-journal .journal-photo-uploader`).css({'background-image':`url('${folder+name}')`});
-    $(`#add-new-journal .add-photo-item`).css({'opacity':`0`});
-    
+const makeUploaderImage = (el,name,folder='') => {
+    $(el).parent().css({'background-image':`url('${folder+name}')`}).addClass("picked")
+        .prev().val(folder+name)
 }
+
+// const makeUploaderJournalPhoto = ({namespace,folder,name}) => {
+//     $(`#${namespace}-photo`).val(folder+name);
+//     $(`#add-new-journal .journal-photo-uploader`).css({'background-image':`url('${folder+name}')`});
+//     $(`#add-new-journal .add-photo-item`).css({'opacity':`0`});
+// }
+
+// const makeEditUploaderImage = ({namespace,folder,name}) => {
+//     $(`#${namespace}-image`).val(folder+name);
+//     $(`#animal-edit-profile .edit-image-uploader`).css({'background-image':`url('${folder+name}')`});
+// }
+
 
 
 
