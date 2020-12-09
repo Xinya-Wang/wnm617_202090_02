@@ -258,9 +258,11 @@ function makeStatement($data){
         //DELETE STATEMENTS
         case 'delete_animal':
             $r = makeQuery($c, "DELETE FROM `track_animals` WHERE `id` = ?",$p,false);
+            return ["result"=>"success"]; 
 
         case 'delete_location':
             $r = makeQuery($c, "DELETE FROM `track_locations` WHERE `id` = ?",$p,false);
+            return ["result"=>"success"]; 
 
 
         default: return ["error"=>"No Matched type"];

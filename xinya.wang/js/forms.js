@@ -97,16 +97,17 @@ const checkAnimalDelete = id => {
         if(d.error) {
             throw d.error;
         }
-        window.history.go(-2);
+        $.mobile.navigate("#list-page");
    })
 }
 
 
 const checkLocationAddForm = () => {
+
     let lat         = $("#location-add-lat").val();
     let lng         = $("#location-add-lng").val();
     let description = $("#location-add-description").val();
-    let photo       = $("#location-add-image").val()
+    let photo       = $("#location-add-image").val();
 
     query({
         type:'insert_location',
@@ -118,7 +119,11 @@ const checkLocationAddForm = () => {
         $("#location-add-lat").val("");
         $("#location-add-lng").val("");
         $("#location-add-image").val("");
+        $(".photo-uploader.thumbnail").removeClass("picked");
+        $(".photo-uploader.thumbnail").css({'background-image':`url('')`});
         $("#location-add-form")[0].reset();
+
+        makeMarkers($("#add-new-journal .map"),[]);
         // window.history.go(-2);
     })
 }

@@ -213,7 +213,7 @@
         </header>
 
         <div data-role="main">
-            <div class="list-select-holder display-flex flex-align-center">
+            <!-- <div class="list-select-holder display-flex flex-align-center">
                 <div id="list-search" class="search">
                     <input type="search" data-role="none" placeholder="Search">
                     <i class="icon-search"> </i>
@@ -221,10 +221,8 @@
                 <div class="list-select-button display-flex flex-strech flex-justify-end flex-align-center">
                     <a href=""><img src="img/iconShowList.svg" class="display-flex flex-justify-center"></a>
                     <a href="#"><img src="img/iconPhoto.svg" class="display-flex flex-justify-center"></a>
-                   <!--  <div class="list-show display-inline-block"><i></i></div>
-                    <a href="#"><div class="list-photo display-inline-block"><i></i></div></a> -->
                 </div>
-            </div>
+            </div> -->
             
             <div class="overscroll">
                 <ul id="journal-list" class="journal-list-container"></ul>
@@ -248,8 +246,14 @@
             <div id="user-profile">
                 <div class="profile-body"></div>
                 <div id="user-summary-row1" class="profile-others display-flex flex-align-center flex-justify-around">
-                    <div class="profile-item most-tracked display-flex flex-column flex-justify-center"></div> 
-                    <div class="profile-item recently-tracked display-flex flex-column flex-justify-center"></div> 
+                    <div class="profile-item display-flex flex-column flex-justify-center">
+                        <div class="item-content flex-strech"><h4 class="most-tracked"></h4></div>
+                        <div class="item-title"><p>Most Tracked</p></div>
+                    </div> 
+                    <div class="profile-item display-flex flex-column flex-justify-center">
+                        <div class="item-content flex-strech"><h4 class="recently-tracked"></h4></div>
+                        <div class="item-title"><p>Rencently Tracked</p></div>
+                    </div> 
                 </div>
                 <div id="user-summary-row2" class="profile-others display-flex flex-align-center flex-justify-around">
                     <div class="profile-item animal-types display-flex flex-column flex-justify-center"></div> 
@@ -428,33 +432,19 @@
             <ul>
                 <li><a href="#" data-rel="back"><img class="nav-in-header" src="img/iconBack.svg" alt="back icon"></a></li>
                 <li class="flex-strech"></li>
-                <li data-toggle="#journal-edit-select-modal"><a href="#"><img class="nav-in-header" src="img/iconSelect.svg" alt="Menu icon"></a></li>
+                <!-- <li data-toggle="#journal-edit-select-modal"><a href="#"><img class="nav-in-header" src="img/iconSelect.svg" alt="Menu icon"></a></li> -->
             </ul>
         </header>
         <div data-role="main">
-            <div id="animal-journal-content">
-                
-            </div>
-            <!-- <div class="animal-journal-photo">
-               <img src="img/animal/mule-deer2.jpg"> 
-            </div>
-            <div class="animal-journal-text">
-               <p>I took this picture of the deer near the visitor center. Very docile.</p>
-            </div>
-            <a href="#">
-                <div class="animal-journal-location display-flex flex-align-center">
-                    <img src="img/iconLocation.svg">
-                    <p>Visitor center in Grand Canyon Village, Arizona</p>
-                </div>
-            </a> -->
+            <div id="animal-journal-content"></div>
         </div>
         <div class="modal" id="journal-edit-select-modal">
-            <div class="modal-toast">
+            <!-- <div class="modal-toast">
                 <ul>
                     <li><a href="#animal-journal-edit-page">Edit Journal</a></li>
                     <li><a href="#">Delete</a></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </section>
     <!-- Animal journal Edit page -->

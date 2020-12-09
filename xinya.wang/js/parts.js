@@ -170,14 +170,18 @@ const makeUserProfile = templater(o =>`
     <h2>${o.name}</h2>
 `);
 
+// <div class="item-content flex-strech"><h4>${o.name}</h4></div>
+// <div class="item-title"><p>Most Tracked</p></div>
+
 const makeUserProfileMostTracked = templater(o =>`
-    <div class="item-content flex-strech"><h4>${o.name}</h4></div>
-    <div class="item-title"><p>Most Tracked</p></div>
+    ${o.name}
 `);
 
+    // <div class="item-content flex-strech"><h4>${o.name}</h4></div>
+    // <div class="item-title"><p>Rencently Tracked</p></div>
+
 const makeUserProfileRecentlyTracked = templater(o =>`
-    <div class="item-content flex-strech"><h4>${o.name}</h4></div>
-    <div class="item-title"><p>Rencently Tracked</p></div>
+    ${o.name}
 `);
 
 const makeUserProfileAnimalTypes = templater(o =>`
@@ -188,6 +192,12 @@ const makeUserProfileAnimalTypes = templater(o =>`
 const makeUserProfileJournalSum = templater(o =>`
     <div class="item-content flex-strech"><h3>${o}</h3></div>
     <div class="item-title"><p>Journal Sum</p></div>
+`);
+
+
+const makeUserProfileMostTrackedEmpty = templater(o =>`
+    <div class="item-content flex-strech"><h4>None yet</h4></div>
+    <div class="item-title"><p>Most Tracked</p></div>
 `);
 
 

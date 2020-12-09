@@ -458,6 +458,7 @@ ul{
 	margin: 0px;
 }
 
+
 .ui-header,
 .ui-footer{
 	flex: none;
@@ -1093,7 +1094,7 @@ ul{
 
 .tablist{
     position: relative;
-    margin: 0.5em 0;
+    /*margin: 0.5em 0;*/
     /*height: 45px;*/
 }
 
@@ -1102,8 +1103,12 @@ ul{
     position: relative;
     width: 100%;
     height: 100%;
-    padding-bottom: 3.9em;
+    padding-bottom: 2.2em;
     flex: 1 1 100%;
+}
+
+#animal-profile-page .profile-others ul{
+    padding:0; 
 }
 
 .profile-others ul{
@@ -1113,11 +1118,11 @@ ul{
 }
 
 .profile-others li{
-    padding: 0.5em 0;
+    padding: 0.8em 0;
 }
 
 .profile-others li.active{
-    border-bottom: 1px solid var(--color-neutral-lighter);
+    border-bottom: 3px solid var(--color-yellow);
 }
 
 .profile-others a{
@@ -1595,7 +1600,7 @@ footer ul{
     position: relative;
     width: 100%;
     height: auto;
-    padding: 0 1em 4em 1em;
+    padding: 1em 1em 2em 1em;
 }
 
 .journal-list-item{

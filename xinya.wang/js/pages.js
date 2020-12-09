@@ -156,8 +156,9 @@ const UserProfilePage = async() => {
         type:'most_tracked_by_user_id', 
         params:[sessionStorage.userId]
     }).then(d=>{
-        // console.log(d.result[0].name);
-        $("#user-summary-row1 .most-tracked").html(makeUserProfileMostTracked(d.result[0]));
+       
+        $("#user-summary-row1 .most-tracked")
+            .html(d.result.length?makeUserProfileMostTracked(d.result[0]):'no animals yet');
     });
 
     //Journal sum
@@ -165,9 +166,14 @@ const UserProfilePage = async() => {
         type:'all_animal_location_by_user_id', 
         params:[sessionStorage.userId] 
     }).then(d=>{
-        // console.log("Journal sum:"+d.result.length);
-        // console.log("Recently tracked animal:"+d.result[0].name);
-        $("#user-summary-row1 .recently-tracked").html(makeUserProfileRecentlyTracked(d.result[0]));
+
+        $("#user-summary-row1 .recently-tracked")
+            .html(d.result.length?makeUserProfileRecentlyTracked(d.result[0]):'no animals yet');
+        // $("#user-summary-row1 .recently-tracked").html(makeUserProfileRecentlyTracked(d.result[0]));
+        // $("#user-summary-row1 .recently-tracked").html(
+        //     d.result.length ?
+        //         makeUserProfileMostTracked(d.result[0])) :
+        //         'no animals yet';
         $("#user-summary-row2 .journal-sum").html(makeUserProfileJournalSum(d.result.length));
     });
 
@@ -256,7 +262,7 @@ const AnimalProfilePage = async() => {
 }
 
 const checkAnimalProfileContent = async(e) => {
-    console.log("I am :"+ e);
+
     if(e == 0){
 
         query({ 

@@ -113,6 +113,7 @@ $(()=>{
         // console.log(sessionStorage.animalId);
     })
 
+
     
     .on("click",".filter",function(e){
         checkListFilter($(this).data());
