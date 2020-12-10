@@ -511,6 +511,10 @@ ul{
 	text-align: center;
 }
 
+.ui-footer li.active{
+    color: var(--color-yellow);
+}
+
 .ui-footer li a{
 	font-size: 0.7em;
 	font-family: var(--font-title);
@@ -1072,8 +1076,8 @@ ul{
 
 .profile-image img{
     border-radius: 50%;
-    width: calc(50vw - 3em);
-    height: calc(50vw - 3em);
+    width: calc(50vw);
+    height: calc(50vw);
     object-fit: cover;
 }
 
@@ -1082,6 +1086,10 @@ ul{
 }
 
 /*-- animal profile */
+#user-profile .profile-others{
+    padding: 0 1em; 
+}
+
 .profile-others{
     position: relative;
     flex: 1 1 100%;

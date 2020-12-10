@@ -4,20 +4,7 @@ const makeMap = async (target, center={lat: 36.059043, lng: -112.109306}) => {
 
     let map_el = $(target);
 
-       //the map element has a data object that refers to the Google Map object- m10-01:43:22
-
-       /* for pages.js simple example
-        if(!map_el.data('map'))
-          map_el.data(
-             "map",
-             new google.maps.Map(map_el[0], {
-                center: center,
-                zoom: 14,
-                disableDefaultUI: true
-             })
-          );
-       */
-
+    //the map element has a data object that refers to the Google Map object- m10-01:43:22
     if(!map_el.data('map'))
         map_el.data({
             "map":new google.maps.Map(map_el[0], {

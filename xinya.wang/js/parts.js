@@ -16,20 +16,7 @@ const makeAnimalList = templater((o) =>`
 `);
 */
 
-/*const makeAnimalList = templater(o =>`
-    <li>
-        <div class="js-animal-jump" data-id="${o.id}">
-            <figure>
-                <img src="${o.img}" alt="Deer">
-            </figure>
-            <figcaption>${o.name}</figcaption>
-            <p>${o.color}</p>
-        </div>
-    </li>
-`);*/
-
 //templater is really specifically for an array of objects. so only one we can remove it
-
 const drawAnimalList = (a,empty_phrase='Hey, add an animal.') => {
    $("#list-page .animallist")
       .html(a.length?makeAnimalList(a):empty_phrase);

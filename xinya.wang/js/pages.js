@@ -1,10 +1,8 @@
 
 // async and await, async is going to be something that essentially is now a promise. 
-
 let journal_id;
 
 const RecentPage = async() => {
-
     let d = await query({
         type:'recent_locations',
         params:[sessionStorage.userId]
@@ -286,7 +284,14 @@ const checkAnimalProfileContent = async(e) => {
         }).then(d=>{
             $("#animal-profile-page .map").css({'height':`100%`})
                 makeMap("#animal-profile-page .map").then(map_el=>{
-                makeMarkers(map_el,d.result);
+
+                let valid_animals = d.result.reduce((r,o)=>{
+                    o.icon = "img/iconMarker.png";
+                    if(o.lat && o.lng) r.push(o);
+                    return r;
+                },[])
+
+                makeMarkers(map_el,valid_animals);
             })
         });   
     }

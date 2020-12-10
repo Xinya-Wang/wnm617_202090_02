@@ -21,7 +21,6 @@ $(()=>{
             case 'add-new-journal':         NewJournalPage();               break;
             case 'add-new-location':        LocationAddPage();              break;
             case 'select-animal-page':      SelectAnimalPage();             break;
-            // case 'animal-journal-page':     SingleJournalPage();            break;
 
             case 'user-profile-page':       UserProfilePage();              break;
             case 'profile-settings-page':   UserProfileEditPage();          break; //UserEditPage
@@ -148,6 +147,11 @@ $(()=>{
         $(this).addClass("active").siblings().removeClass("active");
         checkAnimalProfileContent($(this).index());
     })
+
+    // .on("click","#footer-navs .nav-item",function(e){
+    //     $(this).addClass("active").siblings().removeClass("active");
+    //     console.log($(this));
+    // })
 
     .on("click","[data-activate]",function(){
         let target = $(this).data('activate');
