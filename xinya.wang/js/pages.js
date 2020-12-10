@@ -58,14 +58,10 @@ const RecentPage = async() => {
 
 
 const ListPage = async() => {
-    // let d = query({type:'aniamls_all'});
-
     /* promise environment can await another promise 
        We can sort of halt code and wait for something that would normally not wait normally promises.
        They just start and go, and then all the other code goes as well 
     */
-    // let d = await query({ type:'animals_all' });
-    // let d = await query({ type:'animals_by_user_id', params:[3] });
     let d = await query({ 
         type:'animals_by_user_id', 
         params:[sessionStorage.userId] 
@@ -75,11 +71,8 @@ const ListPage = async() => {
 
     console.log(d);
 
-    drawAnimalList(d.result);
-
-    // $("#list-page .animallist").html(makeAnimalList(d.result));
-    // $("#list-page .animallist")
-    //     .html(d.result.length?makeAnimalList(d.result):'Hey, add an animal.');
+    $("#list-page .animallist")
+      .html(d.result.length?makeAnimalList(d.result):makeAnimalListPlaceholder());
 }   
 
 const JournalPage = async() => {
@@ -89,10 +82,9 @@ const JournalPage = async() => {
         params:[sessionStorage.userId]
     });
 
-    console.log(d);
-    // console.log(d.result.length);
-    
-    $("#journal-list").html(makeJournalList(d.result));
+
+    $("#journal-list")
+        .html(d.result.length?makeJournalList(d.result):makeJournalListPlaceholder());
 }
 
 const SingleJournalPage = async(e) => {

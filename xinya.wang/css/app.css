@@ -1179,6 +1179,28 @@ ul{
 
 
 /* Grid Container */
+.animal-list-placeholder{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: var(--font-title);
+    color: var(--color-neutral-light);
+}
+
+.journal-list-placeholder{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 80%);
+    text-align: center;
+    font-family: var(--font-title);
+    color: var(--color-neutral-light);
+}
+
 .animal-photo-list{
     position: absolute;
     width: 100%;
@@ -1189,9 +1211,11 @@ ul{
     color: var(--color-neutral-light);
 }
 
-.animal-photo-list .img-placeholder{
+.animal-photo-list .img-placeholder,
+.journal-list-placeholder .img-placeholder,
+.animal-list-placeholder .img-placeholder{
     margin-top: 1em;
-    width: 20%;
+    width: 50%;
     height: auto;
 }
 

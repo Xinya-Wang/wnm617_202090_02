@@ -139,7 +139,7 @@ function makeStatement($data){
                 ORDER BY `date_create` DESC
             ) l
             ON a.id = l.animal_id
-            WHERE user_id = ?
+            WHERE `user_id` = ? AND `lat` IS NOT NULL 
             ORDER BY l.date_create DESC
             ",$p);
 

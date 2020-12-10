@@ -17,10 +17,23 @@ const makeAnimalList = templater((o) =>`
 */
 
 //templater is really specifically for an array of objects. so only one we can remove it
-const drawAnimalList = (a,empty_phrase='Hey, add an animal.') => {
-   $("#list-page .animallist")
-      .html(a.length?makeAnimalList(a):empty_phrase);
-}
+const makeAnimalListPlaceholder = templater(o =>`
+    <div class="animal-list-placeholder">
+        <div class="content-placeholder">
+            <p> You have not added any animal yet</p>
+            <img src="img/animalListPlaceholder.png" class="img-placeholder">
+        </div>
+    </div>
+`);
+
+const makeJournalListPlaceholder = templater(o =>`
+    <div class="journal-list-placeholder">
+        <div class="content-placeholder">
+            <p> You have not recorded any journal yet</p>
+            <img src="img/journalPlaceholder.png" class="img-placeholder">
+        </div>
+    </div>
+`);
 
 
 const makeAnimalList = templater(o =>`
@@ -57,7 +70,7 @@ const makeAnimalPhotoListPlaceholder = templater(o =>`
     <div class="animal-photo-list">
         <div class="content-placeholder">
             <p> You have not recorded any journal yet </p>
-            <img src="img/icon_list_placeholder.svg" class="img-placeholder">
+            <img src="img/journalPlaceholder.png" class="img-placeholder">
         </div>
     </div>
 `);
