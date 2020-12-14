@@ -152,11 +152,6 @@ const makeJournalContent = templater(o =>`
     <div class="animal-journal-text">
         <p>${o.description}</p>
     </div>
-    
-    <div class="animal-journal-location display-flex flex-align-center">
-        <img src="img/iconLocation.svg">
-        <p>${o.lat}, ${o.lng}</p>
-    </div>
 `);
 
 
@@ -436,17 +431,6 @@ const makeUploaderImage = (el,name,folder='') => {
     $(el).parent().css({'background-image':`url('${folder+name}')`}).addClass("picked")
         .prev().val(folder+name)
 }
-
-// const makeUploaderJournalPhoto = ({namespace,folder,name}) => {
-//     $(`#${namespace}-photo`).val(folder+name);
-//     $(`#add-new-journal .journal-photo-uploader`).css({'background-image':`url('${folder+name}')`});
-//     $(`#add-new-journal .add-photo-item`).css({'opacity':`0`});
-// }
-
-// const makeEditUploaderImage = ({namespace,folder,name}) => {
-//     $(`#${namespace}-image`).val(folder+name);
-//     $(`#animal-edit-profile .edit-image-uploader`).css({'background-image':`url('${folder+name}')`});
-// }
 
 
 

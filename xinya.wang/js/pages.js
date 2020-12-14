@@ -11,7 +11,7 @@ const RecentPage = async() => {
     console.log(d);
     
     let valid_animals = d.result.reduce((r,o)=>{
-        o.icon = o.img;
+        o.icon = o.photo;
         if(o.lat && o.lng) r.push(o);
         return r;
     },[])
@@ -96,22 +96,48 @@ const SingleJournalPage = async(e) => {
     }).then(d=>{
         $("#animal-journal-page .animal-journal-header").html(makeSingleJournalDate(d.result[0]));
         $("#animal-journal-content").html(makeJournalContent(d.result[0]));
+        
+        makeMap("#animal-journal-page .map").then(map_el=>{
+            let valid_animals = d.result.reduce((r,o)=>{
+                o.icon = "img/iconMarker.png";
+                if(o.lat && o.lng) r.push(o);
+                return r;
+            },[])
+            makeMarkers(map_el,valid_animals);
+        })
     });
 }
 
 const checkJournalContent = async(e) => {
 
     let journalId = e;
+    let id;
 
-    query({ 
+
+    let d = await query({
         type:'all_animal_location_by_user_id',
         params:[sessionStorage.userId]
-    }).then(d=>{
-        // console.log(d.result[journalId]);
-        $("#animal-journal-page .animal-journal-header").html(makeJournalDate(d.result[journalId]));
-        $("#animal-journal-content").html(makeJournalContent(d.result[journalId]));
     });
 
+    id = d.result[journalId].id;
+    // console.log(id);
+
+    query({ 
+        type:'location_by_id',
+        params:[id]
+    }).then(d=>{
+        $("#animal-journal-page .animal-journal-header").html(makeSingleJournalDate(d.result[0]));
+        $("#animal-journal-content").html(makeJournalContent(d.result[0]));
+        
+        makeMap("#animal-journal-page .map").then(map_el=>{
+            let valid_animals = d.result.reduce((r,o)=>{
+                o.icon = "img/iconMarker.png";
+                if(o.lat && o.lng) r.push(o);
+                return r;
+            },[])
+            makeMarkers(map_el,valid_animals);
+        })
+    });
 }
 
 const checkPhotoContent = async(e) => {

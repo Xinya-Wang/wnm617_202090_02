@@ -90,6 +90,8 @@ const checkAnimalAddForm = () => {
         }
         console.log(d.id)
         $("#animal-add-image").val("");
+        $(".photo-uploader.banner-add-new").removeClass("picked");
+        $(".photo-uploader.banner-add-new").css({'background-image':`url('')`});
         $("#new-animal-profile-form")[0].reset();
 
 
