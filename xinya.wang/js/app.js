@@ -144,6 +144,10 @@ $(()=>{
 
 
 
+    .on("click",".js-tab-reset",function(e){
+       journal_or_map = 0;
+    })
+
     .on("click",".tablist .tab",function(e){
         $(this).addClass("active").siblings().removeClass("active");
         checkAnimalProfileContent($(this).index());

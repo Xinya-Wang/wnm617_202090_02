@@ -1,6 +1,7 @@
 
 // async and await, async is going to be something that essentially is now a promise. 
 let journal_id;
+var journal_or_map = 0;
 
 const RecentPage = async() => {
     let d = await query({
@@ -263,10 +264,16 @@ const AnimalProfilePage = async() => {
         type:'locations_by_animal_id', 
         params:[sessionStorage.animalId] 
     }).then(d=>{
-        $("#animal-profile-page .map").css({'height':`0`});
-        $(".tablist .tab.first").addClass("active").siblings().removeClass("active");
-        $("#animal-profile-page .grid-container")
-            .html(d.result.length?makeAnimalPhotoList(d.result):makeAnimalPhotoListPlaceholder());
+
+        if(journal_or_map == 0){
+            $("#animal-profile-page .map").css({'height':`0`});
+            $(".tablist .tab.first").addClass("active").siblings().removeClass("active");
+            $("#animal-profile-page .grid-container")
+                .html(d.result.length?makeAnimalPhotoList(d.result):makeAnimalPhotoListPlaceholder());
+        }
+        else{
+            checkAnimalProfileContent();
+        }
         console.log(d);
     });
     
@@ -291,23 +298,55 @@ const checkAnimalProfileContent = async(e) => {
 
         $("#animal-profile-page .grid-container").empty();
 
-        query({ 
+        // query({ 
+        //     type:'locations_by_animal_id', 
+        //     params:[sessionStorage.animalId] 
+        // }).then(d=>{
+        //     $("#animal-profile-page .map").css({'height':`100%`})
+
+        //     makeMap("#animal-profile-page .map").then(map_el=>{
+
+        //         let valid_animals = d.result.reduce((r,o)=>{
+        //             o.icon = "img/iconMarker.png";
+        //             if(o.lat && o.lng) r.push(o);
+        //             return r;
+        //         },[])
+
+        //         makeMarkers(map_el,valid_animals);
+        //     })
+        // }); 
+
+
+        let d = await query({
             type:'locations_by_animal_id', 
             params:[sessionStorage.animalId] 
-        }).then(d=>{
-            $("#animal-profile-page .map").css({'height':`100%`})
-                makeMap("#animal-profile-page .map").then(map_el=>{
+        });
 
-                let valid_animals = d.result.reduce((r,o)=>{
-                    o.icon = "img/iconMarker.png";
-                    if(o.lat && o.lng) r.push(o);
-                    return r;
-                },[])
+        console.log(d);
+        
+        let valid_animals = d.result.reduce((r,o)=>{
+            o.icon = "img/iconMarker.png";
+            if(o.lat && o.lng) r.push(o);
+            return r;
+        },[])
 
-                makeMarkers(map_el,valid_animals);
+        let map_el = await makeMap("#animal-profile-page .map");
+
+        $("#animal-profile-page .map").css({'height':`100%`})
+
+        makeMarkers(map_el,valid_animals);
+       
+        map_el.data("markers").forEach((o,i)=>{
+            o.addListener("click",function(){
+               
+                journal_id = valid_animals[i].id;
+                $.mobile.navigate("#animal-journal-page");
+                SingleJournalPage();
             })
-        });   
+        })
     }
+
+    journal_or_map = e;
 }
 
 
