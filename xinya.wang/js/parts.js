@@ -170,15 +170,10 @@ const makeUserProfile = templater(o =>`
     <h2>${o.name}</h2>
 `);
 
-// <div class="item-content flex-strech"><h4>${o.name}</h4></div>
-// <div class="item-title"><p>Most Tracked</p></div>
 
 const makeUserProfileMostTracked = templater(o =>`
     ${o.name}
 `);
-
-    // <div class="item-content flex-strech"><h4>${o.name}</h4></div>
-    // <div class="item-title"><p>Rencently Tracked</p></div>
 
 const makeUserProfileRecentlyTracked = templater(o =>`
     ${o.name}
@@ -287,6 +282,7 @@ ${FormControl({
     </div> 
 
 `;
+
 
 
 const makeUserProfileUpdateForm = o => `

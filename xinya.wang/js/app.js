@@ -23,18 +23,13 @@ $(()=>{
             case 'select-animal-page':      SelectAnimalPage();             break;
 
             case 'user-profile-page':       UserProfilePage();              break;
-            case 'profile-settings-page':   UserProfileEditPage();          break; //UserEditPage
+            case 'profile-settings-page':   UserProfileEditPage();          break;
 
             case 'animal-profile-page':     AnimalProfilePage();            break;
-            case 'animal-edit-profile':     AnimalProfileEditPage();        break; //AnimalEditPage    
+            case 'animal-edit-profile':     AnimalProfileEditPage();        break;    
 
             case 'account-settings-page':   AccountPage();                  break;
             case 'email-settings-page':     EmailEditPage();                break;
-
-            // case 'location-add-page':       LocationAddPage();              break;
-
-            //case 'user-upload-page': UserUploadPage(); break;
-
         }
     })
 
@@ -60,11 +55,17 @@ $(()=>{
 
 
     //Form submit by button
+    .on("click",".js-animal-add-to-select-list",function(e){
+        checkAnimalAddToSelectList();
+    })
     .on("click",".js-animal-add",function(e){
         checkAnimalAddForm();
     })
     .on("click",".js-animal-edit",function(e){
         checkAnimalEditForm();
+    })
+    .on("click",".js-user-add",function(e){
+        checkUserAddForm();
     })
     .on("click",".js-user-edit",function(e){
         checkUserEditForm();
@@ -168,10 +169,12 @@ $(()=>{
 
     .on("click", ".error-button", function(){
         $("#login-error-msg").removeClass("active");
-
+        $("#signup-error-msg").removeClass("active");
+        $("#signup-password-error-msg").removeClass("active");
     })
     .on("click", ".error-button.empty", function(){
         $("#login-error-msg-empty").removeClass("active");
+        $("#signup-error-msg-empty").removeClass("active");
     })
 
 

@@ -230,7 +230,18 @@ function makeStatement($data){
                 `gender` = ?
                 WHERE `id` = ?
                 ",$p,false);
-            return ["result"=>"success"]; 
+            return ["result"=>"success"];
+
+        case 'update_user_basic_info':
+            $r = makeQuery($c, "UPDATE
+                `track_users`
+                SET
+                `name` = ?,
+                `bio` = ?,
+                `img` = ?
+                WHERE `id` = ?
+                ",$p,false);
+            return ["result"=>"success"];  
 
         case 'update_user_image':
             $r = makeQuery($c, "UPDATE

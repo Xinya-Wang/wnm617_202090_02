@@ -7,19 +7,48 @@ const checkSignupForm = () => {
     let passwordconfirm = $("#signup-password-confirm").val();
 
 
+
+    if(username=="" || email== "" || password== ""){
+        $("#signup-error-msg-empty").addClass("active");
+        return;
+    }
+
     if(password!=passwordconfirm){
+        $("#signup-password-error-msg").addClass("active");
         throw "Passwords don't match";
     }else{
         query({type:'insert_user',params:[username,email,password]})
         .then(d=>{
             if(d.error){
+                $("#signup-error-msg").addClass("active");
                 throw d.error;
             }
             console.log(d.id)
-            $.mobile.navigate("#signin-page");
+    
+            sessionStorage.userId = d.id;
+            $.mobile.navigate("#profile-add-page");
+            
         })
     }
 
+}
+
+const checkUserAddForm = () => {
+    let name            = $("#user-profile-new-name").val();
+    let bio             = $("#user-profile-new-bio").val();
+    let img             = $("#user-add-image").val();
+
+
+    query({
+        type:'update_user_basic_info',
+        params:[name,bio,img,sessionStorage.userId]
+    }) 
+    .then(d=>{
+        if(d.error){
+            throw d.error;
+        }
+        $.mobile.navigate("#recent-page");
+    })
 }
 
 
@@ -45,6 +74,34 @@ const checkUserEditForm = () => {
 
 
 const checkAnimalAddForm = () => {
+    let name            = $("#animal-profile-new-name").val();
+    let color           = $("#animal-profile-new-color").val();
+    let description     = $("#animal-profile-new-bio").val();
+    let img             = $("#animal-add-image").val();
+
+
+    query({
+        type:'insert_animal',
+        params:[sessionStorage.userId,name,color,description,img]
+    }) 
+    .then(d=>{
+        if(d.error){
+            throw d.error;
+        }
+        console.log(d.id)
+        $("#animal-add-image").val("");
+        $("#new-animal-profile-form")[0].reset();
+
+
+        sessionStorage.animalId = d.id;
+         window.history.back();
+        // $.mobile.navigate($("#animal-add-destination").val());
+
+    })
+}
+
+
+const checkAnimalAddToSelectList = () => {
     let name            = $("#animal-profile-new-name").val();
     let color           = $("#animal-profile-new-color").val();
     let description     = $("#animal-profile-new-bio").val();

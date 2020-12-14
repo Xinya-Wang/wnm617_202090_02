@@ -36,10 +36,11 @@
     <!-- SIGN IN -->
     <section data-role="page" id="signin-page">
         <div data-role="main" class="display-flex flex-column">
+            <!-- title -->
             <div class="logo flex-strech">
                 <h1 class="display-flex flex-align-flex-end flex-justify-center">Grand Canyon Wildlife<h1>
             </div>
-            <!-- SIGN IN Form -->
+            <!-- from -->
             <form id="signin-form" data-ajax="false">
                 <div class="form-control">
                     <label for="signin-email" class="form-label">Email</label>
@@ -57,28 +58,6 @@
                     <a href="#signup-page">Sign Up</a>
                 </div>
             </form>
-            <div id="login-error-msg">
-                <div class="modal-back"></div>
-                <div class="modal-drawer center">
-                    <div class="error-hint">
-                        <h4>Oops</h4>
-                        <p>Your email or password was entered incorrectly.</p>
-                        <div class="line"></div>
-                        <a href="#" class="error-button">OK</a>
-                    </div>
-                </div>
-            </div>
-            <div id="login-error-msg-empty">
-                <div class="modal-back"></div>
-                <div class="modal-drawer center">
-                    <div class="error-hint">
-                        <h4>Oops</h4>
-                        <p>Please type your email and password.</p>
-                        <div class="line"></div>
-                        <a href="#" class="error-button empty">OK</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>  
 
@@ -117,31 +96,6 @@
 
     <!-- Recent Page -->
     <section data-role="page" id="recent-page">
-        <div class="modal" id="animal-pin-modal">
-            <div class="modal-toast-bottom">
-                <ul class="journal-list-container">
-                    <li class="journal-list-item">
-                        <a href="#animal-journal-page" class="display-flex">
-                            <div class="journal-data">
-                                <h1>18</h1>
-                                <h4>Oct</h4>
-                            </div>
-                            <div class="journal-list-photo display-flex flex-justify-center flex-align-center">
-                                <img src="img/animal/mule-deer2.jpg" alt="Mule deer">
-                            </div>
-                            <div class="journal-content display-flex flex-column">
-                                <p class="journal-text flex-strech">I took this picture of the deer near the visitor center...</p>
-                                <div class="animal-journal-location display-flex">
-                                    <img src="img/iconLocation.svg">
-                                    <p>Visitor center in Grand Canyon...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
         <div class="modal" id="recent-animal-modal">
             <div class="modal-toast-bottom">
                 <div class="modal-close-floater top right">
@@ -153,15 +107,11 @@
 
         <div data-role="main">
             <div class="map"></div>
-            <!-- <div id="recent-search" class="search">
-                <input type="search" data-role="none" placeholder="Search Here">
-                <i class="icon-search"> </i>
-            </div> -->
             <a href="#add-new-journal">
                 <div class="nav-icon add-location"><img src="img/iconAdd.svg"></div>
             </a>
         </div>
-        <!-- <footer data-role="footer" data-template="#footer-template"></footer> -->
+
         <footer data-role="footer">
             <ul id="footer-navs">
                 <li class="nav-item-1 display-flex flex-justify-center">
@@ -392,6 +342,40 @@
         </div>
     </section>
 
+    <!-- NewUser Profile Update Page -->
+    <section data-role="page" id="profile-add-page">
+        <header data-role="header">
+            <h1>Update Profile</h1>
+            <ul>
+                <li class="flex-strech"></li>
+                <li><a href="#" class="js-user-add">Done</a></li>
+            </ul>
+        </header>
+        <div data-role="main" class="display-flex flex-align-center flex-column">
+            <!-- Add user photo -->
+            <form id="user-image-add-form" data-ajax="false">
+                <div>
+                    <input type="hidden" id="user-add-image">
+                    <label class="photo-uploader banner-add-new">
+                        <input type="file" data-role="none" id="user-add-upload">
+                    </label>
+                </div>
+            </form>
+            <!-- Add user profile info -->
+            <form id="new-user-profile-form" class="settings-form-container" data-ajax="false">
+                <!-- <input type="hidden" id="animal-add-destination" value="#list-page"> -->
+                <div class="settings-form-control display-flex flex-align-center">
+                    <label for="user-profile-new-name" class="form-label">Name</label>
+                    <input id="user-profile-new-name" type="text" class="form-input" data-role="none" placeholder="Type your name">
+                </div>
+                <div class="settings-form-control display-flex">
+                    <label for="user-profile-new-bio" class="form-label">Bio</label>
+                    <textarea id="user-profile-new-bio" class="form-input" data-role="none" placeholder="Type your bio"></textarea>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <!-- Profile Settings Page -->
     <section data-role="page" id="profile-settings-page">
         <header data-role="header">
@@ -591,16 +575,15 @@
             </ul>
         </header>
         <div data-role="main" class="display-flex flex-align-center flex-column">
-            <!-- <div class="animal-edit-banner-image display-flex flex-align-center flex-column"> -->
-                <form id="animal-image-add-form" data-ajax="false">
-                    <div>
-                        <input type="hidden" id="animal-add-image">
-                        <label class="photo-uploader banner-add-new">
-                            <input type="file" data-role="none" id="animal-add-upload">
-                        </label>
-                    </div>
-                </form>
-            <!-- </div> -->
+            <form id="animal-image-add-form" data-ajax="false">
+                <div>
+                    <input type="hidden" id="animal-add-image">
+                    <label class="photo-uploader banner-add-new">
+                        <input type="file" data-role="none" id="animal-add-upload">
+                    </label>
+                </div>
+            </form>
+
             <form id="new-animal-profile-form" class="settings-form-container" data-ajax="false">
                 <input type="hidden" id="animal-add-destination" value="#list-page">
                 <div class="settings-form-control display-flex flex-align-center">
@@ -614,7 +597,6 @@
                 <div class="settings-form-control display-flex">
                     <label for="animal-profile-new-bio" class="form-label">Bio</label>
                     <textarea id="animal-profile-new-bio" class="form-input" data-role="none" placeholder="Type animal description"></textarea>
-                    <!-- <textarea id="animal-profile-new-bio" style="overflow: visible"></textarea> -->
                 </div>
             </form>
         </div>
@@ -757,16 +739,77 @@
            </div> -->
         </div>
         <footer data-role="footer">
-            <div class="btn display-flex flex-align-center"><a href="#edit-new-profile">
-                <div class="nav-icon add"><img src="img/iconAddYellow.svg"></div>
-                <p>Create a new animal</p>
-            </a></div>
+            <div class="btn display-flex flex-align-center">
+                <a href="#add-new-animal">
+                    <div class="nav-icon add"><img src="img/iconAddYellow.svg"></div>
+                    <p>Create a new animal</p>
+                </a>
+            </div>
         </footer>
     </section>
     
     
     <!-- Add Modal -->
-    <div class="modal" id="add-modal">
+    <div id="login-error-msg">
+        <div class="modal-back"></div>
+        <div class="modal-drawer center">
+            <div class="error-hint">
+                <h4>Oops</h4>
+                <p>Your email or password was entered incorrectly.</p>
+                <div class="line"></div>
+                <a href="#" class="error-button">OK</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="login-error-msg-empty">
+        <div class="modal-back"></div>
+        <div class="modal-drawer center">
+            <div class="error-hint">
+                <h4>Oops</h4>
+                <p>Please type your email and password.</p>
+                <div class="line"></div>
+                <a href="#" class="error-button empty">OK</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="signup-error-msg">
+        <div class="modal-back"></div>
+        <div class="modal-drawer center">
+            <div class="error-hint">
+                <h4>Oops</h4>
+                <p>Your username or email already existed.</p>
+                <div class="line"></div>
+                <a href="#" class="error-button">OK</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="signup-error-msg-empty">
+        <div class="modal-back"></div>
+        <div class="modal-drawer center">
+            <div class="error-hint">
+                <h4>Oops</h4>
+                <p>Please type your username, email and password.</p>
+                <div class="line"></div>
+                <a href="#" class="error-button empty">OK</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="signup-password-error-msg">
+        <div class="modal-back"></div>
+        <div class="modal-drawer center">
+            <div class="error-hint">
+                <h4>Oops</h4>
+                <p>Your password don't match.</p>
+                <div class="line"></div>
+                <a href="#" class="error-button">OK</a>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="modal" id="add-modal">
         <div class="modal-back" data-deactivate="#add-modal"></div>
         <div class="modal-popup">
             <div class="modal-body-up">
@@ -782,8 +825,8 @@
             </div>
         </div>    
     </div>
-
-    <div class="modal" id="slist-select-filter">
+ -->
+    <!-- <div class="modal" id="slist-select-filter">
         <div class="modal-back" data-deactivate="#slist-select-filter"></div>
         <div class="modal-popup">
             <div class="modal-body-up">
@@ -798,41 +841,6 @@
                 </ul>
             </div>
         </div>    
-    </div>
-
-
-
-
-    <!-- Hamburger Menu list -->
-    <!-- <div class="modal" id="hamburger-menu-modal">
-        <div class="modal-back" data-deactivate="#hamburger-menu-modal"></div>
-        <div class="modal-drawer left" data-deactivate="#hamburger-menu-modal">
-            <a href="#user-profile-page" data-deactivate="#hamburger-menu-modal">
-                <div class="modal-head display-flex flex-align-center">
-                    <div class="profile-photo"><img src="img/profile-photo-user.png" alt="user profile photo"></div>
-                    <h3>Amanda Wells</h3>
-                </div>
-            </a>
-            <div class="modal-body">
-                <ul>
-                    <h5>Profile</h5>
-                    <li><a href="#user-profile-page" data-deactivate="#hamburger-menu-modal" >Personal Info</a></li>
-                    <li><a href="#" data-deactivate="#hamburger-menu-modal">Your Journal</a></li>
-                    <div class="line"></div>
-                    <h5>Support</h5>
-                    <li><a href="#" data-deactivate="#hamburger-menu-modal">Help</a></li>
-                    <li><a href="#" data-deactivate="#hamburger-menu-modal">Show Tutorial</a></li>
-                    <li class="floater bottom"><a href="#" class="js-logout">Log out</a></li>
-                </ul>
-            </div>
-        </div>
-    </div> -->
-
-    <!-- Warning Page -->
-    <!-- <div class="modal" id="warning-modal">
-        <div class="modal-toast top" data-deactive="#warning-modal">
-            <div class="message">Message</div>  
-        </div>
     </div> -->
 
 
@@ -865,7 +873,6 @@
             </li>
         </ul> 
     </script>
-
     
 </body>
 </html>

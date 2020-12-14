@@ -158,12 +158,7 @@ const UserProfilePage = async() => {
     }).then(d=>{
 
         $("#user-summary-row1 .recently-tracked")
-            .html(d.result.length?makeUserProfileRecentlyTracked(d.result[0]):'no animals yet');
-        // $("#user-summary-row1 .recently-tracked").html(makeUserProfileRecentlyTracked(d.result[0]));
-        // $("#user-summary-row1 .recently-tracked").html(
-        //     d.result.length ?
-        //         makeUserProfileMostTracked(d.result[0])) :
-        //         'no animals yet';
+            .html(d.result.length?makeUserProfileRecentlyTracked(d.result[0]):'no journals yet');
         $("#user-summary-row2 .journal-sum").html(makeUserProfileJournalSum(d.result.length));
     });
 
@@ -177,7 +172,6 @@ const UserProfilePage = async() => {
     });
 }
 
-
 const UserProfileEditPage = async() => {
 
     query({ 
@@ -186,14 +180,15 @@ const UserProfileEditPage = async() => {
     }).then(d=>{
         console.log(d);
 
-        //$("#profile-photo").html(makeUserProfileUpdateImage(d.result[0]));
+        $("#profile-form").html(makeUserProfileUpdateForm(d.result[0]));
+
         makeUserUploaderImage({
             namespace:'user-upload',
             folder:'',
             name:d.result[0].img
         })
         
-        $("#profile-form").html(makeUserProfileUpdateForm(d.result[0]));
+        
     });
 }
 
@@ -377,7 +372,7 @@ const SelectAnimalPage = async() => {
     console.log(d);
 
     $("#all-animal-type-list")
-        .html(d.result.length?makeJournalAnimalList(d.result):'Hey, add your first animal.');
+        .html(d.result.length?makeJournalAnimalList(d.result):makeAnimalListPlaceholder());
 }
 
 
