@@ -88,7 +88,7 @@ const checkAnimalAddForm = () => {
         if(d.error){
             throw d.error;
         }
-        console.log(d.id)
+        // console.log(d.id)
         $("#animal-add-image").val("");
         $(".photo-uploader.banner-add-new").removeClass("picked");
         $(".photo-uploader.banner-add-new").css({'background-image':`url('')`});

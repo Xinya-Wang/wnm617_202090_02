@@ -77,7 +77,7 @@ $(()=>{
         $(this).addClass("active").siblings().removeClass("active");
         sessionStorage.animalId = $(this).data("id");
         // checkSelectedAnimal();
-        console.log(sessionStorage.animalId);
+        // console.log(sessionStorage.animalId);
     })
 
 

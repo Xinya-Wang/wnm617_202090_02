@@ -1705,7 +1705,7 @@ footer ul{
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    word-break: break-all;
+    word-break: break-word;
     justify-content: space-between;
     position: relative;
 }
@@ -2036,6 +2036,10 @@ footer ul{
     border-radius: 0.5em;
 }
 
+
+input:-internal-autofill-selected {
+    background-color: white;
+}
 
 
 
